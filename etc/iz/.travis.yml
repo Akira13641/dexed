@@ -1,0 +1,25 @@
+dist: trusty
+sudo: required
+
+language: d
+
+os:
+ - linux
+
+d:
+ - dmd
+ #- dmd-nightly
+
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y valgrind
+
+script:
+  - cd scripts
+  - sh ./test.sh
+  - sh ./compile.sh
+  - cd ../tests
+  - dmd ../lib/iz.a -I../import/ -run valgrinder.d
+  
+after_success:
+ - bash <(curl -s https://codecov.io/bash)  

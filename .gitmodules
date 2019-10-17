@@ -1,6 +1,6 @@
 [submodule "etc/libdparse"]
 	path = etc/libdparse
-	url = https://github.com/Hackerpilot/libdparse.git
+	url = https://github.com/dlang-community/libdparse.git
 [submodule "etc/iz"]
 	path = etc/iz
 	url = https://www.github.com/Basile-z/iz.git

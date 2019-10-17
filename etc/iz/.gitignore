@@ -1,0 +1,40 @@
+# OS stuff
+thumbs.db
+.directory
+
+# compiler garbages
+*.obj
+*.o
+
+# final binaries
+*.lib
+*.a
+*.exe
+lib/
+
+#DUB
+.dub
+dub.selections.json
+__*
+
+# module unittested under nux,
+import/iz/classes
+import/iz/containers
+import/iz/enumset
+import/iz/logicver
+import/iz/math
+import/iz/memory
+import/iz/observer
+import/iz/properties
+import/iz/referencable
+import/iz/rtti
+import/iz/serializer
+import/iz/streams
+import/iz/strings
+import/iz/sugar
+import/iz/types
+
+# misc
+*.map
+*.bak
+temp

@@ -1,0 +1,92 @@
+object _1: TCENativeProject
+  RootFolder = '..'
+  OptionsCollection = <  
+    item
+      name = 'release'
+      messagesOptions.warningsAsInfo = True
+      outputOptions.binaryKind = staticlib
+      outputOptions.inlining = True
+      outputOptions.boundsCheck = offAlways
+      outputOptions.optimizations = True
+      outputOptions.release = True
+      pathsOptions.outputFilename = 'lib/iz'
+    end  
+    item
+      name = 'debug'
+      debugingOptions.debugConditions = True
+      debugingOptions.generateMapFile = True
+      messagesOptions.deprecationHandling = silent
+      messagesOptions.warningsAsInfo = True
+      outputOptions.binaryKind = staticlib
+      outputOptions.boundsCheck = onAlways
+      pathsOptions.outputFilename = 'lib/iz'
+    end  
+    item
+      name = 'unittest'
+      messagesOptions.warningsAsInfo = True
+      messagesOptions.showColumnsNumber = True
+      outputOptions.boundsCheck = onAlways
+      outputOptions.unittest = True
+      outputOptions.versionIdentifiers.Strings = (
+        'coeditmessages'
+      )
+      pathsOptions.outputFilename = 'temp/iztests'
+      pathsOptions.extraSources.Strings = (
+        'tests/unittester.d'
+        'import/iz/testing.d'
+      )
+      otherOptions.coverage = True
+      runOptions.options = [poUsePipes, poStderrToOutPut]
+      runOptions.showWindow = swoHIDE
+    end  
+    item
+      name = 'quick'
+      messagesOptions.warningsAsInfo = True
+      outputOptions.binaryKind = staticlib
+      outputOptions.boundsCheck = onAlways
+      outputOptions.release = True
+      pathsOptions.outputFilename = 'lib/iz'
+    end  
+    item
+      name = 'test64'
+      debugingOptions.debugConditions = True
+      debugingOptions.generateMapFile = True
+      messagesOptions.deprecationHandling = silent
+      messagesOptions.warnings = False
+      outputOptions.targetKind = os64bit
+      outputOptions.binaryKind = staticlib
+      outputOptions.boundsCheck = onAlways
+      pathsOptions.outputFilename = 'lib/iz'
+    end  
+    item
+      name = 'test32'
+      debugingOptions.debugConditions = True
+      debugingOptions.generateMapFile = True
+      messagesOptions.deprecationHandling = silent
+      messagesOptions.warnings = False
+      outputOptions.targetKind = os32bit
+      outputOptions.binaryKind = staticlib
+      outputOptions.boundsCheck = onAlways
+      pathsOptions.outputFilename = 'lib/iz'
+    end>
+  Sources.Strings = (
+    'import/iz/classes.d'
+    'import/iz/containers.d'
+    'import/iz/enumset.d'
+    'import/iz/ipc.d'
+    'import/iz/math.d'
+    'import/iz/memory.d'
+    'import/iz/observer.d'
+    'import/iz/properties.d'
+    'import/iz/referencable.d'
+    'import/iz/rtti.d'
+    'import/iz/serializer.d'
+    'import/iz/streams.d'
+    'import/iz/strings.d'
+    'import/iz/sugar.d'
+    'import/iz/types.d'
+    'import/iz/package.d'
+    'import/iz/options.d'
+  )
+  ConfigurationIndex = 0
+end

@@ -1,0 +1,20 @@
+﻿{
+  "name" : "iz",
+  "sourcePaths" : [
+    "import"
+  ],
+  "targetType" : "staticLibrary",
+  "targetName" : "iz",
+  "targetPath" : "lib",
+  "importPaths" : [
+    "import"
+  ],
+  "authors" : [
+    "Basile B."
+  ],
+  "buildRequirements" : [
+    "allowWarnings"
+  ],
+  "description" : "streams, property descriptor, serializer, binder, etc.",
+  "license" : "BSL-1.0"
+}
