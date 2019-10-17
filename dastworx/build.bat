@@ -1,6 +1,6 @@
 :: D compiler and arch
 if "%dc%"=="" set dc=dmd
-if "%mflags%"=="" set mflags=-m32
+
 
 ::iz sources
 set iz=
@@ -22,7 +22,7 @@ echo building...
 
 ::build
 %dc% %dast% %dparse% %iz% %stdxalloc% ^
--O -release -inline -boundscheck=off %mflags% ^
+-O -release -inline -boundscheck=off -mcpu=avx2 %mflags% ^
 -Isrc -I"..\etc\iz\import" -I"..\etc\libdparse\src" ^ -I"..\etc\stdx-allocator\source" ^
 -of"..\bin\dastworx.exe"
 
