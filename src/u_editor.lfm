@@ -1,0 +1,284 @@
+inherited EditorWidget: TEditorWidget
+  Left = 704
+  Height = 434
+  Top = 245
+  Width = 465
+  Caption = 'Source editor'
+  ClientHeight = 434
+  ClientWidth = 465
+  OnShortCut = FormShortCut
+  OnShow = FormShow
+  inherited Back: TPanel
+    Height = 434
+    Width = 465
+    ClientHeight = 434
+    ClientWidth = 465
+    inherited Content: TPanel
+      Height = 398
+      Width = 465
+      ClientHeight = 398
+      ClientWidth = 465
+      object editorStatus: TStatusBar[0]
+        Left = 0
+        Height = 21
+        Top = 375
+        Width = 465
+        BorderSpacing.Bottom = 2
+        Panels = <        
+          item
+            Width = 110
+          end        
+          item
+            Width = 80
+          end        
+          item
+            Width = 120
+          end        
+          item
+            Alignment = taCenter
+            Width = 100
+          end        
+          item
+            Width = 2000
+          end        
+          item
+            Width = 50
+          end>
+        SimplePanel = False
+        SizeGrip = False
+        UseSystemFont = False
+      end
+    end
+    inherited toolbar: TDexedToolBar
+      Width = 457
+    end
+  end
+  inherited contextMenu: TPopupMenu
+    left = 24
+    top = 16
+  end
+  object macRecorder: TSynMacroRecorder[2]
+    RecordShortCut = 0
+    PlaybackShortCut = 0
+    left = 80
+    top = 16
+  end
+  object mnuEditor: TPopupMenu[3]
+    OnPopup = mnuEditorPopup
+    left = 152
+    top = 16
+    object mnuedCopy: TMenuItem
+      Caption = 'Copy'
+      OnClick = mnuedCopyClick
+    end
+    object mnuedCut: TMenuItem
+      Caption = 'Cut'
+      OnClick = mnuedCutClick
+    end
+    object mnuedPaste: TMenuItem
+      Caption = 'Paste'
+      OnClick = mnuedPasteClick
+    end
+    object MenuItem4: TMenuItem
+      Caption = '-'
+    end
+    object mnuedUndo: TMenuItem
+      Caption = 'Undo'
+      OnClick = mnuedUndoClick
+    end
+    object mnuedRedo: TMenuItem
+      Caption = 'Redo'
+      OnClick = mnuedRedoClick
+    end
+    object MenuItem11: TMenuItem
+      Caption = '-'
+    end
+    object mnuedPrev: TMenuItem
+      Caption = 'Previous location'
+      OnClick = mnuedPrevClick
+    end
+    object mnuedPrevCarea: TMenuItem
+      Caption = 'Previous changed area'
+      OnClick = mnuedPrevCareaClick
+    end
+    object mnuedPrevProtGrp: TMenuItem
+      Caption = 'Previous protection attribute'
+      OnClick = mnuedPrevProtGrpClick
+    end
+    object mnuedPrevWarn: TMenuItem
+      Caption = 'Previous warning'
+      OnClick = mnuedPrevWarnClick
+    end
+    object MenuItem10: TMenuItem
+      Caption = '-'
+    end
+    object mnuedNext: TMenuItem
+      Caption = 'Next location'
+      OnClick = mnuedNextClick
+    end
+    object mnuedNextCarea: TMenuItem
+      Caption = 'Next changed area'
+      OnClick = mnuedNextCareaClick
+    end
+    object mnuedNextProtGrp: TMenuItem
+      Caption = 'Next protection attribute'
+      OnClick = mnuedNextProtGrpClick
+    end
+    object mnuedNextWarn: TMenuItem
+      Caption = 'Next warning'
+      OnClick = mnuedNextWarnClick
+    end
+    object MenuItem9: TMenuItem
+      Caption = '-'
+    end
+    object mnuedGotoline: TMenuItem
+      Caption = 'Goto line...'
+      OnClick = mnuedGotolineClick
+    end
+    object MenuItem2: TMenuItem
+      Caption = '-'
+    end
+    object mnuedUpcase: TMenuItem
+      Caption = 'Upper case'
+      OnClick = mnuedUpcaseClick
+    end
+    object mnuedLowcase: TMenuItem
+      Caption = 'Lower case'
+      OnClick = mnuedLowcaseClick
+    end
+    object MenuItem7: TMenuItem
+      Caption = '-'
+    end
+    object mnuedSortLines: TMenuItem
+      Caption = 'Sort lines'
+      OnClick = mnuedSortLinesClick
+    end
+    object MenuItem1: TMenuItem
+      Caption = '-'
+    end
+    object mnuedComm: TMenuItem
+      Caption = 'Comment selected lines'
+      OnClick = mnuedCommClick
+    end
+    object MenuItem6: TMenuItem
+      Caption = 'Comment identifier'
+      OnClick = MenuItem6Click
+    end
+    object mnuedInvAllNone: TMenuItem
+      Caption = 'Invert version all none'
+      OnClick = mnuedInvAllNoneClick
+    end
+    object MenuItem12: TMenuItem
+      Caption = '-'
+    end
+    object MenuItem13: TMenuItem
+      Caption = 'Options overrides'
+      object MenuItem15: TMenuItem
+        Caption = 'Indentation mode'
+        object mnuEdSetSpaces: TMenuItem
+          Caption = 'spaces'
+          GroupIndex = 1
+          RadioItem = True
+          OnClick = mnuEdSetSpacesClick
+        end
+        object mnuEdSetTabs: TMenuItem
+          Caption = 'tabs'
+          GroupIndex = 1
+          RadioItem = True
+          OnClick = mnuEdSetTabsClick
+        end
+      end
+      object MenuItem16: TMenuItem
+        Caption = 'Spaces per tab'
+        object mnuEdTabWidth2: TMenuItem
+          Tag = 2
+          Caption = '2'
+          GroupIndex = 2
+          RadioItem = True
+          OnClick = mnuEdTabWidth2Click
+        end
+        object mnuEdTabWidth3: TMenuItem
+          Tag = 3
+          Caption = '3'
+          GroupIndex = 2
+          RadioItem = True
+          OnClick = mnuEdTabWidth2Click
+        end
+        object mnuEdTabWidth4: TMenuItem
+          Tag = 4
+          Caption = '4'
+          GroupIndex = 2
+          RadioItem = True
+          OnClick = mnuEdTabWidth2Click
+        end
+        object mnuEdTabWidth5: TMenuItem
+          Tag = 5
+          Caption = '5'
+          GroupIndex = 2
+          RadioItem = True
+          OnClick = mnuEdTabWidth2Click
+        end
+        object mnuEdTabWidth6: TMenuItem
+          Tag = 6
+          Caption = '6'
+          GroupIndex = 2
+          RadioItem = True
+          OnClick = mnuEdTabWidth2Click
+        end
+        object mnuEdTabWidth7: TMenuItem
+          Tag = 7
+          Caption = '7'
+          GroupIndex = 2
+          RadioItem = True
+          OnClick = mnuEdTabWidth2Click
+        end
+        object mnuEdTabWidth8: TMenuItem
+          Tag = 8
+          Caption = '8'
+          GroupIndex = 2
+          RadioItem = True
+          OnClick = mnuEdTabWidth2Click
+        end
+      end
+      object mnuEdShowSpec: TMenuItem
+        AutoCheck = True
+        Caption = 'Show special chars'
+        OnClick = mnuEdShowSpecClick
+      end
+    end
+    object MenuItem14: TMenuItem
+      Caption = '-'
+    end
+    object mnuedDdocTmp: TMenuItem
+      Caption = 'Insert DDOC template'
+      OnClick = mnuedDdocTmpClick
+    end
+    object mnuedRename: TMenuItem
+      Caption = 'Rename identifier'
+      OnClick = mnuedRenameClick
+    end
+    object mnuedJum2Decl: TMenuItem
+      Caption = 'Jump to declaration'
+      OnClick = mnuedJum2DeclClick
+    end
+    object mnuedCallTip: TMenuItem
+      Caption = 'Show call tips'
+      OnClick = mnuedCallTipClick
+    end
+    object mnuedDdoc: TMenuItem
+      Caption = 'Show ddoc'
+      OnClick = mnuedDdocClick
+    end
+    object MenuItem3: TMenuItem
+      Caption = '-'
+    end
+    object MenuItem5: TMenuItem
+      Caption = 'Save lexical tokens to file...'
+      OnClick = MenuItem5Click
+    end
+    object MenuItem8: TMenuItem
+      Caption = 'Save imports to file...'
+      OnClick = MenuItem8Click
+    end
+  end
+end

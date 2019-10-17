@@ -1,0 +1,9 @@
+[submodule "etc/libdparse"]
+	path = etc/libdparse
+	url = https://github.com/Hackerpilot/libdparse.git
+[submodule "etc/iz"]
+	path = etc/iz
+	url = https://www.github.com/Basile-z/iz.git
+[submodule "etc/stdx-allocator"]
+	path = etc/stdx-allocator
+	url = https://github.com/dlang-community/stdx-allocator.git

@@ -1,0 +1,82 @@
+inherited DfmtWidget: TDfmtWidget
+  Left = 562
+  Height = 365
+  Top = 245
+  Width = 458
+  Caption = 'Dfmt commander'
+  ClientHeight = 365
+  ClientWidth = 458
+  inherited Back: TPanel
+    Left = 4
+    Height = 357
+    Top = 4
+    Width = 450
+    AutoSize = True
+    BorderSpacing.Around = 4
+    ClientHeight = 357
+    ClientWidth = 450
+    inherited Content: TPanel
+      Height = 321
+      Width = 450
+      ClientHeight = 321
+      ClientWidth = 450
+      object dfmtOptionEditor: TTIPropertyGrid[0]
+        Left = 4
+        Height = 299
+        Top = 4
+        Width = 442
+        Align = alClient
+        BorderSpacing.Around = 4
+        CheckboxForBoolean = True
+        DefaultValueFont.Color = clWindowText
+        Filter = [tkInteger, tkChar, tkEnumeration, tkFloat, tkSet, tkMethod, tkSString, tkLString, tkAString, tkWString, tkVariant, tkArray, tkRecord, tkInterface, tkClass, tkObject, tkWChar, tkBool, tkInt64, tkQWord, tkDynArray, tkInterfaceRaw, tkProcVar, tkUString, tkUChar, tkHelper]
+        Indent = 10
+        NameFont.Color = clWindowText
+        OnEditorFilter = dfmtOptionEditorEditorFilter
+        PreferredSplitterX = 220
+        SplitterX = 220
+        ValueFont.Color = clGreen
+      end
+      object pnlFooter: TPanel[1]
+        Left = 4
+        Height = 10
+        Top = 307
+        Width = 442
+        Align = alBottom
+        AutoSize = True
+        BorderSpacing.Around = 4
+        BevelOuter = bvLowered
+        ClientHeight = 10
+        ClientWidth = 442
+        TabOrder = 1
+        object btnCancel: TSpeedButton
+          Left = 427
+          Height = 4
+          Hint = 'restore previous format'
+          Top = 3
+          Width = 4
+          Align = alRight
+          AutoSize = True
+          BorderSpacing.Left = 2
+          BorderSpacing.Around = 2
+          Flat = True
+        end
+        object btnApply: TSpeedButton
+          Left = 435
+          Height = 4
+          Hint = 'apply formating'
+          Top = 3
+          Width = 4
+          Align = alRight
+          AutoSize = True
+          BorderSpacing.Left = 2
+          BorderSpacing.Around = 2
+          Flat = True
+        end
+      end
+    end
+    inherited toolbar: TDexedToolBar
+      Width = 442
+    end
+  end
+end

@@ -1,0 +1,99 @@
+inherited ProcInputWidget: TProcInputWidget
+  Left = 837
+  Height = 107
+  Top = 298
+  Width = 558
+  Caption = 'Process input'
+  ClientHeight = 107
+  ClientWidth = 558
+  inherited Back: TPanel
+    Height = 107
+    Width = 558
+    ClientHeight = 107
+    ClientWidth = 558
+    inherited Content: TPanel
+      Height = 71
+      Width = 558
+      ClientHeight = 71
+      ClientWidth = 558
+      object txtExeName: TStaticText[0]
+        Left = 4
+        Height = 21
+        Top = 4
+        Width = 550
+        Align = alTop
+        AutoSize = True
+        BorderSpacing.Around = 4
+        BorderStyle = sbsSunken
+        Caption = 'no process'
+        TabOrder = 0
+        Transparent = False
+      end
+      object Panel1: TPanel[1]
+        Left = 4
+        Height = 33
+        Top = 29
+        Width = 550
+        Align = alTop
+        AutoSize = True
+        BorderSpacing.Around = 4
+        BevelOuter = bvNone
+        ClientHeight = 33
+        ClientWidth = 550
+        Enabled = False
+        TabOrder = 1
+        object txtInp: TEdit
+          Left = 0
+          Height = 27
+          Top = 3
+          Width = 530
+          Align = alClient
+          BorderSpacing.Top = 3
+          BorderSpacing.Bottom = 3
+          OnKeyDown = txtInpKeyDown
+          TabOrder = 0
+        end
+        object btnClose: TSpeedButton
+          Left = 538
+          Height = 29
+          Hint = 'close standard input'
+          Top = 2
+          Width = 4
+          Align = alRight
+          AutoSize = True
+          BorderSpacing.Around = 2
+          OnClick = btnCloseClick
+        end
+        object btnKill: TSpeedButton
+          Left = 544
+          Height = 29
+          Hint = 'kill process'
+          Top = 2
+          Width = 4
+          Align = alRight
+          AutoSize = True
+          BorderSpacing.Around = 2
+          OnClick = btnKillClick
+        end
+        object btnSend: TSpeedButton
+          Left = 532
+          Height = 29
+          Hint = 'write content to standard input'
+          Top = 2
+          Width = 4
+          Align = alRight
+          AutoSize = True
+          BorderSpacing.Around = 2
+          OnClick = btnSendClick
+        end
+      end
+    end
+    inherited toolbar: TDexedToolBar
+      Width = 550
+    end
+  end
+  inherited contextMenu: TPopupMenu
+    left = 16
+    top = 8
+  end
+end

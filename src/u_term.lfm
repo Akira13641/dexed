@@ -1,0 +1,23 @@
+inherited TermWidget: TTermWidget
+  Left = 1018
+  Height = 296
+  Width = 674
+  Caption = 'Terminal'
+  ClientHeight = 296
+  ClientWidth = 674
+  OnShortCut = FormShortCut
+  inherited Back: TPanel
+    Height = 296
+    Width = 674
+    ClientHeight = 296
+    ClientWidth = 674
+    inherited Content: TPanel
+      Height = 260
+      Width = 674
+      OnPaint = ContentPaint
+    end
+    inherited toolbar: TDexedToolBar
+      Width = 666
+    end
+  end
+end

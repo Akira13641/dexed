@@ -1,0 +1,548 @@
+inherited GdbWidget: TGdbWidget
+  Left = 840
+  Height = 668
+  Top = 219
+  Width = 517
+  Caption = 'GDB commander'
+  ClientHeight = 668
+  ClientWidth = 517
+  inherited Back: TPanel
+    Height = 662
+    Top = 6
+    Width = 517
+    AutoSize = True
+    ClientHeight = 662
+    ClientWidth = 517
+    inherited Content: TPanel
+      Height = 626
+      Width = 517
+      ClientHeight = 626
+      ClientWidth = 517
+      object Panel1: TPanel[0]
+        Left = 0
+        Height = 386
+        Top = 205
+        Width = 517
+        Align = alClient
+        AutoSize = True
+        BevelOuter = bvNone
+        ClientHeight = 386
+        ClientWidth = 517
+        TabOrder = 0
+        object GroupBox3: TGroupBox
+          Left = 0
+          Height = 180
+          Top = 206
+          Width = 517
+          Align = alClient
+          Caption = 'CPU'
+          ClientHeight = 161
+          ClientWidth = 513
+          TabOrder = 0
+          object cpuViewer: TTIPropertyGrid
+            Left = 0
+            Height = 161
+            Hint = 'cpu registers'
+            Top = 0
+            Width = 513
+            Align = alClient
+            CheckboxForBoolean = True
+            DefaultValueFont.Color = clWindowText
+            Filter = [tkUnknown, tkInteger, tkChar, tkEnumeration, tkFloat, tkSet, tkMethod, tkSString, tkLString, tkAString, tkWString, tkVariant, tkArray, tkRecord, tkInterface, tkClass, tkObject, tkWChar, tkBool, tkInt64, tkQWord, tkDynArray, tkInterfaceRaw, tkProcVar, tkUString, tkUChar, tkHelper, tkFile, tkClassRef, tkPointer]
+            Indent = 10
+            NameFont.Color = clWindowText
+            PreferredSplitterX = 200
+            SplitterX = 200
+            ValueFont.Color = clMaroon
+          end
+        end
+        object Splitter4: TSplitter
+          Cursor = crVSplit
+          Left = 0
+          Height = 6
+          Top = 200
+          Width = 517
+          Align = alTop
+          ResizeAnchor = akTop
+        end
+        object PageControl2: TPageControl
+          Left = 0
+          Height = 200
+          Top = 0
+          Width = 517
+          ActivePage = TabSheet3
+          Align = alTop
+          TabIndex = 0
+          TabOrder = 2
+          OnChange = PageControl2Change
+          object TabSheet3: TTabSheet
+            Caption = 'Variables'
+            ClientHeight = 169
+            ClientWidth = 513
+            object lstVariables: TListView
+              Left = 2
+              Height = 136
+              Top = 31
+              Width = 509
+              Align = alClient
+              AutoWidthLastColumn = True
+              BorderSpacing.Around = 2
+              Columns = <              
+                item
+                  AutoSize = True
+                  Caption = 'name'
+                  Width = 47
+                end              
+                item
+                  Caption = 'value'
+                  Width = 460
+                end>
+              GridLines = True
+              HideSelection = False
+              ReadOnly = True
+              ScrollBars = ssAutoBoth
+              SortColumn = 0
+              SortType = stText
+              TabOrder = 0
+              ViewStyle = vsReport
+            end
+            object varListFlt: TListViewFilterEdit
+              Left = 2
+              Height = 27
+              Hint = 'locate variables'
+              Top = 2
+              Width = 509
+              ButtonWidth = 24
+              Align = alTop
+              BorderSpacing.Around = 2
+              NumGlyphs = 1
+              MaxLength = 0
+              TabOrder = 1
+              OnChange = varListFltChange
+            end
+          end
+          object TabSheet4: TTabSheet
+            Caption = 'Assembler'
+            ClientHeight = 169
+            ClientWidth = 513
+            object lstAsm: TListView
+              Left = 2
+              Height = 161
+              Top = 2
+              Width = 507
+              Align = alClient
+              AutoSort = False
+              AutoWidthLastColumn = True
+              BorderSpacing.Around = 2
+              Columns = <              
+                item
+                  AutoSize = True
+                  Caption = 'address'
+                  Width = 61
+                end              
+                item
+                  Caption = 'instruction'
+                  Width = 446
+                end>
+              GridLines = True
+              HideSelection = False
+              ReadOnly = True
+              ScrollBars = ssAutoBoth
+              SortColumn = 0
+              TabOrder = 0
+              ViewStyle = vsReport
+            end
+          end
+        end
+      end
+      object Panel3: TPanel[1]
+        Left = 4
+        Height = 27
+        Top = 595
+        Width = 509
+        Align = alBottom
+        AutoSize = True
+        BorderSpacing.Around = 4
+        BevelOuter = bvNone
+        ClientHeight = 27
+        ClientWidth = 509
+        TabOrder = 1
+        object btnSendCom: TSpeedButton
+          Left = 504
+          Height = 25
+          Top = 1
+          Width = 4
+          Align = alRight
+          AutoSize = True
+          BorderSpacing.Around = 1
+          OnClick = btnSendComClick
+        end
+        object Edit1: TComboBox
+          Left = 0
+          Height = 27
+          Hint = 'enter a custom GDB command or the program input with ">"'
+          Top = 0
+          Width = 503
+          Align = alClient
+          AutoComplete = True
+          AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
+          ItemHeight = 0
+          MaxLength = 128
+          OnKeyUp = Edit1KeyUp
+          TabOrder = 0
+        end
+      end
+      object Splitter3: TSplitter[2]
+        Cursor = crVSplit
+        Left = 0
+        Height = 5
+        Top = 200
+        Width = 517
+        Align = alTop
+        ResizeAnchor = akTop
+      end
+      object PageControl1: TPageControl[3]
+        Left = 0
+        Height = 200
+        Hint = 'edit the command line and the environment of the debuger target'
+        Top = 0
+        Width = 517
+        ActivePage = TabSheet1
+        Align = alTop
+        TabIndex = 0
+        TabOrder = 3
+        object TabSheet1: TTabSheet
+          Caption = 'Call stack'
+          ClientHeight = 169
+          ClientWidth = 513
+          object lstCallStack: TListView
+            Left = 0
+            Height = 169
+            Hint = 'call stack'
+            Top = 0
+            Width = 513
+            Align = alClient
+            AutoSort = False
+            Columns = <            
+              item
+                Caption = 'function'
+                Width = 200
+              end            
+              item
+                Caption = 'address'
+                Width = 40
+              end            
+              item
+                Caption = 'filename'
+                Width = 100
+              end            
+              item
+                Caption = 'line'
+                Width = 253
+              end>
+            GridLines = True
+            ReadOnly = True
+            ScrollBars = ssAutoBoth
+            TabOrder = 0
+            ViewStyle = vsReport
+            OnDblClick = lstCallStackDblClick
+          end
+        end
+        object TabSheet2: TTabSheet
+          Caption = 'Thread list'
+          ClientHeight = 169
+          ClientWidth = 513
+          object lstThreads: TListView
+            Left = 0
+            Height = 169
+            Hint = 'call stack'
+            Top = 0
+            Width = 513
+            Align = alClient
+            AutoSort = False
+            AutoWidthLastColumn = True
+            Columns = <            
+              item
+                AutoSize = True
+                Caption = 'id'
+                Width = 22
+              end            
+              item
+                AutoSize = True
+                Caption = 'state'
+                Width = 43
+              end            
+              item
+                AutoSize = True
+                Caption = 'core'
+                Width = 38
+              end            
+              item
+                AutoSize = True
+                Caption = 'function'
+                Width = 63
+              end            
+              item
+                AutoSize = True
+                Caption = 'address'
+                Width = 61
+              end            
+              item
+                AutoSize = True
+                Caption = 'filename'
+                Width = 67
+              end            
+              item
+                Caption = 'line'
+                Width = 229
+              end>
+            GridLines = True
+            ReadOnly = True
+            ScrollBars = ssAutoBoth
+            TabOrder = 0
+            ViewStyle = vsReport
+            OnDblClick = lstThreadsDblClick
+          end
+        end
+        object TabSheet5: TTabSheet
+          Caption = 'Debugee options'
+          ClientHeight = 169
+          ClientWidth = 513
+          object dbgeeOptsEd: TTIPropertyGrid
+            Left = 2
+            Height = 161
+            Top = 2
+            Width = 507
+            Align = alClient
+            BorderSpacing.Around = 2
+            CheckboxForBoolean = True
+            DefaultValueFont.Color = clWindowText
+            Filter = [tkInteger, tkChar, tkEnumeration, tkFloat, tkSet, tkMethod, tkSString, tkLString, tkAString, tkWString, tkVariant, tkArray, tkRecord, tkInterface, tkClass, tkObject, tkWChar, tkBool, tkInt64, tkQWord, tkDynArray, tkInterfaceRaw, tkProcVar, tkUString, tkUChar, tkHelper, tkFile, tkClassRef, tkPointer]
+            Indent = 10
+            NameFont.Color = clWindowText
+            OnEditorFilter = dbgeeOptsEdEditorFilter
+            PreferredSplitterX = 190
+            SplitterX = 190
+            ValueFont.Color = clGreen
+          end
+        end
+      end
+    end
+    inherited toolbar: TDexedToolBar
+      Width = 509
+      object btnStack: TDexedToolButton[0]
+        Left = 238
+        Hint = 'view call stack'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnStack'
+        OnClick = btnStackClick
+        resourceName = 'LIST'
+        scaledSeparator = False
+      end
+      object btnReg: TDexedToolButton[1]
+        Left = 210
+        Hint = 'update CPU registers values'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnReg'
+        OnClick = btnRegClick
+        resourceName = 'PROCESSOR'
+        scaledSeparator = False
+      end
+      object button4: TDexedToolButton[2]
+        Left = 205
+        Height = 5
+        Top = 0
+        AutoSize = True
+        Caption = 'button4'
+        Style = tbsDivider
+        scaledSeparator = False
+      end
+      object btnPause: TDexedToolButton[3]
+        Left = 97
+        Hint = 'pause debugging'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnPause'
+        OnClick = btnPauseClick
+        resourceName = 'PAUSE'
+        scaledSeparator = False
+      end
+      object btnStop: TDexedToolButton[4]
+        Left = 41
+        Hint = 'stop debugging'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnStop'
+        OnClick = btnStopClick
+        resourceName = 'STOP'
+        scaledSeparator = False
+      end
+      object btnContinue: TDexedToolButton[5]
+        Left = 69
+        Hint = 'continue debugging'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnContinue'
+        OnClick = btnContClick
+        resourceName = 'PLAY'
+        scaledSeparator = False
+      end
+      object btnNext: TDexedToolButton[6]
+        Left = 125
+        Hint = 'step to next instruction, including in calls'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnNext'
+        DropdownMenu = mnuNext
+        OnClick = btnNextClick
+        Style = tbsDropDown
+        resourceName = 'GO_DOWN'
+        scaledSeparator = False
+      end
+      object btnOver: TDexedToolButton[7]
+        Left = 165
+        Hint = 'step to the next instruction, excluding calls'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnOver'
+        DropdownMenu = mnuStep
+        OnClick = btnOverClick
+        Style = tbsDropDown
+        resourceName = 'GO_JUMP'
+        scaledSeparator = False
+      end
+      object btnVariables: TDexedToolButton[8]
+        Left = 266
+        Hint = 'update variables list'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnVariables'
+        OnClick = btnVariablesClick
+        resourceName = 'WATCH_WINDOW'
+        scaledSeparator = False
+      end
+      object btnStart: TDexedToolButton[9]
+        Left = 1
+        Hint = 'start debugging'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnStart'
+        DropdownMenu = mnuProjRunnable
+        OnClick = btnStartClick
+        Style = tbsDropDown
+        resourceName = 'POWER'
+        scaledSeparator = False
+      end
+      object btnWatch: TDexedToolButton[10]
+        Left = 294
+        Hint = 'add a watchpoint for the variable selected in the list'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnWatch'
+        DropdownMenu = mnuWatch
+        OnClick = btnWatchClick
+        Style = tbsDropDown
+        resourceName = 'CAMERA_ADD'
+        scaledSeparator = False
+      end
+      object btnEval: TDexedToolButton[11]
+        Left = 334
+        Hint = 'evaluate either a variable from the list or a custom expression'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnEval'
+        DropdownMenu = mnuEval
+        OnClick = btnEvalClick
+        Style = tbsDropDown
+        resourceName = 'EVALUATE_FORMULA'
+        scaledSeparator = False
+      end
+    end
+  end
+  object Splitter2: TSplitter[1]
+    Cursor = crVSplit
+    Left = 0
+    Height = 6
+    Top = 0
+    Width = 517
+    Align = alTop
+    ResizeAnchor = akTop
+  end
+  inherited contextMenu: TPopupMenu[2]
+    left = 56
+    top = 64
+  end
+  object mnuProjRunnable: TPopupMenu[3]
+    left = 56
+    top = 112
+    object mnuSelProj: TMenuItem
+      AutoCheck = True
+      Caption = 'Debug project'
+      Checked = True
+      OnClick = mnuSelProjClick
+    end
+    object mnuSelRunnable: TMenuItem
+      AutoCheck = True
+      Caption = 'Debug runnable'
+      OnClick = mnuSelRunnableClick
+    end
+  end
+  object mnuWatch: TPopupMenu[4]
+    left = 56
+    top = 160
+    object mnuReadW: TMenuItem
+      AutoCheck = True
+      Caption = 'On read'
+      OnClick = mnuReadWClick
+    end
+    object mnuWriteW: TMenuItem
+      AutoCheck = True
+      Caption = 'On write'
+      Checked = True
+      OnClick = mnuWriteWClick
+    end
+    object mnuReadWriteW: TMenuItem
+      AutoCheck = True
+      Caption = 'On read/write'
+      OnClick = mnuReadWriteWClick
+    end
+  end
+  object mnuNext: TPopupMenu[5]
+    left = 152
+    top = 112
+    object mnuNextMachine: TMenuItem
+      AutoCheck = True
+      Caption = 'machine instruction'
+    end
+  end
+  object mnuStep: TPopupMenu[6]
+    left = 152
+    top = 160
+    object mnuStepMachine: TMenuItem
+      AutoCheck = True
+      Caption = 'machine instruction'
+    end
+  end
+  object mnuEval: TPopupMenu[7]
+    left = 216
+    top = 168
+    object mnuEvalSelected: TMenuItem
+      AutoCheck = True
+      Caption = 'Evaluate selected variable'
+      Checked = True
+      OnClick = mnuEvalSelectedClick
+    end
+    object mnuEvalDeref: TMenuItem
+      AutoCheck = True
+      Caption = 'Evaluate dereference of selected variable'
+      OnClick = mnuEvalDerefClick
+    end
+    object mnuEvalCustom: TMenuItem
+      AutoCheck = True
+      Caption = 'Evaluate custom expression'
+      OnClick = mnuEvalCustomClick
+    end
+  end
+end

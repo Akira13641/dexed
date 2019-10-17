@@ -1,0 +1,205 @@
+inherited LibManEditorWidget: TLibManEditorWidget
+  Left = 1051
+  Height = 297
+  Top = 0
+  Width = 641
+  Caption = 'Library manager'
+  ClientHeight = 297
+  ClientWidth = 641
+  inherited Back: TPanel
+    Height = 297
+    Width = 641
+    AutoSize = True
+    ClientHeight = 297
+    ClientWidth = 641
+    inherited Content: TPanel
+      Height = 261
+      Width = 641
+      ClientHeight = 261
+      ClientWidth = 641
+      object List: TListView[0]
+        Left = 4
+        Height = 253
+        Top = 4
+        Width = 633
+        Align = alClient
+        BorderSpacing.Around = 4
+        Columns = <        
+          item
+            Caption = 'Alias'
+            Width = 100
+          end        
+          item
+            Caption = 'Library file or folder of sources'
+            Width = 230
+          end        
+          item
+            Caption = 'Sources root'
+            Width = 230
+          end        
+          item
+            Caption = 'project'
+            Width = 230
+          end        
+          item
+            Caption = 'enabled'
+            Width = 30
+          end>
+        GridLines = True
+        HideSelection = False
+        ReadOnly = True
+        RowSelect = True
+        SortType = stText
+        TabOrder = 0
+        ViewStyle = vsReport
+        OnEdited = ListEdited
+        OnSelectItem = ListSelectItem
+      end
+    end
+    inherited toolbar: TDexedToolBar
+      Width = 633
+      object btnSelProj: TDexedToolButton[0]
+        Left = 342
+        Hint = 'set the project that compiles the selected entry'
+        Top = 0
+        AutoSize = True
+        Caption = 'button3'
+        OnClick = btnSelProjClick
+        resourceName = 'SCRIPT_BRICKS'
+        scaledSeparator = False
+      end
+      object btnSelRoot: TDexedToolButton[1]
+        Left = 314
+        Hint = 'set the root of the library sources'
+        Top = 0
+        AutoSize = True
+        Caption = 'button4'
+        OnClick = btnSelRootClick
+        resourceName = 'FOLDER_ADD'
+        scaledSeparator = False
+      end
+      object btnSelfoldOfFiles: TDexedToolButton[2]
+        Left = 286
+        Hint = 'select a folder containing several d sources (optional trick)'
+        Top = 0
+        AutoSize = True
+        Caption = 'button5'
+        OnClick = btnSelfoldOfFilesClick
+        resourceName = 'BRICKS'
+        scaledSeparator = False
+      end
+      object btnSelFile: TDexedToolButton[3]
+        Left = 258
+        Hint = 'selected the static library file'
+        Top = 0
+        AutoSize = True
+        Caption = 'button6'
+        OnClick = btnSelFileClick
+        resourceName = 'FOLDER_BRICK'
+        scaledSeparator = False
+      end
+      object btnEditAlias: TDexedToolButton[4]
+        Left = 230
+        Hint = 'set the entry alias'
+        Top = 0
+        AutoSize = True
+        Caption = 'button7'
+        OnClick = btnEditAliasClick
+        resourceName = 'BOOK_EDIT'
+        scaledSeparator = False
+      end
+      object button5: TDexedToolButton[5]
+        Left = 225
+        Height = 5
+        Top = 0
+        AutoSize = True
+        Caption = 'button8'
+        Style = tbsDivider
+        scaledSeparator = False
+      end
+      object btnEnabled: TDexedToolButton[6]
+        Left = 197
+        Hint = 'activate or deactivate the selected entry'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnEnabled'
+        OnClick = btnEnabledClick
+        resourceName = 'BOOK'
+        scaledSeparator = False
+      end
+      object btnDubFetch: TDexedToolButton[7]
+        Left = 169
+        Hint = 'setup a new entry using an online DUB package'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnDubFetch'
+        OnClick = btnDubFetchClick
+        resourceName = 'DUB'
+        scaledSeparator = False
+      end
+      object btnOpenProj: TDexedToolButton[8]
+        Left = 141
+        Hint = 'open the project that matches to the selected entry'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnOpenProj'
+        OnClick = btnOpenProjClick
+        resourceName = 'BOOK_OPEN'
+        scaledSeparator = False
+      end
+      object btnReg: TDexedToolButton[9]
+        Left = 113
+        Hint = 'register a new entry using the active project'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnReg'
+        OnClick = btnRegClick
+        resourceName = 'BOOK_LINK'
+        scaledSeparator = False
+      end
+      object btnMoveUp: TDexedToolButton[10]
+        Left = 85
+        Hint = 'move entry up'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnMoveUp'
+        OnClick = btnMoveUpClick
+        resourceName = 'ARROW_UP'
+        scaledSeparator = False
+      end
+      object btnMoveDown: TDexedToolButton[11]
+        Left = 57
+        Hint = 'move entry down'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnMoveDown'
+        OnClick = btnMoveDownClick
+        resourceName = 'ARROW_DOWN'
+        scaledSeparator = False
+      end
+      object btnRemLib: TDexedToolButton[12]
+        Left = 29
+        Hint = 'remove selected entry'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnRemLib'
+        OnClick = btnRemLibClick
+        resourceName = 'BOOK_DELETE'
+        scaledSeparator = False
+      end
+      object btnAddLib: TDexedToolButton[13]
+        Left = 1
+        Hint = 'add a new empty entry'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnAddLib'
+        OnClick = btnAddLibClick
+        resourceName = 'BOOK_ADD'
+        scaledSeparator = False
+      end
+    end
+  end
+  inherited contextMenu: TPopupMenu
+    left = 400
+  end
+end

@@ -1,0 +1,93 @@
+inherited InfoWidget: TInfoWidget
+  Left = 713
+  Height = 303
+  Top = 245
+  Width = 287
+  AutoSize = True
+  BorderIcons = [biSystemMenu, biMinimize, biMaximize]
+  Caption = 'About'
+  ClientHeight = 303
+  ClientWidth = 287
+  inherited Back: TPanel
+    Height = 303
+    Width = 287
+    AutoSize = True
+    ClientHeight = 303
+    ClientWidth = 287
+    inherited Content: TPanel
+      Height = 267
+      Width = 287
+      ClientHeight = 267
+      ClientWidth = 287
+      object GroupBox1: TGroupBox[0]
+        Left = 4
+        Height = 78
+        Top = 4
+        Width = 279
+        Align = alTop
+        AutoSize = True
+        BorderSpacing.Around = 4
+        Caption = 'about'
+        ClientHeight = 59
+        ClientWidth = 275
+        TabOrder = 0
+        object Label1: TLabel
+          Left = 8
+          Height = 1
+          Top = 8
+          Width = 259
+          Align = alTop
+          Alignment = taCenter
+          BorderSpacing.Around = 8
+          Font.Style = [fsBold]
+          Layout = tlCenter
+          ParentColor = False
+          ParentFont = False
+        end
+        object Label2: TLabel
+          Left = 8
+          Height = 34
+          Top = 17
+          Width = 259
+          Align = alClient
+          Alignment = taCenter
+          BorderSpacing.Around = 8
+          Caption = 'Licensed under the terms of the BSL-1.0'#10'©Basile Burg, 2014-2019'
+          Font.Style = [fsItalic]
+          Layout = tlCenter
+          ParentColor = False
+          ParentFont = False
+        end
+      end
+      object GroupBox2: TGroupBox[1]
+        Left = 4
+        Height = 177
+        Top = 86
+        Width = 279
+        Align = alClient
+        AutoSize = True
+        BorderSpacing.Around = 4
+        Caption = 'tools status'
+        ClientHeight = 158
+        ClientWidth = 275
+        TabOrder = 1
+        object boxTools: TScrollBox
+          Left = 4
+          Height = 150
+          Top = 4
+          Width = 267
+          HorzScrollBar.Page = 1
+          VertScrollBar.Page = 1
+          Align = alClient
+          AutoSize = True
+          BorderSpacing.Around = 4
+          BorderStyle = bsNone
+          TabOrder = 0
+        end
+      end
+    end
+    inherited toolbar: TDexedToolBar
+      Width = 279
+    end
+  end
+end

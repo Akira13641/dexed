@@ -1,0 +1,1 @@
+isitthere --if=d2kw.txt --ml=512 --fk=pascal --of=d2kw.pas --fn=keywordsMap

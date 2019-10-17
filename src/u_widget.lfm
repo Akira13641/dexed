@@ -1,0 +1,54 @@
+object DexedWidget: TDexedWidget
+  Left = 1360
+  Height = 121
+  Top = 144
+  Width = 332
+  BorderIcons = [biMinimize, biMaximize]
+  Caption = 'DexedWidget'
+  ClientHeight = 121
+  ClientWidth = 332
+  ShowHint = True
+  ShowInTaskBar = stNever
+  object Back: TPanel
+    Left = 0
+    Height = 121
+    Top = 0
+    Width = 332
+    Align = alClient
+    BevelOuter = bvNone
+    ClientHeight = 121
+    ClientWidth = 332
+    FullRepaint = False
+    TabOrder = 0
+    object Content: TPanel
+      Left = 0
+      Height = 85
+      Top = 36
+      Width = 332
+      Align = alClient
+      AutoSize = True
+      BevelOuter = bvNone
+      PopupMenu = contextMenu
+      TabOrder = 0
+    end
+    object toolbar: TDexedToolBar
+      Left = 4
+      Height = 30
+      Top = 4
+      Width = 324
+      BorderSpacing.Left = 2
+      BorderSpacing.Top = 2
+      BorderSpacing.Right = 2
+      BorderSpacing.Around = 2
+      Caption = 'toolbar'
+      EdgeBorders = []
+      EdgeInner = esNone
+      EdgeOuter = esNone
+      Flat = False
+      TabOrder = 1
+      Transparent = True
+    end
+  end
+  object contextMenu: TPopupMenu
+  end
+end

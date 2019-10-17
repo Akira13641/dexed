@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectOptions>
+    <Version Value="10"/>
+    <General>
+      <SessionStorage Value="InProjectDir"/>
+      <MainUnit Value="0"/>
+      <Title Value="pagecontrol"/>
+      <ResourceType Value="res"/>
+      <UseXPManifest Value="True"/>
+      <Resources Count="15">
+        <Resource_0 FileName="../../icons/file/document_add.png" Type="RCDATA" ResourceName="DOCUMENT_ADD"/>
+        <Resource_1 FileName="../../icons/file/document_add24.png" Type="RCDATA" ResourceName="DOCUMENT_ADD24"/>
+        <Resource_2 FileName="../../icons/file/document_add32.png" Type="RCDATA" ResourceName="DOCUMENT_ADD32"/>
+        <Resource_3 FileName="../../icons/file/document_back.png" Type="RCDATA" ResourceName="DOCUMENT_BACK"/>
+        <Resource_4 FileName="../../icons/file/document_back24.png" Type="RCDATA" ResourceName="DOCUMENT_BACK24"/>
+        <Resource_5 FileName="../../icons/file/document_back32.png" Type="RCDATA" ResourceName="DOCUMENT_BACK32"/>
+        <Resource_6 FileName="../../icons/file/document_delete.png" Type="RCDATA" ResourceName="DOCUMENT_DELETE"/>
+        <Resource_7 FileName="../../icons/file/document_delete24.png" Type="RCDATA" ResourceName="DOCUMENT_DELETE24"/>
+        <Resource_8 FileName="../../icons/file/document_delete32.png" Type="RCDATA" ResourceName="DOCUMENT_DELETE32"/>
+        <Resource_9 FileName="../../icons/file/document_next.png" Type="RCDATA" ResourceName="DOCUMENT_NEXT"/>
+        <Resource_10 FileName="../../icons/file/document_next24.png" Type="RCDATA" ResourceName="DOCUMENT_NEXT24"/>
+        <Resource_11 FileName="../../icons/file/document_next32.png" Type="RCDATA" ResourceName="DOCUMENT_NEXT32"/>
+        <Resource_12 FileName="../../icons/other/splitter.png" Type="RCDATA" ResourceName="SPLITTER"/>
+        <Resource_13 FileName="../../icons/other/splitter24.png" Type="RCDATA" ResourceName="SPLITTER24"/>
+        <Resource_14 FileName="../../icons/other/splitter32.png" Type="RCDATA" ResourceName="SPLITTER32"/>
+      </Resources>
+    </General>
+    <i18n>
+      <EnableI18N LFM="False"/>
+    </i18n>
+    <BuildModes Count="1">
+      <Item1 Name="Default" Default="True"/>
+    </BuildModes>
+    <PublishOptions>
+      <Version Value="2"/>
+    </PublishOptions>
+    <RunParams>
+      <local>
+        <FormatVersion Value="1"/>
+      </local>
+    </RunParams>
+    <RequiredPackages Count="1">
+      <Item1>
+        <PackageName Value="LCL"/>
+      </Item1>
+    </RequiredPackages>
+    <Units Count="2">
+      <Unit0>
+        <Filename Value="pagecontrol.lpr"/>
+        <IsPartOfProject Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="pagecontroltester.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit1>
+    </Units>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="11"/>
+    <Target>
+      <Filename Value="pagecontrol"/>
+    </Target>
+    <SearchPaths>
+      <IncludeFiles Value="$(ProjOutDir)"/>
+      <OtherUnitFiles Value="../../src"/>
+      <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
+    </SearchPaths>
+    <Parsing>
+      <SyntaxOptions>
+        <IncludeAssertionCode Value="True"/>
+      </SyntaxOptions>
+    </Parsing>
+    <CodeGeneration>
+      <Checks>
+        <RangeChecks Value="True"/>
+        <OverflowChecks Value="True"/>
+        <StackChecks Value="True"/>
+      </Checks>
+      <Optimizations>
+        <OptimizationLevel Value="0"/>
+      </Optimizations>
+    </CodeGeneration>
+    <Linking>
+      <Options>
+        <Win32>
+          <GraphicApplication Value="True"/>
+        </Win32>
+      </Options>
+    </Linking>
+  </CompilerOptions>
+  <Debugging>
+    <Exceptions Count="3">
+      <Item1>
+        <Name Value="EAbort"/>
+      </Item1>
+      <Item2>
+        <Name Value="ECodetoolError"/>
+      </Item2>
+      <Item3>
+        <Name Value="EFOpenError"/>
+      </Item3>
+    </Exceptions>
+  </Debugging>
+</CONFIG>

@@ -1,0 +1,107 @@
+object ShortcutEditor: TShortcutEditor
+  Left = 0
+  Height = 449
+  Top = 0
+  Width = 424
+  AutoSize = True
+  ClientHeight = 449
+  ClientWidth = 424
+  TabOrder = 0
+  DesignLeft = -1
+  DesignTop = -1
+  object Panel1: TPanel
+    Left = 0
+    Height = 449
+    Top = 0
+    Width = 424
+    Align = alClient
+    AutoSize = True
+    BevelOuter = bvNone
+    ClientHeight = 449
+    ClientWidth = 424
+    TabOrder = 0
+    object fltItems: TTreeFilterEdit
+      Left = 2
+      Height = 27
+      Top = 2
+      Width = 420
+      OnFilterItem = fltItemsFilterItem
+      ButtonWidth = 28
+      Align = alTop
+      BorderSpacing.Around = 2
+      NumGlyphs = 1
+      MaxLength = 0
+      TabOrder = 0
+      FilteredTreeview = tree
+    end
+    object tree: TTreeView
+      Left = 2
+      Height = 373
+      Top = 33
+      Width = 420
+      Align = alClient
+      AutoExpand = True
+      BorderSpacing.Top = 2
+      BorderSpacing.Around = 2
+      HideSelection = False
+      ReadOnly = True
+      ScrollBars = ssAutoBoth
+      SortType = stText
+      TabOrder = 1
+      OnSelectionChanged = treeSelectionChanged
+      Options = [tvoAutoExpand, tvoAutoItemHeight, tvoKeepCollapsedNodes, tvoReadOnly, tvoShowButtons, tvoShowLines, tvoShowRoot, tvoToolTips, tvoThemedDraw]
+    end
+    object Panel2: TPanel
+      Left = 2
+      Height = 39
+      Top = 408
+      Width = 420
+      Align = alBottom
+      BorderSpacing.Around = 2
+      BevelOuter = bvNone
+      ClientHeight = 39
+      ClientWidth = 420
+      TabOrder = 2
+      object btnClear: TSpeedButton
+        Left = 2
+        Height = 35
+        Hint = 'clear shortcut'
+        Top = 2
+        Width = 4
+        Align = alLeft
+        AutoSize = True
+        BorderSpacing.Around = 2
+        Flat = True
+        OnClick = btnClearClick
+      end
+      object propedit: TTIPropertyGrid
+        Left = 14
+        Height = 39
+        Top = 0
+        Width = 406
+        Align = alClient
+        CheckboxForBoolean = False
+        DefaultValueFont.Color = clWindowText
+        Filter = [tkInteger, tkChar, tkEnumeration, tkFloat, tkSet, tkMethod, tkSString, tkLString, tkAString, tkWString, tkVariant, tkArray, tkRecord, tkInterface, tkClass, tkObject, tkWChar, tkBool, tkInt64, tkQWord, tkDynArray, tkInterfaceRaw, tkProcVar, tkUString, tkUChar, tkHelper, tkFile, tkClassRef, tkPointer]
+        Indent = 10
+        NameFont.Color = clWindowText
+        OnModified = propeditModified
+        PreferredSplitterX = 200
+        SplitterX = 200
+        ValueFont.Color = clMaroon
+      end
+      object btnEdit: TSpeedButton
+        Left = 8
+        Height = 35
+        Hint = 'edit selected shortcut'
+        Top = 2
+        Width = 4
+        Align = alLeft
+        AutoSize = True
+        BorderSpacing.Around = 2
+        Flat = True
+        OnClick = btnEditClick
+      end
+    end
+  end
+end

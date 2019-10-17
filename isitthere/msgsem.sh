@@ -1,0 +1,1 @@
+isitthere --if=msgsem.txt --ml=64 --fk=pascal --of=msgsem.pas --fn=messageSemantic

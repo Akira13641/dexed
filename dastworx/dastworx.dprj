@@ -1,0 +1,52 @@
+object CurrentProject: TCENativeProject
+  OptionsCollection = <  
+    item
+      name = 'devel'
+      debugingOptions.generateInfos = True
+      outputOptions.boundsCheck = onAlways
+      outputOptions.versionIdentifiers.Strings = (
+        'devel'
+      )
+      pathsOptions.outputFilename = '../bin/dastworx'
+      pathsOptions.extraSources.Strings = (
+        '../etc/iz/import/*'
+        '../etc/libdparse/src/*'
+        '../etc/stdx-allocator/source/*'
+      )
+      pathsOptions.importModulePaths.Strings = (
+        '../etc/iz/import'
+        '../etc/libdparse/src'
+        '../etc/stdx-allocator/source'
+      )
+      runOptions.options = [poUsePipes, poStderrToOutPut]
+    end  
+    item
+      name = 'release'
+      outputOptions.boundsCheck = offAlways
+      outputOptions.optimizations = True
+      outputOptions.release = True
+      pathsOptions.outputFilename = '../bin/dastworx'
+      pathsOptions.extraSources.Strings = (
+        '../etc/iz/import/*'
+        '../etc/libdparse/src/*'
+        '../etc/stdx-allocator/source/*'
+      )
+      pathsOptions.importModulePaths.Strings = (
+        '../etc/iz/import'
+        '../etc/libdparse/src'
+        '../etc/stdx-allocator/source'
+      )
+      runOptions.options = [poUsePipes, poStderrToOutPut]
+    end>
+  Sources.Strings = (
+    'src/main.d'
+    'src/todos.d'
+    'src/symlist.d'
+    'src/imports.d'
+    'src/mainfun.d'
+    'src/common.d'
+    'src/halstead.d'
+    'src/ddoc_template.d'
+  )
+  ConfigurationIndex = 1
+end

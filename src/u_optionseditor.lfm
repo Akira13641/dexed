@@ -1,0 +1,132 @@
+inherited OptionEditorWidget: TOptionEditorWidget
+  Left = 594
+  Height = 514
+  Top = 257
+  Width = 637
+  BorderIcons = [biSystemMenu, biMinimize, biMaximize]
+  Caption = 'Options editor'
+  ClientHeight = 514
+  ClientWidth = 637
+  OnCloseQuery = FormCloseQuery
+  inherited Back: TPanel
+    Height = 514
+    Width = 637
+    ClientHeight = 514
+    ClientWidth = 637
+    inherited Content: TPanel
+      Height = 478
+      Width = 637
+      ClientHeight = 478
+      ClientWidth = 637
+      object pnlBody: TPanel[0]
+        Left = 4
+        Height = 452
+        Top = 4
+        Width = 629
+        Align = alClient
+        BorderSpacing.Around = 4
+        BevelOuter = bvNone
+        ClientHeight = 452
+        ClientWidth = 629
+        TabOrder = 0
+        object selCat: TTreeView
+          Left = 0
+          Height = 452
+          Top = 0
+          Width = 182
+          Align = alLeft
+          AutoExpand = True
+          HideSelection = False
+          ReadOnly = True
+          ScrollBars = ssAutoBoth
+          SortType = stText
+          TabOrder = 0
+          OnChanging = selCatChanging
+          OnDeletion = selCatDeletion
+          OnSelectionChanged = selCatSelectionChanged
+          Options = [tvoAutoExpand, tvoAutoItemHeight, tvoKeepCollapsedNodes, tvoReadOnly, tvoShowButtons, tvoShowLines, tvoShowRoot, tvoToolTips, tvoThemedDraw]
+        end
+        object pnlEd: TPanel
+          Left = 188
+          Height = 452
+          Top = 0
+          Width = 441
+          Align = alClient
+          BevelOuter = bvNone
+          ClientHeight = 452
+          ClientWidth = 441
+          TabOrder = 1
+          object inspector: TTIPropertyGrid
+            Left = 0
+            Height = 452
+            Top = 0
+            Width = 441
+            Align = alClient
+            CheckboxForBoolean = False
+            DefaultValueFont.Color = clWindowText
+            Filter = [tkInteger, tkChar, tkEnumeration, tkFloat, tkSet, tkMethod, tkSString, tkLString, tkAString, tkWString, tkVariant, tkArray, tkRecord, tkInterface, tkClass, tkObject, tkWChar, tkBool, tkInt64, tkQWord, tkDynArray, tkInterfaceRaw, tkProcVar, tkUString, tkUChar, tkHelper]
+            Indent = 16
+            NameFont.Color = clWindowText
+            OnEditorFilter = inspectorEditorFilter
+            OnModified = inspectorModified
+            PreferredSplitterX = 170
+            SplitterX = 170
+            ValueFont.Color = clGreen
+          end
+        end
+        object Splitter1: TSplitter
+          Left = 182
+          Height = 452
+          Top = 0
+          Width = 6
+        end
+      end
+      object pnlFooter: TPanel[1]
+        Left = 4
+        Height = 14
+        Top = 460
+        Width = 629
+        Align = alBottom
+        AutoSize = True
+        BorderSpacing.Around = 4
+        BevelOuter = bvLowered
+        ClientHeight = 14
+        ClientWidth = 629
+        TabOrder = 1
+        object btnCancel: TSpeedButton
+          Left = 610
+          Height = 4
+          Hint = 'cancel and revert the modifications of the category'
+          Top = 5
+          Width = 4
+          Align = alRight
+          AutoSize = True
+          BorderSpacing.Left = 2
+          BorderSpacing.Around = 4
+          Flat = True
+          OnClick = btnCancelClick
+        end
+        object btnAccept: TSpeedButton
+          Left = 620
+          Height = 4
+          Hint = 'accept the modifications of the category'
+          Top = 5
+          Width = 4
+          Align = alRight
+          AutoSize = True
+          BorderSpacing.Left = 2
+          BorderSpacing.Around = 4
+          Flat = True
+          OnClick = btnAcceptClick
+        end
+      end
+    end
+    inherited toolbar: TDexedToolBar
+      Width = 629
+    end
+  end
+  inherited contextMenu: TPopupMenu
+    left = 144
+    top = 24
+  end
+end

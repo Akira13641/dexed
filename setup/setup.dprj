@@ -1,0 +1,120 @@
+object CurrentProject: TNativeProject
+  OptionsCollection = <
+    item
+      name = 'win32'
+      messagesOptions.tlsInformations = True
+      outputOptions.inlining = True
+      outputOptions.boundsCheck = offAlways
+      outputOptions.optimizations = True
+      outputOptions.release = True
+      pathsOptions.outputFilename = 'output/dexed.<CPV>.win32.setup'
+      pathsOptions.importStringPaths.Strings = (
+        'win32/'
+        '<CPP>'
+      )
+      pathsOptions.forceExtension = True
+      preBuildProcess.executable = 'cmd'
+      preBuildProcess.workingDirectory = '<CPP>'
+      preBuildProcess.options = [poUsePipes, poStderrToOutPut]
+      preBuildProcess.parameters.Strings = (
+        '/c'
+        ' zip-win32.bat'
+      )
+      preBuildProcess.showWindow = swoHIDE
+      postBuildProcess.executable = 'setupzip-win-noarch.bat'
+      postBuildProcess.workingDirectory = '<CPP>'
+      postBuildProcess.options = [poUsePipes, poStderrToOutPut]
+      postBuildProcess.parameters.Strings = (
+        '<CPO>'
+      )
+      postBuildProcess.showWindow = swoHIDE
+    end
+    item
+      name = 'win64'
+      messagesOptions.tlsInformations = True
+      outputOptions.inlining = True
+      outputOptions.boundsCheck = offAlways
+      outputOptions.optimizations = True
+      outputOptions.release = True
+      pathsOptions.outputFilename = 'output/dexed.<CPV>.win64.setup'
+      pathsOptions.importStringPaths.Strings = (
+        'win64/'
+        '<CPP>'
+      )
+      pathsOptions.forceExtension = True
+      otherOptions.dmdOtherOptions.Strings = (
+        '-m64'
+      )
+      preBuildProcess.executable = 'cmd'
+      preBuildProcess.workingDirectory = '<CPP>'
+      preBuildProcess.options = [poUsePipes, poStderrToOutPut]
+      preBuildProcess.parameters.Strings = (
+        '/c'
+        ' zip-win64.bat'
+      )
+      preBuildProcess.showWindow = swoHIDE
+      postBuildProcess.executable = 'setupzip-win-noarch.bat'
+      postBuildProcess.workingDirectory = '<CPP>'
+      postBuildProcess.options = [poUsePipes, poStderrToOutPut]
+      postBuildProcess.parameters.Strings = (
+        '<CPO>'
+      )
+      postBuildProcess.showWindow = swoHIDE
+    end
+    item
+      name = 'nux32'
+      outputOptions.inlining = True
+      outputOptions.boundsCheck = offAlways
+      outputOptions.optimizations = True
+      outputOptions.release = True
+      pathsOptions.outputFilename = 'output/dexed.<CPV>.linux32.setup'
+      pathsOptions.importStringPaths.Strings = (
+        'nux32/'
+        '<CPP>'
+      )
+      preBuildProcess.executable = 'bash'
+      preBuildProcess.workingDirectory = '<CPP>'
+      preBuildProcess.options = [poUsePipes, poStderrToOutPut]
+      preBuildProcess.parameters.Strings = (
+        'zip-nux32.sh'
+      )
+      postBuildProcess.executable = 'bash'
+      postBuildProcess.workingDirectory = '<CPP>'
+      postBuildProcess.options = [poUsePipes, poStderrToOutPut]
+      postBuildProcess.parameters.Strings = (
+        'setupzip-nux-noarch.sh'
+        '<CPO>'
+      )
+    end
+    item
+      name = 'nux64'
+      outputOptions.inlining = True
+      outputOptions.boundsCheck = offAlways
+      outputOptions.optimizations = True
+      outputOptions.release = True
+      pathsOptions.outputFilename = 'output/dexed.<CPV>.linux64.setup'
+      pathsOptions.importStringPaths.Strings = (
+        'nux64/'
+        '<CPP>'
+      )
+      preBuildProcess.executable = 'sh'
+      preBuildProcess.workingDirectory = '<CPP>'
+      preBuildProcess.options = [poUsePipes, poStderrToOutPut]
+      preBuildProcess.parameters.Strings = (
+        'zip-nux64.sh'
+      )
+      postBuildProcess.executable = 'sh'
+      postBuildProcess.workingDirectory = '<CPP>'
+      postBuildProcess.options = [poUsePipes, poStderrToOutPut]
+      postBuildProcess.parameters.Strings = (
+        'setupzip-nux-noarch.sh'
+        '<CPO>'
+      )
+      runOptions.options = [poUsePipes]
+    end>
+  Sources.Strings = (
+    'setup.d'
+  )
+  ConfigurationIndex = 3
+  version = '3.7.4'
+end

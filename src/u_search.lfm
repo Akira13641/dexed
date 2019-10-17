@@ -1,0 +1,336 @@
+inherited SearchWidget: TSearchWidget
+  Left = 1428
+  Height = 329
+  Top = 91
+  Width = 422
+  Caption = 'Search & replace'
+  ClientHeight = 329
+  ClientWidth = 422
+  inherited Back: TPanel
+    Height = 329
+    Width = 422
+    ClientHeight = 329
+    ClientWidth = 422
+    inherited Content: TPanel
+      Height = 293
+      Width = 422
+      ClientHeight = 293
+      ClientWidth = 422
+      object cbToFind: TComboBox[0]
+        Left = 4
+        Height = 27
+        Top = 4
+        Width = 414
+        Align = alTop
+        AutoComplete = True
+        AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchCaseSensitive, cbactSearchAscending]
+        BorderSpacing.Around = 4
+        ItemHeight = 0
+        MaxLength = 128
+        OnChange = cbToFindChange
+        OnKeyDown = cbToFindKeyDown
+        OnSelect = cbToFindChange
+        TabOrder = 0
+      end
+      object btnFind: TBitBtn[1]
+        Left = 4
+        Height = 27
+        Top = 169
+        Width = 414
+        Align = alBottom
+        AutoSize = True
+        BorderSpacing.Around = 4
+        Caption = 'btnFind'
+        TabOrder = 1
+      end
+      object btnReplace: TBitBtn[2]
+        Left = 4
+        Height = 27
+        Top = 231
+        Width = 414
+        Align = alBottom
+        AutoSize = True
+        BorderSpacing.Around = 4
+        Caption = 'btnReplace'
+        TabOrder = 2
+      end
+      object grpOpts: TGroupBox[3]
+        Left = 4
+        Height = 99
+        Top = 66
+        Width = 414
+        Align = alClient
+        AutoSize = True
+        BorderSpacing.Around = 4
+        Caption = 'Options'
+        ClientHeight = 80
+        ClientWidth = 410
+        TabOrder = 4
+        object FlowPanel1: TFlowPanel
+          Left = 0
+          Height = 80
+          Top = 0
+          Width = 410
+          Align = alClient
+          AutoSize = True
+          BevelOuter = bvNone
+          ControlList = <          
+            item
+              Control = chkRegex
+              WrapAfter = waAuto
+              Index = 0
+            end          
+            item
+              Control = chkPrompt
+              WrapAfter = waAuto
+              Index = 1
+            end          
+            item
+              Control = chkCaseSens
+              WrapAfter = waAuto
+              Index = 2
+            end          
+            item
+              Control = chkFromCur
+              WrapAfter = waAuto
+              Index = 3
+            end          
+            item
+              Control = chkBack
+              WrapAfter = waAuto
+              Index = 4
+            end          
+            item
+              Control = chkWWord
+              WrapAfter = waAuto
+              Index = 5
+            end>
+          FlowLayout = tlTop
+          FlowStyle = fsTopBottomLeftRight
+          TabOrder = 0
+          object chkRegex: TCheckBox
+            Left = 0
+            Height = 22
+            Top = 0
+            Width = 100
+            Anchors = []
+            Caption = 'allow regex'
+            Checked = True
+            State = cbChecked
+            TabOrder = 0
+          end
+          object chkPrompt: TCheckBox
+            Left = 0
+            Height = 22
+            Top = 23
+            Width = 71
+            Anchors = []
+            Caption = 'prompt'
+            TabOrder = 1
+          end
+          object chkCaseSens: TCheckBox
+            Left = 0
+            Height = 22
+            Top = 46
+            Width = 117
+            Anchors = []
+            Caption = 'case sensitive'
+            TabOrder = 2
+          end
+          object chkFromCur: TCheckBox
+            Left = 117
+            Height = 22
+            Top = 0
+            Width = 99
+            Anchors = []
+            Caption = 'from cursor'
+            Checked = True
+            State = cbChecked
+            TabOrder = 3
+          end
+          object chkBack: TCheckBox
+            Left = 117
+            Height = 22
+            Top = 23
+            Width = 87
+            Anchors = []
+            Caption = 'backward'
+            TabOrder = 4
+          end
+          object chkWWord: TCheckBox
+            Left = 117
+            Height = 22
+            Top = 46
+            Width = 99
+            Anchors = []
+            Caption = 'whole word'
+            Checked = True
+            State = cbChecked
+            TabOrder = 5
+          end
+        end
+      end
+      object btnReplaceAll: TBitBtn[4]
+        Left = 4
+        Height = 27
+        Top = 262
+        Width = 414
+        Align = alBottom
+        AutoSize = True
+        BorderSpacing.Around = 4
+        Caption = 'btnReplaceAll'
+        TabOrder = 3
+      end
+      object Panel1: TPanel[5]
+        Left = 4
+        Height = 27
+        Top = 35
+        Width = 414
+        Align = alTop
+        AutoSize = True
+        BorderSpacing.Around = 4
+        BevelOuter = bvNone
+        ClientHeight = 27
+        ClientWidth = 414
+        TabOrder = 5
+        object cbReplaceWth: TComboBox
+          Left = 111
+          Height = 27
+          Top = 0
+          Width = 303
+          Align = alClient
+          AutoComplete = True
+          AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchCaseSensitive, cbactSearchAscending]
+          ItemHeight = 0
+          MaxLength = 128
+          OnChange = cbReplaceWthChange
+          OnKeyDown = cbReplaceWthKeyDown
+          OnSelect = cbReplaceWthChange
+          TabOrder = 1
+        end
+        object chkEnableRep: TCheckBox
+          Left = 0
+          Height = 27
+          Top = 0
+          Width = 111
+          Align = alLeft
+          Caption = 'Replace with '
+          OnChange = chkEnableRepChange
+          TabOrder = 0
+        end
+      end
+      object Panel2: TPanel[6]
+        Left = 4
+        Height = 27
+        Top = 200
+        Width = 414
+        Align = alBottom
+        AutoSize = True
+        BorderSpacing.Around = 4
+        BevelOuter = bvNone
+        ClientHeight = 27
+        ClientWidth = 414
+        TabOrder = 6
+        object btnFindAll: TBitBtn
+          Left = 0
+          Height = 27
+          Top = 0
+          Width = 402
+          Align = alClient
+          AutoSize = True
+          Caption = 'btnFindAll'
+          TabOrder = 0
+        end
+        object btnAllScope: TBitBtn
+          Left = 404
+          Height = 27
+          Top = 0
+          Width = 10
+          Align = alRight
+          AutoSize = True
+          BorderSpacing.Left = 2
+          OnClick = btnAllScopeClick
+          TabOrder = 1
+        end
+      end
+    end
+    inherited toolbar: TDexedToolBar
+      Width = 414
+    end
+  end
+  inherited contextMenu: TPopupMenu
+    left = 216
+    top = 16
+  end
+  object imgList: TImageList[2]
+    left = 248
+    top = 16
+    Bitmap = {
+      4C690200000010000000100000007B7977007B7977007B7977FF73716FFF6D6B
+      69FF696665FF625F5EFF615E5D007E7C7A007B7977FF73716FFF6D6B69FF6966
+      65FF63605FFF64616000646160007B7977007B7977007A7976FF908D8CFF908E
+      8CFF656461FF615E5DFF615E5D007D7B7900797775FF8E8B8AFF918F8DFF6866
+      64FF63605FFF64616000646160007B7977007B79770000000033787574FFCBCA
+      C7FF9B9A99FF625E5DFF625F5E007D7A7900787574FFCAC8C6FF989796FF605D
+      5CFF0000003364616000646160007B797700797875AE716E6DFF696665FF6460
+      5FFF625E5DFF545251AA7B7A7700656361006A6967AA6F6C6BFF696665FF6764
+      63FF656261FF63605FAE646160007C797800787574FFBDBBB9FFCECCCBFFA5A3
+      A2FF7E7C7BFF5E5B5AFF7B7977FF646260FF797675FFBCBBB8FFCECCCBFFA6A4
+      A3FF807E7DFF605D5CFF63605F007B787700777473FFB9B7B5FFC9C7C6FFA2A0
+      9FFF7D7B7AFF5C5858FF777472FF615F5DFF777473FFB9B8B5FFC9C7C6FFA2A0
+      9FFF7E7C7BFF605D5CFF63605F007B797700777473FFBCBAB8FFCDCBCAFFA5A3
+      A2FF7E7C7BFF595655FFD6D5D3FF8C8C89FF767372FFBCBAB7FFCCCAC9FFA4A2
+      A1FF7E7C7BFF5F5C5BFF625F5E007A7876FF6F6D6BFF666261FF605D5CFF5E5C
+      5AFF5E5A5AFF4946469BD3D2D0FF8A8987FF62615F9B6C6A68FF646160FF625F
+      5EFF615F5DFF615E5DFF615E5DA8777472FFDEDDDDFFEBEBE9FFDBDAD9FFCAC9
+      C8FFBBBAB9FF575453FFD6D5D3FF8C8B89FF757371FFDEDDDCFFEBEBE9FFDBDA
+      D9FFCAC9C8FFBCBCBBFF5E5B5AFF767472FFB3B0AEFFCAC9C7FFB0ADADFF9190
+      8EFF757472FF5B5857FF767472FF615F5DFF767472FFB3B1AFFFCAC9C7FFB0AD
+      ADFF91908EFF757573FF5F5C5BFF767472FFB3B1AFFFCAC9C7FFB1AEAEFF9392
+      90FF777674FF5E5A59FF7A7876FF646260FF777573FFB3B1AFFFCAC9C7FFB1AE
+      AEFF939290FF777674FF605D5CFF767472FFB3B1AFFFCAC9C7FFB0AEADFF9190
+      8EFF757472FF5E5A59FF0000003300000033777573FFB3B1AFFFCAC9C7FFB0AE
+      ADFF91908EFF757572FF5F5C5BFF777573FFCFCFCFFFD9D7D6FFD0CFCEFFC8C8
+      C7FFC3C1C1FF5E5A59FF5F5C5B007E7C7A00777573FFD0CFCFFFD9D7D6FFD0CF
+      CEFFC8C8C7FFC3C1C1FF5E5B5AFF7A7876FF817E7DFF9C9996FF898583FF716F
+      6CFF595756FF605D5CFF605D5C007F7D7B007A7876FF817E7DFF9C9996FF8985
+      83FF716F6CFF595756FF615E5DFF716F6DC0767472FF706D6CFF6D6A69FF6967
+      65FF666362FF5A5756C0605D5C007E7C7A00716F6DC0767472FF706D6CFF6D6A
+      69FF696765FF666362FF5A5756C0000000230000003300000033000000330000
+      0033000000330000002300000000000000000000002300000033000000330000
+      0033000000330000003300000023FFFFFF00E6974766E69547FFE69A4EFFE290
+      4122FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00E29041FFE28E40DDFFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00E28E4033E5944CFFE18939BBDF85
+      35AADF8231BBDF7E2E55FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00E1893977E59B59FFDF8231BBDF7E
+      2E88E39250FFDD7F32FFDB742322FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00DF8231BBDF7E2EFFFFFFFF00FFFF
+      FF00DB7423CCDE833AFFD96E1C44FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00DF7E2E11DE7E2FFFDB7727AAFFFFFF00DB72
+      1F1190A352FF85A251F958B16203FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00DB772755E08742FFDB721F88FFFFFF0083AA
+      59D988CB90FF83C68BFF51A75AA8499C5203599148E5E2924377E29040BBE28D
+      3CBBE28B3AAAE1873966FFFFFF00DB721F99D96E1CDDD86C1BDDD8691AFF9197
+      49F080C588FFB0DCB6FF75B87CFF8E9146FAE4964AFFE8A361FFE28B3CFFE69E
+      5CFFE9A96FFFE49956FFDF823066FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF0051A75A8A71B67AFFB6C590FFE69B55FFE8A465FFE2893988FFFFFF00DF84
+      3588E69F61FFE59858FFDD7B2A77FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00419149F9BCB272FFE8A05EFFBD8237FEDF853511FFFFFF00DF7E
+      2E99E69E61FFE1924EFFDB772566FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00419149E539853FFF317A37FF7F7A32FF95792EFCDF8230BBDF7E2CFFE392
+      50FFEBB386FFDC7728FFDB721F11FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00E1873711DF8435BBE59856FFE59553FFDD7B2ACCDB7727AAE69D
+      63FFE8A46DFFD9701ECCFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00DF8231CCE69959FFE49755FFDB7B2877FFFFFF00DB742177E18C
+      4CFFE18B49FFD86C1B77FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00DF823044E28D44FFECB588FFDC7A2CFFDB742311DB721F22D9701EDDE6A4
+      71FFDC7A34FFD8671A44FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00DD7B2A66E18F4CFFEBB183FFE3914EFFDA7323FFDA7428FFE08848FFE7A2
+      70FFE3935CFFDB7533FFD6621A44FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00DB772511DB742199D9701FFFD96E1CFFD86C1BCCD8691A77D8671A77D665
+      1AEED6621AEED4621999D4601911
+    }
+  end
+end

@@ -1,0 +1,255 @@
+object CeNewDubProject: TCeNewDubProject
+  Left = 0
+  Height = 419
+  Top = 0
+  Width = 439
+  Caption = 'New DUB project'
+  ClientHeight = 419
+  ClientWidth = 439
+  Position = poMainFormCenter
+  Visible = False
+  object GroupBox1: TGroupBox
+    Left = 4
+    Height = 50
+    Top = 4
+    Width = 431
+    Align = alTop
+    AutoSize = True
+    BorderSpacing.Around = 4
+    Caption = 'Project directory'
+    ClientHeight = 32
+    ClientWidth = 429
+    TabOrder = 0
+    object edDir: TDirectoryEdit
+      Left = 4
+      Height = 23
+      Hint = 'select project directory, mandatory'
+      Top = 4
+      Width = 421
+      ShowHidden = False
+      ButtonWidth = 23
+      NumGlyphs = 1
+      Flat = True
+      Align = alClient
+      BorderSpacing.Around = 4
+      MaxLength = 0
+      TabOrder = 0
+      OnEditingDone = edNameChange
+    end
+    object lblValidDir: TLabel
+      Left = 0
+      Height = 1
+      Top = 31
+      Width = 429
+      Align = alBottom
+      ParentColor = False
+    end
+  end
+  object GroupBox2: TGroupBox
+    Left = 4
+    Height = 49
+    Top = 58
+    Width = 431
+    Align = alTop
+    AutoSize = True
+    BorderSpacing.Around = 4
+    Caption = 'Project name'
+    ClientHeight = 31
+    ClientWidth = 429
+    TabOrder = 1
+    object edName: TEdit
+      Left = 4
+      Height = 23
+      Hint = 'enter project name, optional, no spaces allowed'
+      Top = 4
+      Width = 421
+      Align = alTop
+      BorderSpacing.Around = 4
+      OnChange = edNameChange
+      TabOrder = 0
+      TextHint = 'project name, optional'
+    end
+    object lblValidName: TLabel
+      Left = 0
+      Height = 1
+      Top = 30
+      Width = 429
+      Align = alBottom
+      ParentColor = False
+    end
+  end
+  object GroupBox3: TGroupBox
+    Left = 4
+    Height = 49
+    Top = 217
+    Width = 431
+    Align = alTop
+    AutoSize = True
+    BorderSpacing.Around = 4
+    Caption = 'Project license'
+    ClientHeight = 31
+    ClientWidth = 429
+    TabOrder = 2
+    object edLic: TEdit
+      Left = 4
+      Height = 23
+      Hint = 'license, left empty for proprietary'
+      Top = 4
+      Width = 421
+      Align = alClient
+      BorderSpacing.Around = 4
+      OnChange = edNameChange
+      TabOrder = 0
+      TextHint = 'license, left empty for proprietary'
+    end
+  end
+  object GroupBox4: TGroupBox
+    Left = 4
+    Height = 49
+    Hint = 'enter copyright string, optional'
+    Top = 270
+    Width = 431
+    Align = alTop
+    AutoSize = True
+    BorderSpacing.Around = 4
+    Caption = 'Project copyright string'
+    ClientHeight = 31
+    ClientWidth = 429
+    TabOrder = 3
+    object edCopyR: TEdit
+      Left = 4
+      Height = 23
+      Hint = 'copyright string, optional'
+      Top = 4
+      Width = 421
+      Align = alClient
+      BorderSpacing.Around = 4
+      OnChange = edNameChange
+      TabOrder = 0
+      TextHint = 'copyright string, optional'
+    end
+  end
+  object GroupBox5: TGroupBox
+    Left = 4
+    Height = 50
+    Top = 323
+    Width = 431
+    Align = alTop
+    AutoSize = True
+    BorderSpacing.Around = 4
+    Caption = 'Project dependencies'
+    ClientHeight = 32
+    ClientWidth = 429
+    TabOrder = 4
+    object edDeps: TEdit
+      Left = 4
+      Height = 23
+      Hint = 'enter dependencies, space separated'
+      Top = 4
+      Width = 421
+      Align = alClient
+      BorderSpacing.Around = 4
+      OnChange = edNameChange
+      TabOrder = 0
+      TextHint = 'dependencies, space separated'
+    end
+    object lblValidDeps: TLabel
+      Left = 0
+      Height = 1
+      Top = 31
+      Width = 429
+      Align = alBottom
+      ParentColor = False
+    end
+  end
+  object pnlFooter: TPanel
+    Left = 4
+    Height = 14
+    Top = 401
+    Width = 431
+    Align = alBottom
+    AutoSize = True
+    BorderSpacing.Around = 4
+    BevelOuter = bvLowered
+    ClientHeight = 14
+    ClientWidth = 431
+    TabOrder = 5
+    OnEnter = edNameChange
+    object btnCancel: TSpeedButton
+      Left = 412
+      Height = 4
+      Hint = 'cancel and revert the modifications of the category'
+      Top = 5
+      Width = 4
+      Align = alRight
+      AutoSize = True
+      BorderSpacing.Left = 2
+      BorderSpacing.Around = 4
+      Flat = True
+      OnClick = btnCancelClick
+    end
+    object btnAccept: TSpeedButton
+      Left = 422
+      Height = 4
+      Hint = 'accept the modifications of the category'
+      Top = 5
+      Width = 4
+      Align = alRight
+      AutoSize = True
+      BorderSpacing.Left = 2
+      BorderSpacing.Around = 4
+      Flat = True
+      OnClick = btnAcceptClick
+    end
+  end
+  object GroupBox6: TGroupBox
+    Left = 4
+    Height = 49
+    Top = 111
+    Width = 431
+    Align = alTop
+    AutoSize = True
+    BorderSpacing.Around = 4
+    Caption = 'Project description'
+    ClientHeight = 31
+    ClientWidth = 429
+    TabOrder = 6
+    object edDescr: TEdit
+      Left = 4
+      Height = 23
+      Hint = 'enter project description, optional'
+      Top = 4
+      Width = 421
+      Align = alTop
+      BorderSpacing.Around = 4
+      OnChange = edNameChange
+      TabOrder = 0
+      TextHint = 'project description, optional'
+    end
+  end
+  object GroupBox7: TGroupBox
+    Left = 4
+    Height = 49
+    Top = 164
+    Width = 431
+    Align = alTop
+    AutoSize = True
+    BorderSpacing.Around = 4
+    Caption = 'Project author'
+    ClientHeight = 31
+    ClientWidth = 429
+    TabOrder = 7
+    object edAuthor: TEdit
+      Left = 4
+      Height = 23
+      Hint = 'enter project author, optional, current user name will be used'
+      Top = 4
+      Width = 421
+      Align = alTop
+      BorderSpacing.Around = 4
+      OnChange = edNameChange
+      TabOrder = 0
+      TextHint = 'project description, optional'
+    end
+  end
+end

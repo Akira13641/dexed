@@ -1,0 +1,95 @@
+inherited SymbolListWidget: TSymbolListWidget
+  Left = 1322
+  Height = 430
+  Top = 92
+  Width = 308
+  Caption = 'Symbol list'
+  ClientHeight = 430
+  ClientWidth = 308
+  inherited Back: TPanel
+    Height = 430
+    Width = 308
+    AutoSize = True
+    ClientHeight = 430
+    ClientWidth = 308
+    inherited Content: TPanel
+      Height = 394
+      Width = 308
+      ClientHeight = 394
+      ClientWidth = 308
+      PopupMenu = nil
+      object Tree: TTreeView[0]
+        Left = 4
+        Height = 386
+        Top = 4
+        Width = 300
+        Align = alClient
+        BorderSpacing.Around = 4
+        HideSelection = False
+        ReadOnly = True
+        RightClickSelect = True
+        ScrollBars = ssAutoBoth
+        SelectionColor = clActiveBorder
+        TabOrder = 0
+        OnCompare = TreeCompare
+        OnKeyPress = TreeKeyPress
+        Options = [tvoAutoItemHeight, tvoKeepCollapsedNodes, tvoReadOnly, tvoRightClickSelect, tvoShowButtons, tvoShowLines, tvoShowRoot, tvoToolTips, tvoThemedDraw]
+        Items.Data = {
+          F9FFFFFF02000E000000000000000000000000000000FFFFFFFF000000000000
+          00000005000000416C696173010000000100000001000000FFFFFFFF00000000
+          000000000005000000436C617373020000000200000002000000FFFFFFFF0000
+          0000000000000004000000456E756D030000000300000003000000FFFFFFFF00
+          00000000000000000800000046756E6374696F6E040000000400000004000000
+          FFFFFFFF00000000000000000006000000496D706F7274050000000500000005
+          000000FFFFFFFF00000000000000000009000000496E74657266616365060000
+          000600000006000000FFFFFFFF000000000000000000050000004D6978696E07
+          0000000700000007000000FFFFFFFF0000000000000000000600000053747275
+          6374000000000000000000000000FFFFFFFF0000000000000000000800000054
+          656D706C617465010000000100000001000000FFFFFFFF000000000000000000
+          05000000556E696F6E020000000200000002000000FFFFFFFF00000000000000
+          000008000000556E697474657374030000000300000003000000FFFFFFFF0000
+          00000000000000080000005661726961626C65080000000800000008000000FF
+          FFFFFF000000000000000000080000005761726E696E67730900000009000000
+          09000000FFFFFFFF000000000000000000060000004572726F7273
+        }
+        TreeLineColor = clDefault
+      end
+    end
+    inherited toolbar: TDexedToolBar
+      Width = 300
+      OnResize = toolbarResize
+      object btnRefresh: TDexedToolButton[0]
+        Left = 1
+        Hint = 'refresh the symbol list'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnRefresh'
+        OnClick = btnRefreshClick
+        resourceName = 'ARROW_UPDATE'
+        scaledSeparator = False
+      end
+      object TreeFilterEdit1: TTreeFilterEdit[1]
+        Left = 32
+        Height = 26
+        Hint = 'filter the symbols that contain the text typed here'
+        Top = 2
+        Width = 264
+        OnAfterFilter = TreeFilterEdit1AfterFilter
+        OnFilterItem = TreeFilterEdit1FilterItem
+        ButtonWidth = 28
+        Align = alClient
+        BorderSpacing.Left = 30
+        BorderSpacing.Around = 2
+        NumGlyphs = 1
+        MaxLength = 0
+        TabOrder = 0
+        OnMouseEnter = TreeFilterEdit1MouseEnter
+        FilteredTreeview = Tree
+      end
+    end
+  end
+  inherited contextMenu: TPopupMenu
+    left = 112
+    top = 48
+  end
+end

@@ -1,0 +1,899 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectOptions>
+    <Version Value="11"/>
+    <PathDelim Value="\"/>
+    <General>
+      <SessionStorage Value="InProjectDir"/>
+      <MainUnit Value="0"/>
+      <Title Value="dexed"/>
+      <ResourceType Value="res"/>
+      <UseXPManifest Value="True"/>
+      <XPManifest>
+        <DpiAware Value="True/PM"/>
+      </XPManifest>
+      <Icon Value="0"/>
+      <Resources Count="379">
+        <Resource_0 FileName="..\icons\arrow\arrow_up.png" Type="RCDATA" ResourceName="ARROW_UP"/>
+        <Resource_1 FileName="..\icons\arrow\arrow_down.png" Type="RCDATA" ResourceName="ARROW_DOWN"/>
+        <Resource_2 FileName="..\icons\arrow\arrow_divide.png" Type="RCDATA" ResourceName="ARROW_DIVIDE"/>
+        <Resource_3 FileName="..\icons\arrow\arrow_divide24.png" Type="RCDATA" ResourceName="ARROW_DIVIDE24"/>
+        <Resource_4 FileName="..\icons\arrow\arrow_divide32.png" Type="RCDATA" ResourceName="ARROW_DIVIDE32"/>
+        <Resource_5 FileName="..\icons\arrow\arrow_join.png" Type="RCDATA" ResourceName="ARROW_JOIN"/>
+        <Resource_6 FileName="..\icons\arrow\arrow_join24.png" Type="RCDATA" ResourceName="ARROW_JOIN24"/>
+        <Resource_7 FileName="..\icons\arrow\arrow_join32.png" Type="RCDATA" ResourceName="ARROW_JOIN32"/>
+        <Resource_8 FileName="..\icons\arrow\arrow_redo24.png" Type="RCDATA" ResourceName="ARROW_REDO24"/>
+        <Resource_9 FileName="..\icons\arrow\arrow_redo32.png" Type="RCDATA" ResourceName="ARROW_REDO32"/>
+        <Resource_10 FileName="..\icons\arrow\arrow_undo24.png" Type="RCDATA" ResourceName="ARROW_UNDO24"/>
+        <Resource_11 FileName="..\icons\arrow\arrow_undo32.png" Type="RCDATA" ResourceName="ARROW_UNDO32"/>
+        <Resource_12 FileName="..\icons\arrow\arrow_update24.png" Type="RCDATA" ResourceName="ARROW_UPDATE24"/>
+        <Resource_13 FileName="..\icons\arrow\arrow_update32.png" Type="RCDATA" ResourceName="ARROW_UPDATE32"/>
+        <Resource_14 FileName="..\icons\arrow\go_down24.png" Type="RCDATA" ResourceName="GO_DOWN24"/>
+        <Resource_15 FileName="..\icons\arrow\go_down32.png" Type="RCDATA" ResourceName="GO_DOWN32"/>
+        <Resource_16 FileName="..\icons\arrow\go_jump24.png" Type="RCDATA" ResourceName="GO_JUMP24"/>
+        <Resource_17 FileName="..\icons\arrow\go_jump32.png" Type="RCDATA" ResourceName="GO_JUMP32"/>
+        <Resource_18 FileName="..\icons\arrow\go_next.png" Type="RCDATA" ResourceName="GO_NEXT"/>
+        <Resource_19 FileName="..\icons\arrow\go_next24.png" Type="RCDATA" ResourceName="GO_NEXT24"/>
+        <Resource_20 FileName="..\icons\arrow\go_next32.png" Type="RCDATA" ResourceName="GO_NEXT32"/>
+        <Resource_21 FileName="..\icons\arrow\go_previous.png" Type="RCDATA" ResourceName="GO_PREVIOUS"/>
+        <Resource_22 FileName="..\icons\arrow\go_previous24.png" Type="RCDATA" ResourceName="GO_PREVIOUS24"/>
+        <Resource_23 FileName="..\icons\arrow\go_previous32.png" Type="RCDATA" ResourceName="GO_PREVIOUS32"/>
+        <Resource_24 FileName="..\icons\arrow\go_up.png" Type="RCDATA" ResourceName="GO_UP"/>
+        <Resource_25 FileName="..\icons\arrow\go_up24.png" Type="RCDATA" ResourceName="GO_UP24"/>
+        <Resource_26 FileName="..\icons\arrow\go_up32.png" Type="RCDATA" ResourceName="GO_UP32"/>
+        <Resource_27 FileName="..\icons\arrow\go_down.png" Type="RCDATA" ResourceName="GO_DOWN"/>
+        <Resource_28 FileName="..\icons\arrow\go_jump.png" Type="RCDATA" ResourceName="GO_JUMP"/>
+        <Resource_29 FileName="..\icons\arrow\arrow_redo.png" Type="RCDATA" ResourceName="ARROW_REDO"/>
+        <Resource_30 FileName="..\icons\arrow\arrow_undo.png" Type="RCDATA" ResourceName="ARROW_UNDO"/>
+        <Resource_31 FileName="..\icons\arrow\arrow_update.png" Type="RCDATA" ResourceName="ARROW_UPDATE"/>
+        <Resource_32 FileName="..\icons\arrow\arrow_shoe.png" Type="RCDATA" ResourceName="ARROW_SHOE"/>
+        <Resource_33 FileName="..\icons\arrow\arrow_down32.png" Type="RCDATA" ResourceName="ARROW_DOWN32"/>
+        <Resource_34 FileName="..\icons\arrow\arrow_up32.png" Type="RCDATA" ResourceName="ARROW_UP32"/>
+        <Resource_35 FileName="..\icons\arrow\arrow_down24.png" Type="RCDATA" ResourceName="ARROW_DOWN24"/>
+        <Resource_36 FileName="..\icons\arrow\arrow_up24.png" Type="RCDATA" ResourceName="ARROW_UP24"/>
+        <Resource_37 FileName="..\icons\book\book.png" Type="RCDATA" ResourceName="BOOK"/>
+        <Resource_38 FileName="..\icons\book\book_add.png" Type="RCDATA" ResourceName="BOOK_ADD"/>
+        <Resource_39 FileName="..\icons\book\book_add24.png" Type="RCDATA" ResourceName="BOOK_ADD24"/>
+        <Resource_40 FileName="..\icons\book\book_add32.png" Type="RCDATA" ResourceName="BOOK_ADD32"/>
+        <Resource_41 FileName="..\icons\book\book_delete.png" Type="RCDATA" ResourceName="BOOK_DELETE"/>
+        <Resource_42 FileName="..\icons\book\book_delete24.png" Type="RCDATA" ResourceName="BOOK_DELETE24"/>
+        <Resource_43 FileName="..\icons\book\book_delete32.png" Type="RCDATA" ResourceName="BOOK_DELETE32"/>
+        <Resource_44 FileName="..\icons\book\book_edit.png" Type="RCDATA" ResourceName="BOOK_EDIT"/>
+        <Resource_45 FileName="..\icons\book\book_edit24.png" Type="RCDATA" ResourceName="BOOK_EDIT24"/>
+        <Resource_46 FileName="..\icons\book\book_edit32.png" Type="RCDATA" ResourceName="BOOK_EDIT32"/>
+        <Resource_47 FileName="..\icons\book\book_grey.png" Type="RCDATA" ResourceName="BOOK_GREY"/>
+        <Resource_48 FileName="..\icons\book\book_link.png" Type="RCDATA" ResourceName="BOOK_LINK"/>
+        <Resource_49 FileName="..\icons\book\book_link24.png" Type="RCDATA" ResourceName="BOOK_LINK24"/>
+        <Resource_50 FileName="..\icons\book\book_link32.png" Type="RCDATA" ResourceName="BOOK_LINK32"/>
+        <Resource_51 FileName="..\icons\book\book_open.png" Type="RCDATA" ResourceName="BOOK_OPEN"/>
+        <Resource_52 FileName="..\icons\book\book_open24.png" Type="RCDATA" ResourceName="BOOK_OPEN24"/>
+        <Resource_53 FileName="..\icons\book\book_open32.png" Type="RCDATA" ResourceName="BOOK_OPEN32"/>
+        <Resource_54 FileName="..\icons\book\book24.png" Type="RCDATA" ResourceName="BOOK24"/>
+        <Resource_55 FileName="..\icons\book\book32.png" Type="RCDATA" ResourceName="BOOK32"/>
+        <Resource_56 FileName="..\icons\bullet\bullet_black.png" Type="RCDATA" ResourceName="BULLET_BLACK"/>
+        <Resource_57 FileName="..\icons\bullet\bullet_black24.png" Type="RCDATA" ResourceName="BULLET_BLACK24"/>
+        <Resource_58 FileName="..\icons\bullet\bullet_black32.png" Type="RCDATA" ResourceName="BULLET_BLACK32"/>
+        <Resource_59 FileName="..\icons\bullet\bullet_blue.png" Type="RCDATA" ResourceName="BULLET_BLUE"/>
+        <Resource_60 FileName="..\icons\bullet\bullet_blue24.png" Type="RCDATA" ResourceName="BULLET_BLUE24"/>
+        <Resource_61 FileName="..\icons\bullet\bullet_blue32.png" Type="RCDATA" ResourceName="BULLET_BLUE32"/>
+        <Resource_62 FileName="..\icons\bullet\bullet_green.png" Type="RCDATA" ResourceName="BULLET_GREEN"/>
+        <Resource_63 FileName="..\icons\bullet\bullet_green24.png" Type="RCDATA" ResourceName="BULLET_GREEN24"/>
+        <Resource_64 FileName="..\icons\bullet\bullet_green32.png" Type="RCDATA" ResourceName="BULLET_GREEN32"/>
+        <Resource_65 FileName="..\icons\bullet\bullet_orange.png" Type="RCDATA" ResourceName="BULLET_ORANGE"/>
+        <Resource_66 FileName="..\icons\bullet\bullet_orange24.png" Type="RCDATA" ResourceName="BULLET_ORANGE24"/>
+        <Resource_67 FileName="..\icons\bullet\bullet_orange32.png" Type="RCDATA" ResourceName="BULLET_ORANGE32"/>
+        <Resource_68 FileName="..\icons\bullet\bullet_pink.png" Type="RCDATA" ResourceName="BULLET_PINK"/>
+        <Resource_69 FileName="..\icons\bullet\bullet_pink24.png" Type="RCDATA" ResourceName="BULLET_PINK24"/>
+        <Resource_70 FileName="..\icons\bullet\bullet_pink32.png" Type="RCDATA" ResourceName="BULLET_PINK32"/>
+        <Resource_71 FileName="..\icons\bullet\bullet_purple.png" Type="RCDATA" ResourceName="BULLET_PURPLE"/>
+        <Resource_72 FileName="..\icons\bullet\bullet_purple24.png" Type="RCDATA" ResourceName="BULLET_PURPLE24"/>
+        <Resource_73 FileName="..\icons\bullet\bullet_purple32.png" Type="RCDATA" ResourceName="BULLET_PURPLE32"/>
+        <Resource_74 FileName="..\icons\bullet\bullet_red.png" Type="RCDATA" ResourceName="BULLET_RED"/>
+        <Resource_75 FileName="..\icons\bullet\bullet_red24.png" Type="RCDATA" ResourceName="BULLET_RED24"/>
+        <Resource_76 FileName="..\icons\bullet\bullet_red32.png" Type="RCDATA" ResourceName="BULLET_RED32"/>
+        <Resource_77 FileName="..\icons\bullet\bullet_star.png" Type="RCDATA" ResourceName="BULLET_STAR"/>
+        <Resource_78 FileName="..\icons\bullet\bullet_star24.png" Type="RCDATA" ResourceName="BULLET_STAR24"/>
+        <Resource_79 FileName="..\icons\bullet\bullet_star32.png" Type="RCDATA" ResourceName="BULLET_STAR32"/>
+        <Resource_80 FileName="..\icons\bullet\bullet_yellow.png" Type="RCDATA" ResourceName="BULLET_YELLOW"/>
+        <Resource_81 FileName="..\icons\bullet\bullet_yellow24.png" Type="RCDATA" ResourceName="BULLET_YELLOW24"/>
+        <Resource_82 FileName="..\icons\bullet\bullet_yellow32.png" Type="RCDATA" ResourceName="BULLET_YELLOW32"/>
+        <Resource_83 FileName="..\icons\cog\cog.png" Type="RCDATA" ResourceName="COG"/>
+        <Resource_84 FileName="..\icons\cog\cog_add.png" Type="RCDATA" ResourceName="COG_ADD"/>
+        <Resource_85 FileName="..\icons\cog\cog_add24.png" Type="RCDATA" ResourceName="COG_ADD24"/>
+        <Resource_86 FileName="..\icons\cog\cog_add32.png" Type="RCDATA" ResourceName="COG_ADD32"/>
+        <Resource_87 FileName="..\icons\cog\cog_delete.png" Type="RCDATA" ResourceName="COG_DELETE"/>
+        <Resource_88 FileName="..\icons\cog\cog_delete24.png" Type="RCDATA" ResourceName="COG_DELETE24"/>
+        <Resource_89 FileName="..\icons\cog\cog_delete32.png" Type="RCDATA" ResourceName="COG_DELETE32"/>
+        <Resource_90 FileName="..\icons\cog\cog_edit.png" Type="RCDATA" ResourceName="COG_EDIT"/>
+        <Resource_91 FileName="..\icons\cog\cog_edit24.png" Type="RCDATA" ResourceName="COG_EDIT24"/>
+        <Resource_92 FileName="..\icons\cog\cog_edit32.png" Type="RCDATA" ResourceName="COG_EDIT32"/>
+        <Resource_93 FileName="..\icons\cog\cog_go.png" Type="RCDATA" ResourceName="COG_GO"/>
+        <Resource_94 FileName="..\icons\cog\cog_go24.png" Type="RCDATA" ResourceName="COG_GO24"/>
+        <Resource_95 FileName="..\icons\cog\cog_go32.png" Type="RCDATA" ResourceName="COG_GO32"/>
+        <Resource_96 FileName="..\icons\cog\cog24.png" Type="RCDATA" ResourceName="COG24"/>
+        <Resource_97 FileName="..\icons\cog\cog32.png" Type="RCDATA" ResourceName="COG32"/>
+        <Resource_98 FileName="..\icons\cog\wrench.png" Type="RCDATA" ResourceName="WRENCH"/>
+        <Resource_99 FileName="..\icons\cog\wrench_orange.png" Type="RCDATA" ResourceName="WRENCH_ORANGE"/>
+        <Resource_100 FileName="..\icons\cog\wrench_orange24.png" Type="RCDATA" ResourceName="WRENCH_ORANGE24"/>
+        <Resource_101 FileName="..\icons\cog\wrench_orange32.png" Type="RCDATA" ResourceName="WRENCH_ORANGE32"/>
+        <Resource_102 FileName="..\icons\cog\wrench24.png" Type="RCDATA" ResourceName="WRENCH24"/>
+        <Resource_103 FileName="..\icons\cog\wrench32.png" Type="RCDATA" ResourceName="WRENCH32"/>
+        <Resource_104 FileName="..\icons\disk\disk.png" Type="RCDATA" ResourceName="DISK"/>
+        <Resource_105 FileName="..\icons\disk\disk_multiple.png" Type="RCDATA" ResourceName="DISK_MULTIPLE"/>
+        <Resource_106 FileName="..\icons\disk\disk_multiple24.png" Type="RCDATA" ResourceName="DISK_MULTIPLE24"/>
+        <Resource_107 FileName="..\icons\disk\disk_multiple32.png" Type="RCDATA" ResourceName="DISK_MULTIPLE32"/>
+        <Resource_108 FileName="..\icons\disk\disk_pen.png" Type="RCDATA" ResourceName="DISK_PEN"/>
+        <Resource_109 FileName="..\icons\disk\disk_pen24.png" Type="RCDATA" ResourceName="DISK_PEN24"/>
+        <Resource_110 FileName="..\icons\disk\disk_pen32.png" Type="RCDATA" ResourceName="DISK_PEN32"/>
+        <Resource_111 FileName="..\icons\disk\disk24.png" Type="RCDATA" ResourceName="DISK24"/>
+        <Resource_112 FileName="..\icons\disk\disk32.png" Type="RCDATA" ResourceName="DISK32"/>
+        <Resource_113 FileName="..\icons\file\document.png" Type="RCDATA" ResourceName="DOCUMENT"/>
+        <Resource_114 FileName="..\icons\file\document_add.png" Type="RCDATA" ResourceName="DOCUMENT_ADD"/>
+        <Resource_115 FileName="..\icons\file\document_add24.png" Type="RCDATA" ResourceName="DOCUMENT_ADD24"/>
+        <Resource_116 FileName="..\icons\file\document_add32.png" Type="RCDATA" ResourceName="DOCUMENT_ADD32"/>
+        <Resource_117 FileName="..\icons\file\document_all.png" Type="RCDATA" ResourceName="DOCUMENT_ALL"/>
+        <Resource_118 FileName="..\icons\file\document_all24.png" Type="RCDATA" ResourceName="DOCUMENT_ALL24"/>
+        <Resource_119 FileName="..\icons\file\document_all32.png" Type="RCDATA" ResourceName="DOCUMENT_ALL32"/>
+        <Resource_120 FileName="..\icons\file\document_back.png" Type="RCDATA" ResourceName="DOCUMENT_BACK"/>
+        <Resource_121 FileName="..\icons\file\document_back24.png" Type="RCDATA" ResourceName="DOCUMENT_BACK24"/>
+        <Resource_122 FileName="..\icons\file\document_back32.png" Type="RCDATA" ResourceName="DOCUMENT_BACK32"/>
+        <Resource_123 FileName="..\icons\file\document_delete.png" Type="RCDATA" ResourceName="DOCUMENT_DELETE"/>
+        <Resource_124 FileName="..\icons\file\document_delete24.png" Type="RCDATA" ResourceName="DOCUMENT_DELETE24"/>
+        <Resource_125 FileName="..\icons\file\document_delete32.png" Type="RCDATA" ResourceName="DOCUMENT_DELETE32"/>
+        <Resource_126 FileName="..\icons\file\document_next.png" Type="RCDATA" ResourceName="DOCUMENT_NEXT"/>
+        <Resource_127 FileName="..\icons\file\document_next24.png" Type="RCDATA" ResourceName="DOCUMENT_NEXT24"/>
+        <Resource_128 FileName="..\icons\file\document_next32.png" Type="RCDATA" ResourceName="DOCUMENT_NEXT32"/>
+        <Resource_129 FileName="..\icons\file\document_plus.png" Type="RCDATA" ResourceName="DOCUMENT_PLUS"/>
+        <Resource_130 FileName="..\icons\file\document_plus24.png" Type="RCDATA" ResourceName="DOCUMENT_PLUS24"/>
+        <Resource_131 FileName="..\icons\file\document_plus32.png" Type="RCDATA" ResourceName="DOCUMENT_PLUS32"/>
+        <Resource_132 FileName="..\icons\file\document24.png" Type="RCDATA" ResourceName="DOCUMENT24"/>
+        <Resource_133 FileName="..\icons\file\document32.png" Type="RCDATA" ResourceName="DOCUMENT32"/>
+        <Resource_134 FileName="..\icons\file\page_text.png" Type="RCDATA" ResourceName="PAGE_TEXT"/>
+        <Resource_135 FileName="..\icons\file\page_text24.png" Type="RCDATA" ResourceName="PAGE_TEXT24"/>
+        <Resource_136 FileName="..\icons\file\page_text32.png" Type="RCDATA" ResourceName="PAGE_TEXT32"/>
+        <Resource_137 FileName="..\icons\file\script_gear.png" Type="RCDATA" ResourceName="SCRIPT_GEAR"/>
+        <Resource_138 FileName="..\icons\file\script_gear24.png" Type="RCDATA" ResourceName="SCRIPT_GEAR24"/>
+        <Resource_139 FileName="..\icons\file\script_gear32.png" Type="RCDATA" ResourceName="SCRIPT_GEAR32"/>
+        <Resource_140 FileName="..\icons\folder\folder.png" Type="RCDATA" ResourceName="FOLDER"/>
+        <Resource_141 FileName="..\icons\folder\folder_add.png" Type="RCDATA" ResourceName="FOLDER_ADD"/>
+        <Resource_142 FileName="..\icons\folder\folder_add24.png" Type="RCDATA" ResourceName="FOLDER_ADD24"/>
+        <Resource_143 FileName="..\icons\folder\folder_add32.png" Type="RCDATA" ResourceName="FOLDER_ADD32"/>
+        <Resource_144 FileName="..\icons\folder\folder_brick.png" Type="RCDATA" ResourceName="FOLDER_BRICK"/>
+        <Resource_145 FileName="..\icons\folder\folder_brick24.png" Type="RCDATA" ResourceName="FOLDER_BRICK24"/>
+        <Resource_146 FileName="..\icons\folder\folder_brick32.png" Type="RCDATA" ResourceName="FOLDER_BRICK32"/>
+        <Resource_147 FileName="..\icons\folder\folder_delete.png" Type="RCDATA" ResourceName="FOLDER_DELETE"/>
+        <Resource_148 FileName="..\icons\folder\folder_delete24.png" Type="RCDATA" ResourceName="FOLDER_DELETE24"/>
+        <Resource_149 FileName="..\icons\folder\folder_delete32.png" Type="RCDATA" ResourceName="FOLDER_DELETE32"/>
+        <Resource_150 FileName="..\icons\folder\folder_go.png" Type="RCDATA" ResourceName="FOLDER_GO"/>
+        <Resource_151 FileName="..\icons\folder\folder_go24.png" Type="RCDATA" ResourceName="FOLDER_GO24"/>
+        <Resource_152 FileName="..\icons\folder\folder_go32.png" Type="RCDATA" ResourceName="FOLDER_GO32"/>
+        <Resource_153 FileName="..\icons\folder\folder_star.png" Type="RCDATA" ResourceName="FOLDER_STAR"/>
+        <Resource_154 FileName="..\icons\folder\folder_star24.png" Type="RCDATA" ResourceName="FOLDER_STAR24"/>
+        <Resource_155 FileName="..\icons\folder\folder_star32.png" Type="RCDATA" ResourceName="FOLDER_STAR32"/>
+        <Resource_156 FileName="..\icons\folder\folder24.png" Type="RCDATA" ResourceName="FOLDER24"/>
+        <Resource_157 FileName="..\icons\folder\folder32.png" Type="RCDATA" ResourceName="FOLDER32"/>
+        <Resource_158 FileName="..\icons\link\link.png" Type="RCDATA" ResourceName="LINK"/>
+        <Resource_159 FileName="..\icons\link\link_break.png" Type="RCDATA" ResourceName="LINK_BREAK"/>
+        <Resource_160 FileName="..\icons\link\link_break24.png" Type="RCDATA" ResourceName="LINK_BREAK24"/>
+        <Resource_161 FileName="..\icons\link\link_break32.png" Type="RCDATA" ResourceName="LINK_BREAK32"/>
+        <Resource_162 FileName="..\icons\link\link_edit.png" Type="RCDATA" ResourceName="LINK_EDIT"/>
+        <Resource_163 FileName="..\icons\link\link_edit24.png" Type="RCDATA" ResourceName="LINK_EDIT24"/>
+        <Resource_164 FileName="..\icons\link\link_edit32.png" Type="RCDATA" ResourceName="LINK_EDIT32"/>
+        <Resource_165 FileName="..\icons\link\link24.png" Type="RCDATA" ResourceName="LINK24"/>
+        <Resource_166 FileName="..\icons\link\link32.png" Type="RCDATA" ResourceName="LINK32"/>
+        <Resource_167 FileName="..\icons\other\accept.png" Type="RCDATA" ResourceName="ACCEPT"/>
+        <Resource_168 FileName="..\icons\other\accept24.png" Type="RCDATA" ResourceName="ACCEPT24"/>
+        <Resource_169 FileName="..\icons\other\accept32.png" Type="RCDATA" ResourceName="ACCEPT32"/>
+        <Resource_170 FileName="..\icons\other\balloon.png" Type="RCDATA" ResourceName="BALLOON"/>
+        <Resource_171 FileName="..\icons\other\balloon24.png" Type="RCDATA" ResourceName="BALLOON24"/>
+        <Resource_172 FileName="..\icons\other\balloon32.png" Type="RCDATA" ResourceName="BALLOON32"/>
+        <Resource_173 FileName="..\icons\other\break_reached.png" Type="RCDATA" ResourceName="BREAK_REACHED"/>
+        <Resource_174 FileName="..\icons\other\break_set.png" Type="RCDATA" ResourceName="BREAK_SET"/>
+        <Resource_175 FileName="..\icons\other\bricks.png" Type="RCDATA" ResourceName="BRICKS"/>
+        <Resource_176 FileName="..\icons\other\bricks24.png" Type="RCDATA" ResourceName="BRICKS24"/>
+        <Resource_177 FileName="..\icons\other\bricks32.png" Type="RCDATA" ResourceName="BRICKS32"/>
+        <Resource_178 FileName="..\icons\other\camera_add.png" Type="RCDATA" ResourceName="CAMERA_ADD"/>
+        <Resource_179 FileName="..\icons\other\camera_add24.png" Type="RCDATA" ResourceName="CAMERA_ADD24"/>
+        <Resource_180 FileName="..\icons\other\camera_add32.png" Type="RCDATA" ResourceName="CAMERA_ADD32"/>
+        <Resource_181 FileName="..\icons\other\camera_go.png" Type="RCDATA" ResourceName="CAMERA_GO"/>
+        <Resource_182 FileName="..\icons\other\camera_go24.png" Type="RCDATA" ResourceName="CAMERA_GO24"/>
+        <Resource_183 FileName="..\icons\other\camera_go32.png" Type="RCDATA" ResourceName="CAMERA_GO32"/>
+        <Resource_184 FileName="..\icons\other\cancel.png" Type="RCDATA" ResourceName="CANCEL"/>
+        <Resource_185 FileName="..\icons\other\cancel24.png" Type="RCDATA" ResourceName="CANCEL24"/>
+        <Resource_186 FileName="..\icons\other\cancel32.png" Type="RCDATA" ResourceName="CANCEL32"/>
+        <Resource_187 FileName="..\icons\other\case.png" Type="RCDATA" ResourceName="CASE"/>
+        <Resource_188 FileName="..\icons\other\case24.png" Type="RCDATA" ResourceName="CASE24"/>
+        <Resource_189 FileName="..\icons\other\case32.png" Type="RCDATA" ResourceName="CASE32"/>
+        <Resource_190 FileName="..\icons\other\clean.png" Type="RCDATA" ResourceName="CLEAN"/>
+        <Resource_191 FileName="..\icons\other\clean24.png" Type="RCDATA" ResourceName="CLEAN24"/>
+        <Resource_192 FileName="..\icons\other\clean32.png" Type="RCDATA" ResourceName="CLEAN32"/>
+        <Resource_193 FileName="..\icons\other\copy.png" Type="RCDATA" ResourceName="COPY"/>
+        <Resource_194 FileName="..\icons\other\copy24.png" Type="RCDATA" ResourceName="COPY24"/>
+        <Resource_195 FileName="..\icons\other\copy32.png" Type="RCDATA" ResourceName="COPY32"/>
+        <Resource_196 FileName="..\icons\other\cut.png" Type="RCDATA" ResourceName="CUT"/>
+        <Resource_197 FileName="..\icons\other\cut24.png" Type="RCDATA" ResourceName="CUT24"/>
+        <Resource_198 FileName="..\icons\other\cut32.png" Type="RCDATA" ResourceName="CUT32"/>
+        <Resource_199 FileName="..\icons\other\debugger_inspect.png" Type="RCDATA" ResourceName="DEBUGGER_INSPECT"/>
+        <Resource_200 FileName="..\icons\other\dub.png" Type="RCDATA" ResourceName="DUB"/>
+        <Resource_201 FileName="..\icons\other\dub24.png" Type="RCDATA" ResourceName="DUB24"/>
+        <Resource_202 FileName="..\icons\other\dub32.png" Type="RCDATA" ResourceName="DUB32"/>
+        <Resource_203 FileName="..\icons\other\exclamation.png" Type="RCDATA" ResourceName="EXCLAMATION"/>
+        <Resource_204 FileName="..\icons\other\exclamation24.png" Type="RCDATA" ResourceName="EXCLAMATION24"/>
+        <Resource_205 FileName="..\icons\other\exclamation32.png" Type="RCDATA" ResourceName="EXCLAMATION32"/>
+        <Resource_206 FileName="..\icons\other\filter_clear.png" Type="RCDATA" ResourceName="FILTER_CLEAR"/>
+        <Resource_207 FileName="..\icons\other\filter_clear24.png" Type="RCDATA" ResourceName="FILTER_CLEAR24"/>
+        <Resource_208 FileName="..\icons\other\filter_clear32.png" Type="RCDATA" ResourceName="FILTER_CLEAR32"/>
+        <Resource_209 FileName="..\icons\other\find.png" Type="RCDATA" ResourceName="FIND"/>
+        <Resource_210 FileName="..\icons\other\find24.png" Type="RCDATA" ResourceName="FIND24"/>
+        <Resource_211 FileName="..\icons\other\find32.png" Type="RCDATA" ResourceName="FIND32"/>
+        <Resource_212 FileName="..\icons\other\flash.png" Type="RCDATA" ResourceName="FLASH"/>
+        <Resource_213 FileName="..\icons\other\flash24.png" Type="RCDATA" ResourceName="FLASH24"/>
+        <Resource_214 FileName="..\icons\other\flash32.png" Type="RCDATA" ResourceName="FLASH32"/>
+        <Resource_215 FileName="..\icons\other\information.png" Type="RCDATA" ResourceName="INFORMATION"/>
+        <Resource_216 FileName="..\icons\other\information24.png" Type="RCDATA" ResourceName="INFORMATION24"/>
+        <Resource_217 FileName="..\icons\other\information32.png" Type="RCDATA" ResourceName="INFORMATION32"/>
+        <Resource_218 FileName="..\icons\other\json_array.png" Type="RCDATA" ResourceName="JSON_ARRAY"/>
+        <Resource_219 FileName="..\icons\other\json_array24.png" Type="RCDATA" ResourceName="JSON_ARRAY24"/>
+        <Resource_220 FileName="..\icons\other\json_array32.png" Type="RCDATA" ResourceName="JSON_ARRAY32"/>
+        <Resource_221 FileName="..\icons\other\json_object.png" Type="RCDATA" ResourceName="JSON_OBJECT"/>
+        <Resource_222 FileName="..\icons\other\json_object24.png" Type="RCDATA" ResourceName="JSON_OBJECT24"/>
+        <Resource_223 FileName="..\icons\other\json_object32.png" Type="RCDATA" ResourceName="JSON_OBJECT32"/>
+        <Resource_224 FileName="..\icons\other\json_value.png" Type="RCDATA" ResourceName="JSON_VALUE"/>
+        <Resource_225 FileName="..\icons\other\json_value24.png" Type="RCDATA" ResourceName="JSON_VALUE24"/>
+        <Resource_226 FileName="..\icons\other\json_value32.png" Type="RCDATA" ResourceName="JSON_VALUE32"/>
+        <Resource_227 FileName="..\icons\other\keyboard_pencil.png" Type="RCDATA" ResourceName="KEYBOARD_PENCIL"/>
+        <Resource_228 FileName="..\icons\other\lightbulb_off.png" Type="RCDATA" ResourceName="LIGHTBULB_OFF"/>
+        <Resource_229 FileName="..\icons\other\lightbulb_off24.png" Type="RCDATA" ResourceName="LIGHTBULB_OFF24"/>
+        <Resource_230 FileName="..\icons\other\lightbulb_off32.png" Type="RCDATA" ResourceName="LIGHTBULB_OFF32"/>
+        <Resource_231 FileName="..\icons\other\list.png" Type="RCDATA" ResourceName="LIST"/>
+        <Resource_232 FileName="..\icons\other\list24.png" Type="RCDATA" ResourceName="LIST24"/>
+        <Resource_233 FileName="..\icons\other\list32.png" Type="RCDATA" ResourceName="LIST32"/>
+        <Resource_234 FileName="..\icons\other\package_add.png" Type="RCDATA" ResourceName="PACKAGE_ADD"/>
+        <Resource_235 FileName="..\icons\other\package_add24.png" Type="RCDATA" ResourceName="PACKAGE_ADD24"/>
+        <Resource_236 FileName="..\icons\other\package_add32.png" Type="RCDATA" ResourceName="PACKAGE_ADD32"/>
+        <Resource_237 FileName="..\icons\other\package_delete.png" Type="RCDATA" ResourceName="PACKAGE_DELETE"/>
+        <Resource_238 FileName="..\icons\other\package_delete24.png" Type="RCDATA" ResourceName="PACKAGE_DELETE24"/>
+        <Resource_239 FileName="..\icons\other\package_delete32.png" Type="RCDATA" ResourceName="PACKAGE_DELETE32"/>
+        <Resource_240 FileName="..\icons\other\paste.png" Type="RCDATA" ResourceName="PASTE"/>
+        <Resource_241 FileName="..\icons\other\paste24.png" Type="RCDATA" ResourceName="PASTE24"/>
+        <Resource_242 FileName="..\icons\other\paste32.png" Type="RCDATA" ResourceName="PASTE32"/>
+        <Resource_243 FileName="..\icons\other\pause.png" Type="RCDATA" ResourceName="PAUSE"/>
+        <Resource_244 FileName="..\icons\other\pause24.png" Type="RCDATA" ResourceName="PAUSE24"/>
+        <Resource_245 FileName="..\icons\other\pause32.png" Type="RCDATA" ResourceName="PAUSE32"/>
+        <Resource_246 FileName="..\icons\other\pencil.png" Type="RCDATA" ResourceName="PENCIL"/>
+        <Resource_247 FileName="..\icons\other\pencil_delete.png" Type="RCDATA" ResourceName="PENCIL_DELETE"/>
+        <Resource_248 FileName="..\icons\other\pencil_delete24.png" Type="RCDATA" ResourceName="PENCIL_DELETE24"/>
+        <Resource_249 FileName="..\icons\other\pencil_delete32.png" Type="RCDATA" ResourceName="PENCIL_DELETE32"/>
+        <Resource_250 FileName="..\icons\other\pencil_go.png" Type="RCDATA" ResourceName="PENCIL_GO"/>
+        <Resource_251 FileName="..\icons\other\pencil_go24.png" Type="RCDATA" ResourceName="PENCIL_GO24"/>
+        <Resource_252 FileName="..\icons\other\pencil_go32.png" Type="RCDATA" ResourceName="PENCIL_GO32"/>
+        <Resource_253 FileName="..\icons\other\pencil24.png" Type="RCDATA" ResourceName="PENCIL24"/>
+        <Resource_254 FileName="..\icons\other\pencil32.png" Type="RCDATA" ResourceName="PENCIL32"/>
+        <Resource_255 FileName="..\icons\other\play.png" Type="RCDATA" ResourceName="PLAY"/>
+        <Resource_256 FileName="..\icons\other\play24.png" Type="RCDATA" ResourceName="PLAY24"/>
+        <Resource_257 FileName="..\icons\other\play32.png" Type="RCDATA" ResourceName="PLAY32"/>
+        <Resource_258 FileName="..\icons\other\power.png" Type="RCDATA" ResourceName="POWER"/>
+        <Resource_259 FileName="..\icons\other\power24.png" Type="RCDATA" ResourceName="POWER24"/>
+        <Resource_260 FileName="..\icons\other\power32.png" Type="RCDATA" ResourceName="POWER32"/>
+        <Resource_261 FileName="..\icons\other\processor.png" Type="RCDATA" ResourceName="PROCESSOR"/>
+        <Resource_262 FileName="..\icons\other\processor24.png" Type="RCDATA" ResourceName="PROCESSOR24"/>
+        <Resource_263 FileName="..\icons\other\processor32.png" Type="RCDATA" ResourceName="PROCESSOR32"/>
+        <Resource_264 FileName="..\icons\other\script_bricks.png" Type="RCDATA" ResourceName="SCRIPT_BRICKS"/>
+        <Resource_265 FileName="..\icons\other\script_bricks24.png" Type="RCDATA" ResourceName="SCRIPT_BRICKS24"/>
+        <Resource_266 FileName="..\icons\other\script_bricks32.png" Type="RCDATA" ResourceName="SCRIPT_BRICKS32"/>
+        <Resource_267 FileName="..\icons\other\sort_az.png" Type="RCDATA" ResourceName="SORT_AZ"/>
+        <Resource_268 FileName="..\icons\other\sort_az24.png" Type="RCDATA" ResourceName="SORT_AZ24"/>
+        <Resource_269 FileName="..\icons\other\sort_az32.png" Type="RCDATA" ResourceName="SORT_AZ32"/>
+        <Resource_270 FileName="..\icons\other\splitter.png" Type="RCDATA" ResourceName="SPLITTER"/>
+        <Resource_271 FileName="..\icons\other\splitter24.png" Type="RCDATA" ResourceName="SPLITTER24"/>
+        <Resource_272 FileName="..\icons\other\splitter32.png" Type="RCDATA" ResourceName="SPLITTER32"/>
+        <Resource_273 FileName="..\icons\other\step.png" Type="RCDATA" ResourceName="STEP"/>
+        <Resource_274 FileName="..\icons\other\step24.png" Type="RCDATA" ResourceName="STEP24"/>
+        <Resource_275 FileName="..\icons\other\step32.png" Type="RCDATA" ResourceName="STEP32"/>
+        <Resource_276 FileName="..\icons\other\stop.png" Type="RCDATA" ResourceName="STOP"/>
+        <Resource_277 FileName="..\icons\other\stop24.png" Type="RCDATA" ResourceName="STOP24"/>
+        <Resource_278 FileName="..\icons\other\stop32.png" Type="RCDATA" ResourceName="STOP32"/>
+        <Resource_279 FileName="..\icons\other\tag_purple.png" Type="RCDATA" ResourceName="TAG_PURPLE"/>
+        <Resource_280 FileName="..\icons\other\tag_purple24.png" Type="RCDATA" ResourceName="TAG_PURPLE24"/>
+        <Resource_281 FileName="..\icons\other\tag_purple32.png" Type="RCDATA" ResourceName="TAG_PURPLE32"/>
+        <Resource_282 FileName="..\icons\other\text_replace.png" Type="RCDATA" ResourceName="TEXT_REPLACE"/>
+        <Resource_283 FileName="..\icons\other\text_replace24.png" Type="RCDATA" ResourceName="TEXT_REPLACE24"/>
+        <Resource_284 FileName="..\icons\other\text_replace32.png" Type="RCDATA" ResourceName="TEXT_REPLACE32"/>
+        <Resource_285 FileName="..\icons\other\textfield_add.png" Type="RCDATA" ResourceName="TEXTFIELD_ADD"/>
+        <Resource_286 FileName="..\icons\other\textfield_add24.png" Type="RCDATA" ResourceName="TEXTFIELD_ADD24"/>
+        <Resource_287 FileName="..\icons\other\textfield_add32.png" Type="RCDATA" ResourceName="TEXTFIELD_ADD32"/>
+        <Resource_288 FileName="..\icons\other\textfield_delete.png" Type="RCDATA" ResourceName="TEXTFIELD_DELETE"/>
+        <Resource_289 FileName="..\icons\other\textfield_delete24.png" Type="RCDATA" ResourceName="TEXTFIELD_DELETE24"/>
+        <Resource_290 FileName="..\icons\other\textfield_delete32.png" Type="RCDATA" ResourceName="TEXTFIELD_DELETE32"/>
+        <Resource_291 FileName="..\icons\other\tree_list.png" Type="RCDATA" ResourceName="TREE_LIST"/>
+        <Resource_292 FileName="..\icons\other\tree_list24.png" Type="RCDATA" ResourceName="TREE_LIST24"/>
+        <Resource_293 FileName="..\icons\other\tree_list32.png" Type="RCDATA" ResourceName="TREE_LIST32"/>
+        <Resource_294 FileName="..\icons\other\warn_red.png" Type="RCDATA" ResourceName="WARN_RED"/>
+        <Resource_295 FileName="..\icons\other\warn_red24.png" Type="RCDATA" ResourceName="WARN_RED24"/>
+        <Resource_296 FileName="..\icons\other\warn_red32.png" Type="RCDATA" ResourceName="WARN_RED32"/>
+        <Resource_297 FileName="..\icons\other\warning.png" Type="RCDATA" ResourceName="WARNING"/>
+        <Resource_298 FileName="..\icons\other\warning24.png" Type="RCDATA" ResourceName="WARNING24"/>
+        <Resource_299 FileName="..\icons\other\warning32.png" Type="RCDATA" ResourceName="WARNING32"/>
+        <Resource_300 FileName="..\icons\window\application.png" Type="RCDATA" ResourceName="APPLICATION"/>
+        <Resource_301 FileName="..\icons\window\application_add.png" Type="RCDATA" ResourceName="APPLICATION_ADD"/>
+        <Resource_302 FileName="..\icons\window\application_add24.png" Type="RCDATA" ResourceName="APPLICATION_ADD24"/>
+        <Resource_303 FileName="..\icons\window\application_add32.png" Type="RCDATA" ResourceName="APPLICATION_ADD32"/>
+        <Resource_304 FileName="..\icons\window\application_delete.png" Type="RCDATA" ResourceName="APPLICATION_DELETE"/>
+        <Resource_305 FileName="..\icons\window\application_delete24.png" Type="RCDATA" ResourceName="APPLICATION_DELETE24"/>
+        <Resource_306 FileName="..\icons\window\application_delete32.png" Type="RCDATA" ResourceName="APPLICATION_DELETE32"/>
+        <Resource_307 FileName="..\icons\window\application_double.png" Type="RCDATA" ResourceName="APPLICATION_DOUBLE"/>
+        <Resource_308 FileName="..\icons\window\application_double24.png" Type="RCDATA" ResourceName="APPLICATION_DOUBLE24"/>
+        <Resource_309 FileName="..\icons\window\application_double32.png" Type="RCDATA" ResourceName="APPLICATION_DOUBLE32"/>
+        <Resource_310 FileName="..\icons\window\application_edit.png" Type="RCDATA" ResourceName="APPLICATION_EDIT"/>
+        <Resource_311 FileName="..\icons\window\application_edit24.png" Type="RCDATA" ResourceName="APPLICATION_EDIT24"/>
+        <Resource_312 FileName="..\icons\window\application_edit32.png" Type="RCDATA" ResourceName="APPLICATION_EDIT32"/>
+        <Resource_313 FileName="..\icons\window\application_flash.png" Type="RCDATA" ResourceName="APPLICATION_FLASH"/>
+        <Resource_314 FileName="..\icons\window\application_flash24.png" Type="RCDATA" ResourceName="APPLICATION_FLASH24"/>
+        <Resource_315 FileName="..\icons\window\application_flash32.png" Type="RCDATA" ResourceName="APPLICATION_FLASH32"/>
+        <Resource_316 FileName="..\icons\window\application_go.png" Type="RCDATA" ResourceName="APPLICATION_GO"/>
+        <Resource_317 FileName="..\icons\window\application_go24.png" Type="RCDATA" ResourceName="APPLICATION_GO24"/>
+        <Resource_318 FileName="..\icons\window\application_go32.png" Type="RCDATA" ResourceName="APPLICATION_GO32"/>
+        <Resource_319 FileName="..\icons\window\application24.png" Type="RCDATA" ResourceName="APPLICATION24"/>
+        <Resource_320 FileName="..\icons\window\application32.png" Type="RCDATA" ResourceName="APPLICATION32"/>
+        <Resource_321 FileName="..\icons\window\layout.png" Type="RCDATA" ResourceName="LAYOUT"/>
+        <Resource_322 FileName="..\icons\window\layout_add.png" Type="RCDATA" ResourceName="LAYOUT_ADD"/>
+        <Resource_323 FileName="..\icons\window\layout_add24.png" Type="RCDATA" ResourceName="LAYOUT_ADD24"/>
+        <Resource_324 FileName="..\icons\window\layout_add32.png" Type="RCDATA" ResourceName="LAYOUT_ADD32"/>
+        <Resource_325 FileName="..\icons\window\layout24.png" Type="RCDATA" ResourceName="LAYOUT24"/>
+        <Resource_326 FileName="..\icons\window\layout32.png" Type="RCDATA" ResourceName="LAYOUT32"/>
+        <Resource_327 FileName="..\icons\window\watch_window.png" Type="RCDATA" ResourceName="WATCH_WINDOW"/>
+        <Resource_328 FileName="..\icons\window\watch_window24.png" Type="RCDATA" ResourceName="WATCH_WINDOW24"/>
+        <Resource_329 FileName="..\icons\window\watch_window32.png" Type="RCDATA" ResourceName="WATCH_WINDOW32"/>
+        <Resource_330 FileName="../icons/other/evaluate_formula.png" Type="RCDATA" ResourceName="EVALUATE_FORMULA"/>
+        <Resource_331 FileName="../icons/other/evaluate_formula24.png" Type="RCDATA" ResourceName="EVALUATE_FORMULA24"/>
+        <Resource_332 FileName="../icons/other/evaluate_formula32.png" Type="RCDATA" ResourceName="EVALUATE_FORMULA32"/>
+        <Resource_333 FileName="../icons/folder/folders_explorer.png" Type="RCDATA" ResourceName="FOLDERS_EXPLORER"/>
+        <Resource_334 FileName="../icons/folder/folders_explorer24.png" Type="RCDATA" ResourceName="FOLDERS_EXPLORER24"/>
+        <Resource_335 FileName="../icons/folder/folders_explorer32.png" Type="RCDATA" ResourceName="FOLDERS_EXPLORER32"/>
+        <Resource_336 FileName="../icons/folder/folder_vertical_document.png" Type="RCDATA" ResourceName="FOLDER_VERTICAL_DOCUMENT"/>
+        <Resource_337 FileName="../icons/folder/folder_vertical_document24.png" Type="RCDATA" ResourceName="FOLDER_VERTICAL_DOCUMENT24"/>
+        <Resource_338 FileName="../icons/folder/folder_vertical_document32.png" Type="RCDATA" ResourceName="FOLDER_VERTICAL_DOCUMENT32"/>
+        <Resource_339 FileName="../icons/other/error_checking.png" Type="RCDATA" ResourceName="ERROR_CHECKING"/>
+        <Resource_340 FileName="../icons/other/error_checking24.png" Type="RCDATA" ResourceName="ERROR_CHECKING24"/>
+        <Resource_341 FileName="../icons/other/error_checking32.png" Type="RCDATA" ResourceName="ERROR_CHECKING32"/>
+        <Resource_342 FileName="../icons/file/script_lightning.png" Type="RCDATA" ResourceName="SCRIPT_LIGHTNING"/>
+        <Resource_343 FileName="../icons/file/script_lightning24.png" Type="RCDATA" ResourceName="SCRIPT_LIGHTNING24"/>
+        <Resource_344 FileName="../icons/file/script_lightning32.png" Type="RCDATA" ResourceName="SCRIPT_LIGHTNING32"/>
+        <Resource_345 FileName="../icons/cog/system_run.png" Type="RCDATA" ResourceName="SYSTEM_RUN"/>
+        <Resource_346 FileName="../icons/cog/system_run24.png" Type="RCDATA" ResourceName="SYSTEM_RUN24"/>
+        <Resource_347 FileName="../icons/cog/system_run32.png" Type="RCDATA" ResourceName="SYSTEM_RUN32"/>
+        <Resource_348 FileName="../icons/other/cross.png" Type="RCDATA" ResourceName="CROSS"/>
+        <Resource_349 FileName="../icons/other/cross24.png" Type="RCDATA" ResourceName="CROSS24"/>
+        <Resource_350 FileName="../icons/other/cross32.png" Type="RCDATA" ResourceName="CROSS32"/>
+        <Resource_351 FileName="../icons/other/break_reached32.png" Type="RCDATA" ResourceName="BREAK_REACHED32"/>
+        <Resource_352 FileName="../icons/other/break_reached24.png" Type="RCDATA" ResourceName="BREAK_REACHED24"/>
+        <Resource_353 FileName="../icons/other/break_set32.png" Type="RCDATA" ResourceName="BREAK_SET32"/>
+        <Resource_354 FileName="../icons/other/break_set24.png" Type="RCDATA" ResourceName="BREAK_SET24"/>
+        <Resource_355 FileName="../icons/other/indent_more.png" Type="RCDATA" ResourceName="INDENT_MORE"/>
+        <Resource_356 FileName="../icons/other/indent_more24.png" Type="RCDATA" ResourceName="INDENT_MORE24"/>
+        <Resource_357 FileName="../icons/other/indent_more32.png" Type="RCDATA" ResourceName="INDENT_MORE32"/>
+        <Resource_358 FileName="../icons/other/indent_less32.png" Type="RCDATA" ResourceName="INDENT_LESS32"/>
+        <Resource_359 FileName="../icons/other/indent_less24.png" Type="RCDATA" ResourceName="INDENT_LESS24"/>
+        <Resource_360 FileName="../icons/other/indent_less.png" Type="RCDATA" ResourceName="INDENT_LESS"/>
+        <Resource_361 FileName="../icons/book/book_grey32.png" Type="RCDATA" ResourceName="BOOK_GREY32"/>
+        <Resource_362 FileName="../icons/book/book_grey24.png" Type="RCDATA" ResourceName="BOOK_GREY24"/>
+        <Resource_363 FileName="../icons/other/shortcuts.png" Type="RCDATA" ResourceName="SHORTCUTS"/>
+        <Resource_364 FileName="../icons/other/shortcuts24.png" Type="RCDATA" ResourceName="SHORTCUTS24"/>
+        <Resource_365 FileName="../icons/other/shortcuts32.png" Type="RCDATA" ResourceName="SHORTCUTS32"/>
+        <Resource_366 FileName="../icons/other/html_go.png" Type="RCDATA" ResourceName="HTML_GO"/>
+        <Resource_367 FileName="../icons/other/html_go24.png" Type="RCDATA" ResourceName="HTML_GO24"/>
+        <Resource_368 FileName="../icons/other/html_go32.png" Type="RCDATA" ResourceName="HTML_GO32"/>
+        <Resource_369 FileName="../icons/folder/move_to_folder.png" Type="RCDATA" ResourceName="MOVE_TO_FOLDER"/>
+        <Resource_370 FileName="../icons/folder/move_to_folder24.png" Type="RCDATA" ResourceName="MOVE_TO_FOLDER24"/>
+        <Resource_371 FileName="../icons/folder/move_to_folder32.png" Type="RCDATA" ResourceName="MOVE_TO_FOLDER32"/>
+        <Resource_372 FileName="../icons/other/check_boxes_series.png" Type="RCDATA" ResourceName="CHECK_BOXES_SERIES"/>
+        <Resource_373 FileName="../icons/other/check_boxes_series24.png" Type="RCDATA" ResourceName="CHECK_BOXES_SERIES24"/>
+        <Resource_374 FileName="../icons/other/check_boxes_series32.png" Type="RCDATA" ResourceName="CHECK_BOXES_SERIES32"/>
+        <Resource_375 FileName="../icons/other/git.png" Type="RCDATA" ResourceName="GIT"/>
+        <Resource_376 FileName="../icons/other/git24.png" Type="RCDATA" ResourceName="GIT24"/>
+        <Resource_377 FileName="../icons/other/git32.png" Type="RCDATA" ResourceName="GIT32"/>
+        <Resource_378 FileName="../setup/version.txt" Type="RCDATA" ResourceName="VERSION"/>
+      </Resources>
+    </General>
+    <i18n>
+      <EnableI18N LFM="False"/>
+    </i18n>
+    <BuildModes Count="3">
+      <Item1 Name="Release" Default="True"/>
+      <Item2 Name="Debug">
+        <CompilerOptions>
+          <Version Value="11"/>
+          <PathDelim Value="\"/>
+          <Target>
+            <Filename Value="..\bin\dexed"/>
+          </Target>
+          <SearchPaths>
+            <IncludeFiles Value="$(ProjOutDir)"/>
+            <OtherUnitFiles Value="..\src;..\etc\terminal"/>
+            <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
+          </SearchPaths>
+          <Parsing>
+            <SyntaxOptions>
+              <IncludeAssertionCode Value="True"/>
+              <CPPInline Value="False"/>
+            </SyntaxOptions>
+          </Parsing>
+          <CodeGeneration>
+            <Checks>
+              <IOChecks Value="True"/>
+              <RangeChecks Value="True"/>
+              <OverflowChecks Value="True"/>
+              <StackChecks Value="True"/>
+            </Checks>
+            <Optimizations>
+              <OptimizationLevel Value="0"/>
+            </Optimizations>
+          </CodeGeneration>
+          <Linking>
+            <Debugging>
+              <UseHeaptrc Value="True"/>
+            </Debugging>
+          </Linking>
+          <Other>
+            <CompilerMessages>
+              <IgnoredMessages idx5024="True"/>
+            </CompilerMessages>
+            <CustomOptions Value="-dDEBUG"/>
+            <OtherDefines Count="2">
+              <Define0 Value="RELEASE"/>
+              <Define1 Value="GTK_REMOVE_CLIPBOARD_NULL"/>
+            </OtherDefines>
+          </Other>
+        </CompilerOptions>
+      </Item2>
+      <Item3 Name="LeaksCheck">
+        <CompilerOptions>
+          <Version Value="11"/>
+          <PathDelim Value="\"/>
+          <Target>
+            <Filename Value="..\bin\dexed"/>
+          </Target>
+          <SearchPaths>
+            <IncludeFiles Value="$(ProjOutDir)"/>
+            <OtherUnitFiles Value="..\src;..\etc\terminal"/>
+            <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
+          </SearchPaths>
+          <Parsing>
+            <SyntaxOptions>
+              <IncludeAssertionCode Value="True"/>
+              <CPPInline Value="False"/>
+            </SyntaxOptions>
+          </Parsing>
+          <CodeGeneration>
+            <Checks>
+              <IOChecks Value="True"/>
+              <RangeChecks Value="True"/>
+              <OverflowChecks Value="True"/>
+              <StackChecks Value="True"/>
+            </Checks>
+            <Optimizations>
+              <OptimizationLevel Value="0"/>
+            </Optimizations>
+          </CodeGeneration>
+          <Linking>
+            <Debugging>
+              <UseHeaptrc Value="True"/>
+            </Debugging>
+            <Options>
+              <Win32>
+                <GraphicApplication Value="True"/>
+              </Win32>
+            </Options>
+          </Linking>
+          <Other>
+            <CustomOptions Value="-dDEBUG"/>
+          </Other>
+        </CompilerOptions>
+      </Item3>
+    </BuildModes>
+    <PublishOptions>
+      <Version Value="2"/>
+    </PublishOptions>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes Count="1">
+        <Mode0 Name="default"/>
+      </Modes>
+    </RunParams>
+    <RequiredPackages Count="8">
+      <Item1>
+        <PackageName Value="DexedDesignControls"/>
+      </Item1>
+      <Item2>
+        <PackageName Value="TAChartLazarusPkg"/>
+      </Item2>
+      <Item3>
+        <PackageName Value="anchordocking"/>
+      </Item3>
+      <Item4>
+        <PackageName Value="FCL"/>
+      </Item4>
+      <Item5>
+        <PackageName Value="RunTimeTypeInfoControls"/>
+      </Item5>
+      <Item6>
+        <PackageName Value="SynEdit"/>
+      </Item6>
+      <Item7>
+        <PackageName Value="LazControls"/>
+      </Item7>
+      <Item8>
+        <PackageName Value="LCL"/>
+      </Item8>
+    </RequiredPackages>
+    <Units Count="60">
+      <Unit0>
+        <Filename Value="dexed.lpr"/>
+        <IsPartOfProject Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="..\src\u_common.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="..\src\u_d2syn.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="..\src\u_dcd.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="..\src\u_dlang.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="..\src\u_dlangutils.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="..\src\u_dmdwrap.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="..\src\u_dockoptions.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="..\src\u_editor.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="EditorWidget"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="..\src\u_editoroptions.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="..\src\u_inspectors.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="..\src\u_interfaces.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="..\src\u_libman.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="..\src\u_libmaneditor.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="LibManEditorWidget"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="..\src\u_main.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="MainForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="..\src\u_messages.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="MessagesWidget"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="..\src\u_miniexplorer.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="MiniExplorerWidget"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="..\src\u_mru.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="..\src\u_observer.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit18>
+      <Unit19>
+        <Filename Value="..\src\u_optionseditor.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="OptionEditorWidget"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit19>
+      <Unit20>
+        <Filename Value="..\src\u_procinput.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ProcInputWidget"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit20>
+      <Unit21>
+        <Filename Value="..\src\u_ceprojeditor.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ProjectConfigurationWidget"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit21>
+      <Unit22>
+        <Filename Value="..\src\u_ceproject.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit22>
+      <Unit23>
+        <Filename Value="..\src\u_projinspect.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ProjectInspectWidget"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit23>
+      <Unit24>
+        <Filename Value="..\src\u_search.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="SearchWidget"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit24>
+      <Unit25>
+        <Filename Value="..\src\u_shortcutseditor.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ShortcutEditor"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Frame"/>
+      </Unit25>
+      <Unit26>
+        <Filename Value="..\src\u_symlist.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="SymbolListWidget"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit26>
+      <Unit27>
+        <Filename Value="..\src\u_symstring.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit27>
+      <Unit28>
+        <Filename Value="..\src\u_synmemo.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit28>
+      <Unit29>
+        <Filename Value="..\src\u_todolist.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="TodoListWidget"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit29>
+      <Unit30>
+        <Filename Value="..\src\u_tools.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit30>
+      <Unit31>
+        <Filename Value="..\src\u_toolseditor.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ToolsEditorWidget"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit31>
+      <Unit32>
+        <Filename Value="..\src\u_txtsyn.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit32>
+      <Unit33>
+        <Filename Value="..\src\u_writablecomponent.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="u_writableComponent"/>
+      </Unit33>
+      <Unit34>
+        <Filename Value="..\src\u_sharedres.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit34>
+      <Unit35>
+        <Filename Value="..\src\u_widget.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DexedWidget"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit35>
+      <Unit36>
+        <Filename Value="..\src\u_processes.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit36>
+      <Unit37>
+        <Filename Value="..\src\u_infos.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="InfoWidget"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit37>
+      <Unit38>
+        <Filename Value="..\src\u_dubproject.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit38>
+      <Unit39>
+        <Filename Value="..\src\u_dialogs.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit39>
+      <Unit40>
+        <Filename Value="..\src\u_dubprojeditor.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DubProjectEditorWidget"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit40>
+      <Unit41>
+        <Filename Value="..\src\u_gdb.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="GdbWidget"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit41>
+      <Unit42>
+        <Filename Value="..\src\u_controls.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit42>
+      <Unit43>
+        <Filename Value="..\src\u_dfmt.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DfmtWidget"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit43>
+      <Unit44>
+        <Filename Value="..\src\u_lcldragdrop.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit44>
+      <Unit45>
+        <Filename Value="..\src\u_stringrange.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit45>
+      <Unit46>
+        <Filename Value="..\src\u_dlangmaps.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit46>
+      <Unit47>
+        <Filename Value="..\src\u_projgroup.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ProjectGroupWidget"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit47>
+      <Unit48>
+        <Filename Value="..\src\u_projutils.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit48>
+      <Unit49>
+        <Filename Value="..\src\u_d2synpresets.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit49>
+      <Unit50>
+        <Filename Value="..\src\u_dastworx.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit50>
+      <Unit51>
+        <Filename Value="..\src\u_dbgitf.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit51>
+      <Unit52>
+        <Filename Value="..\src\u_ddemangle.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit52>
+      <Unit53>
+        <Filename Value="..\src\u_compilers.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="CompilersPathsEditor"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit53>
+      <Unit54>
+        <Filename Value="..\src\u_halstead.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit54>
+      <Unit55>
+        <Filename Value="..\src\u_diff.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="DiffViewer"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit55>
+      <Unit56>
+        <Filename Value="..\src\u_profileviewer.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="ProfileViewerWidget"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit56>
+      <Unit57>
+        <Filename Value="..\src\u_semver.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit57>
+      <Unit58>
+        <Filename Value="..\src\u_term.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="TermWidget"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit58>
+      <Unit59>
+        <Filename Value="..\src\u_newdubproj.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="CeNewDubProject"/>
+        <ResourceBaseClass Value="Form"/>
+      </Unit59>
+    </Units>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="11"/>
+    <PathDelim Value="\"/>
+    <Target>
+      <Filename Value="..\bin\dexed"/>
+    </Target>
+    <SearchPaths>
+      <IncludeFiles Value="$(ProjOutDir)"/>
+      <OtherUnitFiles Value="..\src;..\etc\terminal"/>
+      <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
+    </SearchPaths>
+    <CodeGeneration>
+      <SmartLinkUnit Value="True"/>
+      <Optimizations>
+        <OptimizationLevel Value="3"/>
+      </Optimizations>
+    </CodeGeneration>
+    <Linking>
+      <Debugging>
+        <GenerateDebugInfo Value="False"/>
+      </Debugging>
+      <LinkSmart Value="True"/>
+      <Options>
+        <Win32>
+          <GraphicApplication Value="True"/>
+        </Win32>
+      </Options>
+    </Linking>
+    <Other>
+      <Verbosity>
+        <ShowHints Value="False"/>
+      </Verbosity>
+      <CompilerMessages>
+        <IgnoredMessages idx5024="True"/>
+      </CompilerMessages>
+      <CustomOptions Value="-dRELEASE
+-dGTK_REMOVE_CLIPBOARD_NULL"/>
+    </Other>
+  </CompilerOptions>
+  <Debugging>
+    <Exceptions Count="3">
+      <Item1>
+        <Name Value="EAbort"/>
+      </Item1>
+      <Item2>
+        <Name Value="ECodetoolError"/>
+      </Item2>
+      <Item3>
+        <Name Value="EFOpenError"/>
+      </Item3>
+    </Exceptions>
+  </Debugging>
+</CONFIG>

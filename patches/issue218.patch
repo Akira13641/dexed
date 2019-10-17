@@ -1,0 +1,23 @@
+Fixes https://github.com/Basile-z/Coedit/issues/218
+Must be applied to any Lazarus 1.8.0 Vanilla.
+Has not be applied to Lazarus 1.8.1 or newer.
+--- synedit.pp
++++ synedit.pp
+@@ -8945,7 +8945,7 @@
+       while not Highlighter.GetEol do begin
+         Start := Highlighter.GetTokenPos + 1;
+         Token := Highlighter.GetToken;
++        if (PosX >= Start) and (PosX < Start + Length(Token)) then begin
+-        if (PosX >= Start) and (PosX <= Start + Length(Token)) then begin
+           Attri := Highlighter.GetTokenAttribute;
+           TokenType := Highlighter.GetTokenKind;
+           exit(True);
+@@ -8990,7 +8990,7 @@
+         //TokenType := Highlighter.GetTokenKind;
+         Attri := Highlighter.GetTokenAttribute;
+         //DebugLn(['  TCustomSynEdit.CaretAtIdentOrString: Start=', Start, ', Token=', Token]);
++        if (PosX >= Start) and (PosX < Start + Length(Token)) then
+-        if (PosX >= Start) and (PosX <= Start + Length(Token)) then
+         begin
+           AtIdent := Attri = Highlighter.IdentifierAttribute;
+           NearString := (Attri = Highlighter.StringAttribute)

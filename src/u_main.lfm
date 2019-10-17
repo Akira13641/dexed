@@ -1,0 +1,856 @@
+object MainForm: TMainForm
+  Left = 383
+  Height = 35
+  Top = 610
+  Width = 687
+  AllowDropFiles = True
+  Caption = 'Coedit'
+  Menu = mainMenu
+  OnClose = FormClose
+  OnCloseQuery = FormCloseQuery
+  OnDropFiles = FormDropFiles
+  OnResize = FormResize
+  OnWindowStateChange = FormWindowStateChange
+  ShowHint = True
+  LCLVersion = '2.0.0.3'
+  object mainMenu: TMainMenu
+    top = 1
+    object MenuItem1: TMenuItem
+      Caption = 'File'
+      object MenuItem5: TMenuItem
+        Action = actFileNew
+      end
+      object MenuItem24: TMenuItem
+        Action = actFileNewRun
+      end
+      object MenuItem109: TMenuItem
+        Action = actFileNewClip
+      end
+      object MenuItem97: TMenuItem
+        Action = actFileNewDubScript
+      end
+      object MenuItem2: TMenuItem
+        Action = actFileOpen
+      end
+      object mnuItemMruFile: TMenuItem
+        Caption = 'Open recent file'
+        ImageIndex = 9
+      end
+      object MenuItem43: TMenuItem
+        Action = actFileClose
+      end
+      object MenuItem107: TMenuItem
+        Action = actFileCloseAll
+      end
+      object MenuItem106: TMenuItem
+        Action = actFileCloseAllOthers
+      end
+      object MenuItem6: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem4: TMenuItem
+        Action = actFileSave
+      end
+      object MenuItem50: TMenuItem
+        Action = actFileSaveAll
+      end
+      object MenuItem3: TMenuItem
+        Action = actFileSaveAs
+      end
+      object MenuItem71: TMenuItem
+        Action = actFileSaveCopyAs
+      end
+      object MenuItem62: TMenuItem
+        Action = actFileHtmlExport
+      end
+      object MenuItem25: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem26: TMenuItem
+        Action = actFileAddToProj
+      end
+      object MenuItem36: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem72: TMenuItem
+        Action = actFileCompile
+      end
+      object MenuItem37: TMenuItem
+        Action = actFileCompAndRun
+      end
+      object MenuItem38: TMenuItem
+        Action = actFileCompAndRunWithArgs
+      end
+      object MenuItem65: TMenuItem
+        Action = actFileCompileAndRunOut
+      end
+      object MenuItem73: TMenuItem
+        Action = actFileRun
+      end
+      object MenuItem79: TMenuItem
+        Action = actFileRunOut
+      end
+      object MenuItem63: TMenuItem
+        Action = actFileUnittest
+      end
+      object MenuItem68: TMenuItem
+        Action = actSetRunnableSw
+      end
+      object MenuItem91: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem92: TMenuItem
+        Action = actFileRunDub
+      end
+      object MenuItem94: TMenuItem
+        Action = actFileRunDubOut
+      end
+      object MenuItem59: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem78: TMenuItem
+        Action = actFileDscanner
+      end
+      object MenuItem77: TMenuItem
+        Action = actFileMetricsHalstead
+      end
+      object MenuItem60: TMenuItem
+        Action = actFileOpenContFold
+      end
+    end
+    object MenuItem7: TMenuItem
+      Caption = 'Edit'
+      object MenuItem15: TMenuItem
+        Action = actEdCopy
+      end
+      object MenuItem16: TMenuItem
+        Action = actEdCut
+      end
+      object MenuItem17: TMenuItem
+        Action = actEdPaste
+      end
+      object MenuItem18: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem19: TMenuItem
+        Action = actEdUndo
+      end
+      object MenuItem20: TMenuItem
+        Action = actEdRedo
+      end
+      object MenuItem21: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem31: TMenuItem
+        Action = actEdFormat
+      end
+      object MenuItem54: TMenuItem
+        Action = actEdIndent
+      end
+      object MenuItem53: TMenuItem
+        Action = actEdUnIndent
+      end
+      object MenuItem52: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem22: TMenuItem
+        Action = actEdMacStartStop
+      end
+      object MenuItem23: TMenuItem
+        Action = actEdMacPlay
+      end
+      object MenuItem56: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem57: TMenuItem
+        Action = actEdFind
+      end
+      object MenuItem58: TMenuItem
+        Action = actEdFindNext
+      end
+    end
+    object MenuItem14: TMenuItem
+      Caption = 'Project'
+      object mnuProjNew: TMenuItem
+        Caption = 'New project'
+        object mnuItemDubDialog: TMenuItem
+          Action = actProjNewDialog
+        end
+        object MenuItem69: TMenuItem
+          Action = actProjNewDubJson
+        end
+        object MenuItem70: TMenuItem
+          Action = actProjNewNative
+        end
+      end
+      object MenuItem30: TMenuItem
+        Action = actProjOpen
+      end
+      object mnuItemMruProj: TMenuItem
+        Caption = 'Open recent project'
+        ImageIndex = 9
+      end
+      object MenuItem42: TMenuItem
+        Action = actProjClose
+      end
+      object MenuItem86: TMenuItem
+        Action = actProjAddToGroup
+      end
+      object MenuItem29: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem27: TMenuItem
+        Action = actProjSave
+      end
+      object MenuItem28: TMenuItem
+        Action = actProjSaveAs
+      end
+      object MenuItem32: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem41: TMenuItem
+        Action = actProjEditor
+      end
+      object MenuItem51: TMenuItem
+        Action = actProjSource
+      end
+      object MenuItem55: TMenuItem
+        Action = actProjOptView
+      end
+      object MenuItem61: TMenuItem
+        Action = actProjOpenContFold
+      end
+      object MenuItem108: TMenuItem
+        Action = actProjDscan
+      end
+      object MenuItem40: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem33: TMenuItem
+        Action = actProjCompile
+      end
+      object MenuItem34: TMenuItem
+        Action = actProjCompileAndRun
+      end
+      object MenuItem35: TMenuItem
+        Action = actProjCompAndRunWithArgs
+      end
+      object MenuItem113: TMenuItem
+        Action = actProjStopComp
+      end
+      object MenuItem47: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem48: TMenuItem
+        Action = actProjRun
+      end
+      object MenuItem49: TMenuItem
+        Action = actProjRunWithArgs
+      end
+      object MenuItem76: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem110: TMenuItem
+        Action = actProjTest
+      end
+      object MenuItem115: TMenuItem
+        Caption = '-'
+      end
+      object mnuGitBranch: TMenuItem
+        Caption = 'Git branch...'
+      end
+      object MenuItem116: TMenuItem
+        Action = actProjGitPull
+      end
+    end
+    object MenuItem100: TMenuItem
+      Caption = 'Projects group'
+      object MenuItem87: TMenuItem
+        Action = actProjSelUngrouped
+      end
+      object MenuItem101: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem82: TMenuItem
+        Action = actProjNewGroup
+      end
+      object MenuItem83: TMenuItem
+        Action = actProjOpenGroup
+      end
+      object mnuItemMruGroup: TMenuItem
+        Caption = 'Open recent projects group'
+        ImageIndex = 9
+      end
+      object MenuItem103: TMenuItem
+        Action = actProjGroupClose
+      end
+      object MenuItem81: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem84: TMenuItem
+        Action = actProjSaveGroup
+      end
+      object MenuItem85: TMenuItem
+        Action = actProjSaveGroupAs
+      end
+      object MenuItem102: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem88: TMenuItem
+        Action = actProjGroupCompile
+      end
+      object MenuItem98: TMenuItem
+        Action = actProjGroupCompileSync
+      end
+      object MenuItem104: TMenuItem
+        Action = actProjGroupCompileCustomSync
+      end
+    end
+    object MenuItem8: TMenuItem
+      Caption = 'Compilation'
+      object MenuItem74: TMenuItem
+        Action = actFileCompile
+      end
+      object MenuItem9: TMenuItem
+        Action = actFileCompAndRun
+      end
+      object MenuItem13: TMenuItem
+        Action = actFileCompAndRunWithArgs
+      end
+      object MenuItem66: TMenuItem
+        Action = actFileCompileAndRunOut
+      end
+      object MenuItem75: TMenuItem
+        Action = actFileRun
+      end
+      object MenuItem80: TMenuItem
+        Action = actFileRunOut
+      end
+      object MenuItem64: TMenuItem
+        Action = actFileUnittest
+      end
+      object MenuItem67: TMenuItem
+        Action = actSetRunnableSw
+      end
+      object MenuItem95: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem93: TMenuItem
+        Action = actFileRunDub
+      end
+      object MenuItem96: TMenuItem
+        Action = actFileRunDubOut
+      end
+      object MenuItem10: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem11: TMenuItem
+        Action = actProjCompile
+      end
+      object MenuItem12: TMenuItem
+        Action = actProjCompileAndRun
+      end
+      object MenuItem39: TMenuItem
+        Action = actProjCompAndRunWithArgs
+      end
+      object MenuItem114: TMenuItem
+        Action = actProjStopComp
+      end
+      object MenuItem44: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem99: TMenuItem
+        Action = actProjGroupCompileSync
+      end
+      object MenuItem89: TMenuItem
+        Action = actProjGroupCompile
+      end
+      object MenuItem105: TMenuItem
+        Action = actProjGroupCompileCustomSync
+      end
+      object MenuItem90: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem45: TMenuItem
+        Action = actProjRun
+      end
+      object MenuItem46: TMenuItem
+        Action = actProjRunWithArgs
+      end
+      object MenuItem111: TMenuItem
+        Caption = '-'
+      end
+      object MenuItem112: TMenuItem
+        Action = actProjTest
+      end
+    end
+    object mnuOpts: TMenuItem
+      Caption = 'Options'
+    end
+    object mnuItemWin: TMenuItem
+      Caption = 'Windows'
+      object mnuLayout: TMenuItem
+        Caption = 'Layout'
+        ImageIndex = 31
+      end
+    end
+    object mnuItemHelp: TMenuItem
+      Caption = 'Help'
+      object mnuItemAbout: TMenuItem
+        Caption = 'About  dexed and tools information'
+        OnClick = mnuItemAboutClick
+      end
+      object mnuItemCheckUpd: TMenuItem
+        Caption = 'Check for updates'
+        OnClick = mnuItemCheckUpdClick
+      end
+      object mnuItemManual: TMenuItem
+        Caption = 'Online manual'
+        OnClick = mnuItemManualClick
+      end
+    end
+  end
+  object Actions: TActionList
+    left = 32
+    top = 1
+    object actEdCopy: TAction
+      Category = 'Edit'
+      Caption = 'Copy'
+      OnExecute = actEdCopyExecute
+      OnUpdate = updateDocEditBasedAction
+      ShortCut = 16451
+    end
+    object actEdCut: TAction
+      Category = 'Edit'
+      Caption = 'Cut'
+      ImageIndex = 6
+      OnExecute = actEdCutExecute
+      OnUpdate = updateDocEditBasedAction
+      ShortCut = 16472
+    end
+    object actEdPaste: TAction
+      Category = 'Edit'
+      Caption = 'Paste'
+      OnExecute = actEdPasteExecute
+      OnUpdate = updateDocEditBasedAction
+      ShortCut = 16470
+    end
+    object actEdUndo: TAction
+      Category = 'Edit'
+      Caption = 'Undo'
+      OnExecute = actEdUndoExecute
+      OnUpdate = updateDocEditBasedAction
+      ShortCut = 16474
+    end
+    object actEdRedo: TAction
+      Category = 'Edit'
+      Caption = 'Redo'
+      OnExecute = actEdRedoExecute
+      OnUpdate = updateDocEditBasedAction
+      ShortCut = 24666
+    end
+    object actEdMacStartStop: TAction
+      Category = 'Edit'
+      Caption = 'Start/stop macro recording'
+      OnExecute = actEdMacStartStopExecute
+      OnUpdate = updateDocEditBasedAction
+      ShortCut = 24658
+    end
+    object actEdMacPlay: TAction
+      Category = 'Edit'
+      Caption = 'Play macro'
+      OnExecute = actEdMacPlayExecute
+      OnUpdate = updateDocEditBasedAction
+      ShortCut = 24656
+    end
+    object actFileSave: TAction
+      Category = 'File'
+      Caption = 'Save file'
+      OnExecute = actFileSaveExecute
+      OnUpdate = updateDocumentBasedAction
+      ShortCut = 16467
+    end
+    object actFileSaveAs: TAction
+      Category = 'File'
+      Caption = 'Save file as...'
+      OnExecute = actFileSaveAsExecute
+      OnUpdate = updateDocumentBasedAction
+      ShortCut = 49235
+    end
+    object actFileOpen: TAction
+      Category = 'File'
+      Caption = 'Open file...'
+      OnExecute = actFileOpenExecute
+      ShortCut = 16463
+    end
+    object actFileNew: TAction
+      Category = 'File'
+      Caption = 'New empty module'
+      OnExecute = actFileNewExecute
+      ShortCut = 16462
+    end
+    object actProjSave: TAction
+      Category = 'Project'
+      Caption = 'Save project'
+      OnExecute = actProjSaveExecute
+      OnUpdate = updateProjectBasedAction
+    end
+    object actProjSaveAs: TAction
+      Category = 'Project'
+      Caption = 'Save project as...'
+      OnExecute = actProjSaveAsExecute
+      OnUpdate = updateProjectBasedAction
+    end
+    object actProjOpen: TAction
+      Category = 'Project'
+      Caption = 'Open project...'
+      OnExecute = actProjOpenExecute
+    end
+    object actProjClose: TAction
+      Category = 'Project'
+      Caption = 'Close project'
+      OnExecute = actProjCloseExecute
+      OnUpdate = updateProjectBasedAction
+    end
+    object actProjEditor: TAction
+      Category = 'Project'
+      Caption = 'Project editor'
+      OnExecute = actProjEditorExecute
+      OnUpdate = updateProjectBasedAction
+    end
+    object actProjSource: TAction
+      Category = 'Project'
+      Caption = 'Edit project file'
+      OnExecute = actProjSourceExecute
+      OnUpdate = updateProjectBasedAction
+    end
+    object actEdIndent: TAction
+      Category = 'Edit'
+      Caption = 'Indent'
+      OnExecute = actEdIndentExecute
+      OnUpdate = updateDocEditBasedAction
+      ShortCut = 24649
+    end
+    object actEdUnIndent: TAction
+      Category = 'Edit'
+      Caption = 'Unindent'
+      OnExecute = actEdUnIndentExecute
+      OnUpdate = updateDocEditBasedAction
+      ShortCut = 24661
+    end
+    object actProjOptView: TAction
+      Category = 'Project'
+      Caption = 'View project command line'
+      OnExecute = actProjOptViewExecute
+      OnUpdate = updateProjectBasedAction
+    end
+    object actProjCompile: TAction
+      Category = 'Project'
+      Caption = 'Compile project'
+      OnExecute = actProjCompileExecute
+      OnUpdate = updateProjectBasedAction
+      ShortCut = 120
+    end
+    object actProjCompileAndRun: TAction
+      Category = 'Project'
+      Caption = 'Compile project and run'
+      OnExecute = actProjCompileAndRunExecute
+      OnUpdate = updateProjectBasedAction
+      ShortCut = 121
+    end
+    object actProjCompAndRunWithArgs: TAction
+      Category = 'Project'
+      Caption = 'Compile project and run...'
+      OnExecute = actProjCompAndRunWithArgsExecute
+      OnUpdate = updateProjectBasedAction
+    end
+    object actProjRun: TAction
+      Category = 'Project'
+      Caption = 'Run project'
+      OnExecute = actProjRunExecute
+      OnUpdate = updateProjectBasedAction
+      ShortCut = 120
+    end
+    object actProjRunWithArgs: TAction
+      Category = 'Project'
+      Caption = 'Run project...'
+      OnExecute = actProjRunWithArgsExecute
+      OnUpdate = updateProjectBasedAction
+    end
+    object actEdFind: TAction
+      Category = 'Edit'
+      Caption = 'Find...'
+      OnExecute = actEdFindExecute
+      OnUpdate = updateDocumentBasedAction
+      ShortCut = 16454
+    end
+    object actEdFindNext: TAction
+      Category = 'Edit'
+      Caption = 'Find next'
+      OnExecute = actEdFindNextExecute
+      OnUpdate = updateDocumentBasedAction
+      ShortCut = 114
+    end
+    object actProjOpenContFold: TAction
+      Category = 'Project'
+      Caption = 'View in mini explorer'
+      OnExecute = actProjOpenContFoldExecute
+      OnUpdate = updateProjectBasedAction
+    end
+    object actLayoutSave: TAction
+      Category = 'Misc'
+      Caption = 'Save layout to...'
+      OnExecute = actLayoutSaveExecute
+    end
+    object actProjNewDubJson: TAction
+      Category = 'Project'
+      Caption = 'DUB json'
+      OnExecute = actProjNewDubJsonExecute
+    end
+    object actProjNewNative: TAction
+      Category = 'Project'
+      Caption = 'Native format'
+      OnExecute = actProjNewNativeExecute
+    end
+    object actProjOpenGroup: TAction
+      Category = 'ProjectsGroup'
+      Caption = 'Open projects group...'
+      OnExecute = actProjOpenGroupExecute
+    end
+    object actProjSaveGroup: TAction
+      Category = 'ProjectsGroup'
+      Caption = 'Save projects group'
+      OnExecute = actProjSaveGroupExecute
+    end
+    object actProjSaveGroupAs: TAction
+      Category = 'ProjectsGroup'
+      Caption = 'Save projects group as...'
+      OnExecute = actProjSaveGroupAsExecute
+    end
+    object actProjNewGroup: TAction
+      Category = 'ProjectsGroup'
+      Caption = 'New projects group'
+      OnExecute = actProjNewGroupExecute
+    end
+    object actProjAddToGroup: TAction
+      Category = 'ProjectsGroup'
+      Caption = 'Add current project to group'
+      OnExecute = actProjAddToGroupExecute
+      OnUpdate = updateProjectBasedAction
+    end
+    object actProjSelUngrouped: TAction
+      Category = 'ProjectsGroup'
+      Caption = 'Activate the free standing project'
+      OnExecute = actProjSelUngroupedExecute
+      OnUpdate = updateProjectBasedAction
+    end
+    object actProjGroupCompile: TAction
+      Category = 'ProjectsGroup'
+      Caption = 'Compile projects group in parallel'
+      OnExecute = actProjGroupCompileExecute
+    end
+    object actProjGroupCompileSync: TAction
+      Category = 'ProjectsGroup'
+      Caption = 'Compile projects group sequentially'
+      OnExecute = actProjGroupCompileSyncExecute
+    end
+    object actProjGroupCompileCustomSync: TAction
+      Category = 'ProjectsGroup'
+      Caption = 'compile projects group using wait points'
+      OnExecute = actProjGroupCompileCustomSyncExecute
+    end
+    object actProjGroupClose: TAction
+      Category = 'ProjectsGroup'
+      Caption = 'Close projects group'
+      OnExecute = actProjNewGroupExecute
+    end
+    object actProjDscan: TAction
+      Category = 'Project'
+      Caption = 'Verify project with Dscanner'
+      OnExecute = actProjDscanExecute
+      OnUpdate = updateProjectBasedAction
+    end
+    object actLayoutReset: TAction
+      Category = 'Misc'
+      Caption = 'Reset default layout'
+      OnExecute = actLayoutResetExecute
+    end
+    object actFileNewClip: TAction
+      Category = 'File'
+      Caption = 'New module from clipboard'
+      OnExecute = actFileNewClipExecute
+    end
+    object actFileNewRun: TAction
+      Category = 'File'
+      Caption = 'New runnable module'
+      OnExecute = actFileNewRunExecute
+      ShortCut = 49230
+    end
+    object actFileAddToProj: TAction
+      Category = 'File'
+      Caption = 'Add file to project'
+      OnExecute = actFileAddToProjExecute
+      OnUpdate = updateDocumentBasedAction
+    end
+    object actFileCompile: TAction
+      Category = 'File'
+      Caption = 'Compile file'
+      OnExecute = actFileCompileExecute
+      OnUpdate = updateDocumentBasedAction
+    end
+    object actFileCompAndRun: TAction
+      Category = 'File'
+      Caption = 'Compile file and run'
+      OnExecute = actFileCompAndRunExecute
+      OnUpdate = updateDocumentBasedAction
+      ShortCut = 116
+    end
+    object actFileCompileAndRunOut: TAction
+      Category = 'File'
+      Caption = 'Compile file and run outside'
+      OnExecute = actFileCompileAndRunOutExecute
+      OnUpdate = updateDocumentBasedAction
+      ShortCut = 117
+    end
+    object actFileCompAndRunWithArgs: TAction
+      Category = 'File'
+      Caption = 'Compile file and run...'
+      OnExecute = actFileCompAndRunWithArgsExecute
+      OnUpdate = updateDocumentBasedAction
+      ShortCut = 24695
+    end
+    object actFileRun: TAction
+      Category = 'File'
+      Caption = 'Run compiled file'
+      OnExecute = actFileRunExecute
+      OnUpdate = updateDocumentBasedAction
+    end
+    object actFileRunOut: TAction
+      Category = 'File'
+      Caption = 'Run compiled file outside'
+      OnExecute = actFileRunOutExecute
+      OnUpdate = updateDocumentBasedAction
+    end
+    object actFileUnittest: TAction
+      Category = 'File'
+      Caption = 'Run file unittests'
+      OnExecute = actFileUnittestExecute
+      OnUpdate = updateDocumentBasedAction
+    end
+    object actFileSaveAll: TAction
+      Category = 'File'
+      Caption = 'Save all'
+      OnExecute = actFileSaveAllExecute
+      OnUpdate = updateDocumentBasedAction
+    end
+    object actFileClose: TAction
+      Category = 'File'
+      Caption = 'Close file'
+      OnExecute = actFileCloseExecute
+      OnUpdate = updateDocumentBasedAction
+      ShortCut = 16471
+    end
+    object actFileOpenContFold: TAction
+      Category = 'File'
+      Caption = 'View in mini explorer'
+      OnExecute = actFileOpenContFoldExecute
+      OnUpdate = updateDocumentBasedAction
+    end
+    object actFileHtmlExport: TAction
+      Category = 'File'
+      Caption = 'Export to html...'
+      OnExecute = actFileHtmlExportExecute
+      OnUpdate = updateDocumentBasedAction
+    end
+    object actSetRunnableSw: TAction
+      Category = 'File'
+      Caption = 'Set runnable switches'
+      OnExecute = actSetRunnableSwExecute
+    end
+    object actFileSaveCopyAs: TAction
+      Category = 'File'
+      Caption = 'Save file copy as...'
+      OnExecute = actFileSaveCopyAsExecute
+      OnUpdate = updateDocumentBasedAction
+    end
+    object actFileDscanner: TAction
+      Category = 'File'
+      Caption = 'Verify with Dscanner'
+      OnExecute = actFileDscannerExecute
+      OnUpdate = updateDocumentBasedAction
+    end
+    object actFileRunDub: TAction
+      Category = 'File'
+      Caption = 'Run DUB single file package'
+      OnExecute = actFileRunDubExecute
+      OnUpdate = updateDocumentBasedAction
+    end
+    object actFileRunDubOut: TAction
+      Category = 'File'
+      Caption = 'Run DUB single file package outside'
+      OnExecute = actFileRunDubOutExecute
+      OnUpdate = updateDocumentBasedAction
+    end
+    object actFileNewDubScript: TAction
+      Category = 'File'
+      Caption = 'New DUB script'
+      OnExecute = actFileNewDubScriptExecute
+    end
+    object actFileMetricsHalstead: TAction
+      Category = 'File'
+      Caption = 'View Halstead metrics'
+      OnExecute = actFileMetricsHalsteadExecute
+    end
+    object actFileCloseAllOthers: TAction
+      Category = 'File'
+      Caption = 'Close all the others files'
+      OnExecute = actFileCloseAllOthersExecute
+      OnUpdate = updateDocumentBasedAction
+    end
+    object actFileCloseAll: TAction
+      Category = 'File'
+      Caption = 'Close all the files'
+      OnExecute = actFileCloseAllExecute
+      OnUpdate = updateDocumentBasedAction
+    end
+    object actEdFormat: TAction
+      Category = 'Edit'
+      Caption = 'Apply code formatting'
+      OnExecute = actEdFormatExecute
+      OnUpdate = updateDocumentBasedAction
+    end
+    object actProjTest: TAction
+      Category = 'Project'
+      Caption = 'Test project'
+      OnExecute = actProjTestExecute
+      OnUpdate = updateProjectBasedAction
+    end
+    object actProjStopComp: TAction
+      Category = 'Project'
+      Caption = 'Stop compiling'
+      OnExecute = actProjStopCompExecute
+      OnUpdate = updateProjectBasedAction
+    end
+    object actProjNewDialog: TAction
+      Category = 'Project'
+      Caption = 'New project dialog...'
+      OnExecute = actProjNewDialogExecute
+    end
+    object actProjGitBranchesUpd: TAction
+      Category = 'Project'
+      Caption = 'Update list'
+      OnExecute = actProjGitBranchesUpdExecute
+    end
+    object actProjGitPull: TAction
+      Category = 'Project'
+      Caption = 'Git pull'
+      OnExecute = actProjGitPullExecute
+    end
+  end
+  object ApplicationProperties1: TApplicationProperties
+    OnActivate = ApplicationProperties1Activate
+    OnException = ApplicationProperties1Exception
+    left = 64
+    top = 1
+  end
+end

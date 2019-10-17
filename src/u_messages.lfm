@@ -1,0 +1,174 @@
+inherited MessagesWidget: TMessagesWidget
+  Left = 900
+  Height = 159
+  Top = 226
+  Width = 844
+  Caption = 'Messages'
+  ClientHeight = 159
+  ClientWidth = 844
+  inherited Back: TPanel
+    Height = 159
+    Width = 844
+    AutoSize = True
+    ClientHeight = 159
+    ClientWidth = 844
+    inherited Content: TPanel
+      Height = 123
+      Width = 844
+      ClientHeight = 123
+      ClientWidth = 844
+      PopupMenu = nil
+      object List: TTreeView[0]
+        Left = 2
+        Height = 119
+        Top = 2
+        Width = 840
+        Align = alClient
+        BorderSpacing.Around = 2
+        Font.Style = [fsBold]
+        HideSelection = False
+        MultiSelect = True
+        ParentFont = False
+        ParentShowHint = False
+        ReadOnly = True
+        ShowHint = True
+        ShowLines = False
+        ShowRoot = False
+        TabOrder = 0
+        ToolTips = False
+        OnCustomDrawItem = ListCustomDrawItem
+        OnKeyDown = ListKeyDown
+        Options = [tvoAllowMultiselect, tvoAutoItemHeight, tvoKeepCollapsedNodes, tvoReadOnly, tvoShowButtons, tvoThemedDraw]
+      end
+    end
+    inherited toolbar: TDexedToolBar
+      Width = 836
+      ShowCaptions = True
+      Wrapable = False
+      OnResize = toolbarResize
+      object sep: TDexedToolButton[0]
+        Left = 299
+        Height = 5
+        Hint = 'Clean filtered messages'
+        Top = 0
+        AutoSize = True
+        Style = tbsDivider
+        scaledSeparator = False
+      end
+      object btnSelMisc: TDexedToolButton[1]
+        Left = 262
+        Hint = 'filter the other messages'
+        Top = 0
+        AutoSize = True
+        Caption = 'Misc'
+        scaledSeparator = False
+      end
+      object button2: TDexedToolButton[2]
+        Left = 257
+        Height = 5
+        Top = 0
+        AutoSize = True
+        Caption = 'button2'
+        Style = tbsDivider
+        scaledSeparator = False
+      end
+      object btnSelApp: TDexedToolButton[3]
+        Left = 176
+        Hint = 'filter the messages related to Coedit'
+        Top = 0
+        AutoSize = True
+        Caption = 'Application'
+        scaledSeparator = False
+      end
+      object button4: TDexedToolButton[4]
+        Left = 171
+        Height = 5
+        Top = 0
+        AutoSize = True
+        Caption = 'button4'
+        Style = tbsDivider
+        scaledSeparator = False
+      end
+      object btnSelProj: TDexedToolButton[5]
+        Left = 118
+        Hint = 'filter the messages related to the active project'
+        Top = 0
+        AutoSize = True
+        Caption = 'Project'
+        scaledSeparator = False
+      end
+      object button6: TDexedToolButton[6]
+        Left = 113
+        Height = 5
+        Top = 0
+        AutoSize = True
+        Caption = 'button6'
+        Style = tbsDivider
+        scaledSeparator = False
+      end
+      object btnSelEdit: TDexedToolButton[7]
+        Left = 67
+        Hint = 'filter the messages related to the active editor'
+        Top = 0
+        AutoSize = True
+        Caption = 'Editor'
+        scaledSeparator = False
+      end
+      object button8: TDexedToolButton[8]
+        Left = 62
+        Height = 5
+        Top = 0
+        AutoSize = True
+        Caption = 'button8'
+        Style = tbsDivider
+        scaledSeparator = False
+      end
+      object btnSelAll: TDexedToolButton[9]
+        Left = 34
+        Hint = 'don''t filter the messages'
+        Top = 0
+        AutoSize = True
+        Caption = 'All'
+        Down = True
+        scaledSeparator = False
+      end
+      object TreeFilterEdit1: TTreeFilterEdit[10]
+        Left = 304
+        Height = 28
+        Hint = 'in the selected category, filter the messages that contain the text typed here'
+        Top = 1
+        Width = 528
+        OnAfterFilter = TreeFilterEdit1AfterFilter
+        ButtonWidth = 23
+        Align = alRight
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        BorderSpacing.Around = 1
+        NumGlyphs = 1
+        MaxLength = 0
+        TabOrder = 0
+        OnButtonClick = TreeFilterEdit1ButtonClick
+      end
+      object btnClearCat: TDexedToolButton[11]
+        Left = 1
+        Hint = 'Delete the messages stored for the selected category'
+        Top = 0
+        AutoSize = True
+        resourceName = 'CLEAN'
+        scaledSeparator = False
+      end
+      object sepCat: TDexedToolButton[12]
+        Left = 29
+        Height = 5
+        Top = 0
+        AutoSize = True
+        Caption = 'sepCat'
+        Style = tbsDivider
+        scaledSeparator = False
+      end
+    end
+  end
+  inherited contextMenu: TPopupMenu
+    left = 32
+    top = 40
+  end
+end

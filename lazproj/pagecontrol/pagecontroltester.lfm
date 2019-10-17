@@ -1,0 +1,11 @@
+object Form1: TForm1
+  Left = 486
+  Height = 317
+  Top = 193
+  Width = 819
+  Caption = 'Form1'
+  ClientHeight = 317
+  ClientWidth = 819
+  LCLVersion = '1.8.4.0'
+  Visible = False
+end

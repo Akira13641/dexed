@@ -1,0 +1,110 @@
+inherited TodoListWidget: TTodoListWidget
+  Left = 630
+  Height = 337
+  Top = 196
+  Width = 584
+  Caption = 'Todo list'
+  ClientHeight = 337
+  ClientWidth = 584
+  inherited Back: TPanel
+    Height = 337
+    Width = 584
+    AutoSize = True
+    ClientHeight = 337
+    ClientWidth = 584
+    inherited Content: TPanel
+      Height = 301
+      Width = 584
+      ClientHeight = 301
+      ClientWidth = 584
+      object lstItems: TListView[0]
+        Left = 4
+        Height = 293
+        Top = 4
+        Width = 576
+        Align = alClient
+        BorderSpacing.Around = 4
+        Columns = <        
+          item
+            AutoSize = True
+            Caption = 'text'
+            Width = 36
+          end        
+          item
+            AutoSize = True
+            Caption = 'category'
+            Width = 67
+          end        
+          item
+            AutoSize = True
+            Caption = 'assignee'
+            Width = 68
+          end        
+          item
+            AutoSize = True
+            Caption = 'status'
+          end        
+          item
+            AutoSize = True
+            Caption = 'priority'
+            Width = 57
+          end        
+          item
+            AutoSize = True
+            Caption = 'file'
+            Width = 284
+          end>
+        ReadOnly = True
+        SortType = stText
+        TabOrder = 0
+        ViewStyle = vsReport
+      end
+    end
+    inherited toolbar: TDexedToolBar
+      Width = 576
+      OnResize = toolbarResize
+      object btnGo: TDexedToolButton[0]
+        Left = 29
+        Hint = 'go the TODO item definition'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnGo'
+        resourceName = 'PENCIL_GO'
+        scaledSeparator = False
+      end
+      object btnRefresh: TDexedToolButton[1]
+        Left = 1
+        Hint = 'refresh the TODO items'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnRefresh'
+        resourceName = 'ARROW_UPDATE'
+        scaledSeparator = False
+      end
+      object lstfilter: TListFilterEdit[2]
+        Left = 61
+        Height = 26
+        Hint = 'filter the TODO items that contain the text typed here'
+        Top = 2
+        Width = 513
+        ButtonWidth = 28
+        Align = alClient
+        Anchors = [akTop, akLeft, akRight]
+        BorderSpacing.Left = 58
+        BorderSpacing.Around = 2
+        NumGlyphs = 1
+        MaxLength = 0
+        TabOrder = 0
+      end
+    end
+  end
+  inherited contextMenu: TPopupMenu
+    left = 40
+    top = 72
+    object mnuAutoRefresh: TMenuItem[0]
+      AutoCheck = True
+      Caption = 'Auto resfresh'
+      OnClick = mnuAutoRefreshClick
+    end
+  end
+end

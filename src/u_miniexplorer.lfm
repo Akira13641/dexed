@@ -1,0 +1,204 @@
+inherited MiniExplorerWidget: TMiniExplorerWidget
+  Left = 1367
+  Height = 565
+  Top = 3
+  Width = 535
+  ActiveControl = lstFav
+  Caption = 'Mini explorer'
+  ClientHeight = 565
+  ClientWidth = 535
+  inherited Back: TPanel
+    Height = 565
+    Width = 535
+    AutoSize = True
+    ClientHeight = 565
+    ClientWidth = 535
+    inherited Content: TPanel
+      Left = 4
+      Height = 523
+      Top = 38
+      Width = 527
+      BorderSpacing.Around = 4
+      ClientHeight = 523
+      ClientWidth = 527
+      object lstFav: TListView[0]
+        Left = 0
+        Height = 131
+        Top = 0
+        Width = 527
+        Align = alTop
+        Columns = <        
+          item
+            Width = 525
+          end>
+        ReadOnly = True
+        ScrollBars = ssAutoBoth
+        ShowColumnHeaders = False
+        TabOrder = 0
+        ViewStyle = vsReport
+        OnClick = lstFavClick
+        OnDeletion = lstFavDeletion
+        OnEnter = lstFavEnter
+      end
+      object Splitter1: TSplitter[1]
+        Cursor = crVSplit
+        Left = 0
+        Height = 6
+        Top = 131
+        Width = 527
+        Align = alTop
+        OnMouseWheel = Splitter2MouseWheel
+        ResizeAnchor = akTop
+      end
+      object Panel2: TPanel[2]
+        Left = 0
+        Height = 386
+        Top = 137
+        Width = 527
+        Align = alClient
+        AutoSize = True
+        BevelOuter = bvNone
+        ClientHeight = 386
+        ClientWidth = 527
+        TabOrder = 2
+        object Splitter2: TSplitter
+          Cursor = crVSplit
+          Left = 0
+          Height = 6
+          Top = 218
+          Width = 527
+          Align = alTop
+          OnMouseWheel = Splitter2MouseWheel
+          ResizeAnchor = akTop
+        end
+        object treeFolders: TShellTreeView
+          Left = 0
+          Height = 218
+          Top = 0
+          Width = 527
+          Align = alTop
+          FileSortType = fstAlphabet
+          ReadOnly = True
+          ScrollBars = ssAutoBoth
+          TabOrder = 1
+          OnChange = treeFoldersChange
+          OnDblClick = treeFoldersDblClick
+          OnEnter = TreeEnter
+          OnGetImageIndex = treeFoldersGetImageIndex
+          OnGetSelectedIndex = treeFoldersGetSelectedIndex
+          Options = [tvoAutoItemHeight, tvoHideSelection, tvoKeepCollapsedNodes, tvoReadOnly, tvoShowButtons, tvoShowLines, tvoShowRoot, tvoToolTips, tvoThemedDraw]
+          ObjectTypes = [otFolders]
+          ShellListView = lstFiles
+        end
+        object lstFiles: TShellListView
+          Left = 0
+          Height = 162
+          Top = 224
+          Width = 527
+          Align = alClient
+          Color = clDefault
+          DragMode = dmAutomatic
+          ReadOnly = True
+          ScrollBars = ssAutoBoth
+          SortType = stText
+          TabOrder = 2
+          OnColumnClick = lstFilesColumnClick
+          OnDblClick = lstFilesDblClick
+          OnFileAdded = lstFilesFileAdded
+          ObjectTypes = [otNonFolders, otHidden]
+          ShellTreeView = treeFolders
+        end
+      end
+    end
+    inherited toolbar: TDexedToolBar
+      Width = 527
+      OnResize = toolbarResize
+      object btnEdit: TDexedToolButton[0]
+        Left = 153
+        Hint = 'open the selected file in an editor or as a new project'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnEdit'
+        OnClick = btnEditClick
+        resourceName = 'PENCIL'
+        scaledSeparator = False
+      end
+      object btnShellOpen: TDexedToolButton[1]
+        Left = 125
+        Hint = 'open the selected folder or the selected file using the shell'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnShellOpen'
+        OnClick = btnShellOpenClick
+        resourceName = 'FLASH'
+        scaledSeparator = False
+      end
+      object btnRemFav: TDexedToolButton[2]
+        Left = 97
+        Hint = 'remove selected favorite folder'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnRemFav'
+        OnClick = btnRemFavClick
+        resourceName = 'FOLDER_DELETE'
+        scaledSeparator = False
+      end
+      object btnAddFav: TDexedToolButton[3]
+        Left = 69
+        Hint = 'add selected folder to the favorites'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnAddFav'
+        OnClick = btnAddFavClick
+        resourceName = 'FOLDER_ADD'
+        scaledSeparator = False
+      end
+      object btnDrive: TDexedToolButton[4]
+        Left = 1
+        Hint = 'select a drive or a custom folder'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnDrive'
+        DropdownMenu = mnuDrives
+        OnClick = btnDriveClick
+        Style = tbsDropDown
+        resourceName = 'FOLDER_GO'
+        scaledSeparator = False
+      end
+      object btnParentFolder: TDexedToolButton[5]
+        Left = 41
+        Hint = 'select parent folder'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnParentFolder'
+        OnClick = btnParentFolderClick
+        resourceName = 'GO_PREVIOUS'
+        scaledSeparator = False
+      end
+      object lstFilter: TListViewFilterEdit[6]
+        Left = 191
+        Height = 26
+        Top = 2
+        Width = 329
+        ButtonWidth = 23
+        Flat = True
+        Align = alClient
+        BorderSpacing.Left = 180
+        BorderSpacing.Around = 2
+        NumGlyphs = 1
+        MaxLength = 0
+        TabOrder = 0
+        OnButtonClick = lstFilterButtonClick
+        OnKeyUp = lstFilterKeyUp
+      end
+    end
+  end
+  inherited contextMenu: TPopupMenu
+    left = 40
+    top = 48
+  end
+  object mnuDrives: TPopupMenu[2]
+    left = 8
+    top = 48
+  end
+end

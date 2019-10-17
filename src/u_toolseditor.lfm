@@ -1,0 +1,157 @@
+inherited ToolsEditorWidget: TToolsEditorWidget
+  Left = 1395
+  Height = 280
+  Top = 216
+  Width = 441
+  Caption = 'Tools editor'
+  ClientHeight = 280
+  ClientWidth = 441
+  inherited Back: TPanel
+    Height = 280
+    Width = 441
+    AutoSize = True
+    ClientHeight = 280
+    ClientWidth = 441
+    inherited Content: TPanel
+      Height = 244
+      Width = 441
+      ClientHeight = 244
+      ClientWidth = 441
+      object Panel2: TPanel[0]
+        Left = 4
+        Height = 236
+        Top = 4
+        Width = 433
+        Align = alClient
+        AutoSize = True
+        BorderSpacing.Around = 4
+        BevelOuter = bvNone
+        ClientHeight = 236
+        ClientWidth = 433
+        TabOrder = 0
+        object lstTools: TListBox
+          Left = 0
+          Height = 236
+          Top = 0
+          Width = 160
+          Align = alLeft
+          ItemHeight = 0
+          OnDblClick = lstToolsDblClick
+          OnSelectionChange = lstToolsSelectionChange
+          ScrollWidth = 158
+          TabOrder = 0
+          TopIndex = -1
+        end
+        object Splitter1: TSplitter
+          Left = 160
+          Height = 236
+          Top = 0
+          Width = 5
+          AutoSnap = False
+        end
+        object propsEd: TTIPropertyGrid
+          Left = 165
+          Height = 236
+          Top = 0
+          Width = 268
+          Align = alClient
+          CheckboxForBoolean = False
+          DefaultValueFont.Color = clWindowText
+          Filter = [tkInteger, tkChar, tkEnumeration, tkFloat, tkSet, tkMethod, tkSString, tkLString, tkAString, tkWString, tkVariant, tkArray, tkRecord, tkInterface, tkClass, tkObject, tkWChar, tkBool, tkInt64, tkQWord, tkDynArray, tkInterfaceRaw, tkProcVar, tkUString, tkUChar, tkHelper]
+          Indent = 16
+          NameFont.Color = clWindowText
+          OnModified = propsEdModified
+          PreferredSplitterX = 150
+          SplitterX = 150
+          ValueFont.Color = clGreen
+        end
+      end
+    end
+    inherited toolbar: TDexedToolBar
+      Width = 433
+      object btnRun: TDexedToolButton[0]
+        Left = 174
+        Hint = 'execute selected tool'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnRun'
+        OnClick = btnRunClick
+        resourceName = 'APPLICATION_FLASH'
+        scaledSeparator = False
+      end
+      object button1: TDexedToolButton[1]
+        Left = 169
+        Height = 5
+        Top = 0
+        AutoSize = True
+        Caption = 'button1'
+        Style = tbsDivider
+        scaledSeparator = False
+      end
+      object btnClone: TDexedToolButton[2]
+        Left = 141
+        Hint = 'clone selected tool'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnClone'
+        OnClick = btnCloneClick
+        resourceName = 'APPLICATION_DOUBLE'
+        scaledSeparator = False
+      end
+      object btnMoveUp: TDexedToolButton[3]
+        Left = 113
+        Hint = 'move selected tool up'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnMoveUp'
+        OnClick = btnMoveUpClick
+        resourceName = 'ARROW_UP'
+        scaledSeparator = False
+      end
+      object btnMoveDown: TDexedToolButton[4]
+        Left = 85
+        Hint = 'move selected tool down'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnMoveDown'
+        OnClick = btnMoveDownClick
+        resourceName = 'ARROW_DOWN'
+        scaledSeparator = False
+      end
+      object btnRemTool: TDexedToolButton[5]
+        Left = 57
+        Hint = 'remove selected tool'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnRemTool'
+        OnClick = btnRemToolClick
+        resourceName = 'APPLICATION_DELETE'
+        scaledSeparator = False
+      end
+      object btnAddTool: TDexedToolButton[6]
+        Left = 29
+        Hint = 'add a new empty tool'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnAddTool'
+        OnClick = BtnAddToolClick
+        resourceName = 'APPLICATION_ADD'
+        scaledSeparator = False
+      end
+      object btnEdit: TDexedToolButton[7]
+        Left = 1
+        Hint = 'enable or disable edition'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnEdit'
+        OnClick = btnEditClick
+        resourceName = 'APPLICATION_EDIT'
+        scaledSeparator = False
+      end
+    end
+  end
+  inherited contextMenu: TPopupMenu
+    left = 16
+    top = 40
+  end
+end

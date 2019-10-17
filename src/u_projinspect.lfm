@@ -1,0 +1,137 @@
+inherited ProjectInspectWidget: TProjectInspectWidget
+  Left = 1443
+  Height = 258
+  Top = 213
+  Width = 424
+  ActiveControl = Tree
+  AllowDropFiles = True
+  Caption = 'Project inspector'
+  ClientHeight = 258
+  ClientWidth = 424
+  OnDropFiles = FormDropFiles
+  inherited Back: TPanel
+    Height = 258
+    Width = 424
+    AutoSize = True
+    ClientHeight = 258
+    ClientWidth = 424
+    inherited Content: TPanel
+      Height = 222
+      Width = 424
+      ClientHeight = 222
+      ClientWidth = 424
+      PopupMenu = nil
+      object Tree: TTreeView[0]
+        Left = 2
+        Height = 218
+        Top = 2
+        Width = 420
+        Align = alClient
+        AutoExpand = True
+        BorderSpacing.Around = 2
+        DragMode = dmAutomatic
+        HideSelection = False
+        ReadOnly = True
+        RightClickSelect = True
+        ScrollBars = ssAutoBoth
+        ShowRoot = False
+        TabOrder = 0
+        ToolTips = False
+        OnClick = TreeClick
+        OnDeletion = TreeDeletion
+        OnKeyDown = TreeKeyDown
+        OnSelectionChanged = TreeSelectionChanged
+        Options = [tvoAutoExpand, tvoAutoItemHeight, tvoKeepCollapsedNodes, tvoReadOnly, tvoRightClickSelect, tvoShowButtons, tvoShowLines, tvoThemedDraw]
+        Items.Data = {
+          F9FFFFFF020002000000000000000000000000000000FFFFFFFF000000000000
+          0000000C000000536F757263652066696C6573010000000100000001000000FF
+          FFFFFF0000000000000000000E000000436F6E66696775726174696F6E73
+        }
+      end
+    end
+    inherited toolbar: TDexedToolBar
+      Width = 416
+      OnResize = toolbarResize
+      object btnRemFold: TDexedToolButton[0]
+        Left = 141
+        Hint = 'remove the selected source parent folder from the project'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnRemFold'
+        OnClick = btnRemFoldClick
+        resourceName = 'FOLDER_DELETE'
+        scaledSeparator = False
+      end
+      object btnAddFold: TDexedToolButton[1]
+        Left = 113
+        Hint = 'add a folder of sources to the project'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnAddFold'
+        OnClick = btnAddFoldClick
+        resourceName = 'FOLDER_ADD'
+        scaledSeparator = False
+      end
+      object btnRemFile: TDexedToolButton[2]
+        Left = 85
+        Hint = 'remove selected source from the project'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnRemFile'
+        OnClick = btnRemFileClick
+        resourceName = 'DOCUMENT_DELETE'
+        scaledSeparator = False
+      end
+      object btnAddFile: TDexedToolButton[3]
+        Left = 57
+        Hint = 'add a source to the project'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnAddFile'
+        OnClick = btnAddFileClick
+        resourceName = 'DOCUMENT_ADD'
+        scaledSeparator = False
+      end
+      object TreeFilterEdit1: TTreeFilterEdit[4]
+        Left = 176
+        Height = 26
+        Hint = 'filter the source names that contain the text typed here'
+        Top = 2
+        Width = 232
+        ButtonWidth = 28
+        Align = alClient
+        BorderSpacing.Around = 2
+        NumGlyphs = 1
+        MaxLength = 0
+        TabOrder = 0
+        FilteredTreeview = Tree
+        ExpandAllInitially = True
+      end
+      object btnTree: TDexedToolButton[5]
+        Left = 29
+        Hint = 'display the file list as a tree'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnTree'
+        OnClick = btnTreeClick
+        Style = tbsCheck
+        resourceName = 'FOLDERS_EXPLORER'
+        scaledSeparator = False
+      end
+      object btnReload: TDexedToolButton[6]
+        Left = 1
+        Hint = 'reload the project, useful to fetch new dependencies or detect new source files'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnReload'
+        OnClick = btnReloadClick
+        resourceName = 'ARROW_UPDATE'
+        scaledSeparator = False
+      end
+    end
+  end
+  inherited contextMenu: TPopupMenu
+    left = 128
+    top = 48
+  end
+end

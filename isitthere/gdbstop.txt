@@ -1,0 +1,13 @@
+breakpoint-hit
+watchpoint-trigger
+read-watchpoint-trigger
+access-watchpoint-trigger
+function-finished
+location-reached
+end-stepping-range
+solib-event
+fork
+vfork
+syscall-entry
+syscall-return
+exec

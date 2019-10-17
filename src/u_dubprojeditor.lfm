@@ -1,0 +1,148 @@
+inherited DubProjectEditorWidget: TDubProjectEditorWidget
+  Left = 771
+  Height = 424
+  Top = 245
+  Width = 407
+  Caption = 'DUB project editor'
+  ClientHeight = 424
+  ClientWidth = 407
+  inherited Back: TPanel
+    Height = 424
+    Width = 407
+    AutoSize = True
+    ClientHeight = 424
+    ClientWidth = 407
+    inherited Content: TPanel
+      Height = 388
+      Width = 407
+      ClientHeight = 388
+      ClientWidth = 407
+      object propTree: TTreeView[0]
+        Left = 4
+        Height = 347
+        Top = 4
+        Width = 399
+        Align = alClient
+        BorderSpacing.Around = 4
+        HideSelection = False
+        ReadOnly = True
+        ScrollBars = ssAutoBoth
+        TabOrder = 0
+        ToolTips = False
+        OnSelectionChanged = propTreeSelectionChanged
+        Options = [tvoAutoItemHeight, tvoKeepCollapsedNodes, tvoReadOnly, tvoShowButtons, tvoShowLines, tvoShowRoot, tvoThemedDraw]
+        TreeLinePenStyle = psClear
+      end
+      object Panel1: TPanel[1]
+        Left = 2
+        Height = 31
+        Top = 355
+        Width = 403
+        Align = alBottom
+        AutoSize = True
+        BorderSpacing.Around = 2
+        BevelOuter = bvNone
+        ClientHeight = 31
+        ClientWidth = 403
+        TabOrder = 1
+        object edProp: TEdit
+          Left = 2
+          Height = 27
+          Top = 2
+          Width = 395
+          Align = alClient
+          BorderSpacing.Around = 2
+          TabOrder = 0
+        end
+        object btnAcceptProp: TSpeedButton
+          Left = 399
+          Height = 31
+          Hint = 'accept property value'
+          Top = 0
+          Width = 4
+          Align = alRight
+          AutoSize = True
+          Layout = blGlyphBottom
+          OnClick = btnAcceptPropClick
+          ShowCaption = False
+        end
+      end
+    end
+    inherited toolbar: TDexedToolBar
+      Width = 399
+      OnResize = toolbarResize
+      object btnReload: TDexedToolButton[0]
+        Left = 85
+        Hint = 'reload the project, useful to fetch new dependencies or detect new source files'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnReload'
+        OnClick = btnRefreshClick
+        resourceName = 'ARROW_UPDATE'
+        scaledSeparator = False
+      end
+      object btnDelProp: TDexedToolButton[1]
+        Left = 29
+        Hint = 'delete property'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnDelProp'
+        OnClick = btnDelPropClick
+        resourceName = 'TEXTFIELD_DELETE'
+        scaledSeparator = False
+      end
+      object btnAddProp: TDexedToolButton[2]
+        Left = 1
+        Hint = 'add a property'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnAddProp'
+        OnClick = btnAddPropClick
+        resourceName = 'TEXTFIELD_ADD'
+        scaledSeparator = False
+      end
+      object fltEdit: TTreeFilterEdit[3]
+        Left = 120
+        Height = 26
+        Hint = 'filter properties'
+        Top = 2
+        Width = 277
+        ButtonWidth = 23
+        Align = alRight
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        BorderSpacing.Around = 2
+        NumGlyphs = 1
+        MaxLength = 0
+        TabOrder = 0
+        FilteredTreeview = propTree
+      end
+      object btnCloneObject: TDexedToolButton[4]
+        Left = 57
+        Hint = 'clone selected object'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnCloneObject'
+        OnClick = btnCloneObjectClick
+        resourceName = 'COPY'
+        scaledSeparator = False
+      end
+      object button1: TDexedToolButton[5]
+        Left = 113
+        Height = 5
+        Top = 0
+        AutoSize = True
+        Caption = 'button1'
+        Style = tbsDivider
+        scaledSeparator = False
+      end
+    end
+  end
+  inherited contextMenu: TPopupMenu
+    left = 248
+    top = 8
+    object MenuItem1: TMenuItem[0]
+      Caption = 'Refresh'
+      OnClick = MenuItem1Click
+    end
+  end
+end

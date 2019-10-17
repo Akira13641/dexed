@@ -1,0 +1,241 @@
+inherited ProfileViewerWidget: TProfileViewerWidget
+  Left = 979
+  Height = 537
+  Top = 198
+  Width = 551
+  Caption = 'Profile viewer'
+  ClientHeight = 537
+  ClientWidth = 551
+  inherited Back: TPanel
+    Height = 537
+    Width = 551
+    AutoSize = True
+    ClientHeight = 537
+    ClientWidth = 551
+    inherited Content: TPanel
+      Height = 501
+      Width = 551
+      ClientHeight = 501
+      ClientWidth = 551
+      object list: TListView[0]
+        Left = 4
+        Height = 283
+        Top = 214
+        Width = 543
+        Align = alClient
+        BorderSpacing.Around = 4
+        Columns = <        
+          item
+            AutoSize = True
+            MaxWidth = 18
+            MinWidth = 18
+            Width = 18
+          end        
+          item
+            AutoSize = True
+            Caption = 'Num calls'
+            Width = 75
+          end        
+          item
+            AutoSize = True
+            Caption = 'Tree time'
+            Width = 71
+          end        
+          item
+            AutoSize = True
+            Caption = 'Func time'
+            Width = 73
+          end        
+          item
+            AutoSize = True
+            Caption = 'Per call'
+            Width = 58
+          end        
+          item
+            AutoSize = True
+            Caption = 'function'
+            Width = 246
+          end>
+        HideSelection = False
+        ReadOnly = True
+        RowSelect = True
+        ScrollBars = ssAutoBoth
+        SmallImages = ImageList1
+        SortType = stText
+        TabOrder = 0
+        ViewStyle = vsReport
+      end
+      object Panel1: TPanel[1]
+        Left = 2
+        Height = 200
+        Top = 2
+        Width = 547
+        Align = alTop
+        BorderSpacing.Around = 2
+        BevelOuter = bvNone
+        ClientHeight = 200
+        ClientWidth = 547
+        TabOrder = 1
+        object pie: TChart
+          Left = 2
+          Height = 196
+          Top = 2
+          Width = 543
+          AxisList = <          
+            item
+              Marks.Clipped = False
+              Marks.LabelBrush.Style = bsClear
+              Minors = <>
+              Title.LabelBrush.Style = bsClear
+            end          
+            item
+              Alignment = calBottom
+              Marks.Clipped = False
+              Marks.LabelBrush.Style = bsClear
+              Minors = <>
+              Title.LabelBrush.Style = bsClear
+            end>
+          AxisVisible = False
+          Foot.Brush.Color = clBtnFace
+          Foot.Font.Color = clBlue
+          Frame.Style = psClear
+          Title.Brush.Color = clBtnFace
+          Title.Font.Color = clBlue
+          Title.Text.Strings = (
+            'TAChart'
+          )
+          Toolset = ChartToolset1
+          Align = alClient
+          BorderSpacing.Around = 2
+          object pieSeries: TPieSeries
+            Legend.Visible = False
+            Marks.Clipped = False
+            Marks.Distance = 10
+            Marks.Shape = clsRoundRect
+            Marks.Format = '%2:s %1:.2f%%'
+            Marks.Style = smsLabelPercent
+            Exploded = True
+            MarkPositions = pmpLeftRight
+          end
+        end
+      end
+      object Splitter1: TSplitter[2]
+        Cursor = crVSplit
+        Left = 0
+        Height = 6
+        Top = 204
+        Width = 551
+        Align = alTop
+        OnCanResize = Splitter1CanResize
+        OnMoved = Splitter1Moved
+        ResizeAnchor = akTop
+      end
+    end
+    inherited toolbar: TDexedToolBar
+      Width = 543
+      object btnRefresh: TDexedToolButton[0]
+        Left = 57
+        Hint = 'reload current trace log file or auto load from the current directory'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnRefresh'
+        OnClick = btnRefreshClick
+        resourceName = 'ARROW_UPDATE'
+        scaledSeparator = False
+      end
+      object btnOpen: TDexedToolButton[1]
+        Left = 29
+        Hint = 'open a trace log file'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnOpen'
+        OnClick = btnOpenClick
+        resourceName = 'FOLDER'
+        scaledSeparator = False
+      end
+      object button0: TDexedToolButton[2]
+        Left = 113
+        Height = 5
+        Top = 0
+        AutoSize = True
+        Caption = 'button0'
+        Style = tbsDivider
+        scaledSeparator = False
+      end
+      object selPieSource: TComboBox[3]
+        Left = 118
+        Height = 31
+        Hint = 'select the pie representation'
+        Top = 0
+        Width = 282
+        BorderSpacing.InnerBorder = 3
+        ItemHeight = 0
+        ItemIndex = 0
+        Items.Strings = (
+          'Number of calls'
+          'Tree time'
+          'Function time'
+          'Time per call'
+        )
+        OnSelect = selPieSourceSelect
+        Style = csDropDownList
+        TabOrder = 0
+        Text = 'Number of calls'
+      end
+      object btnOpts: TDexedToolButton[4]
+        Left = 85
+        Hint = 'edit profile viewer options'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnOpts'
+        OnClick = btnOptsClick
+        resourceName = 'WRENCH'
+        scaledSeparator = False
+      end
+      object btnProj: TDexedToolButton[5]
+        Left = 1
+        Hint = 'Try to load using the project output path'
+        Top = 0
+        AutoSize = True
+        Caption = 'btnProj'
+        OnClick = btnProjClick
+        resourceName = 'LIST'
+        scaledSeparator = False
+      end
+    end
+  end
+  inherited contextMenu: TPopupMenu
+    left = 8
+    top = 48
+  end
+  object datNumCalls: TListChartSource[2]
+    Sorted = True
+    left = 192
+    top = 56
+  end
+  object datTreeTime: TListChartSource[3]
+    Sorted = True
+    left = 232
+    top = 56
+  end
+  object datFuncTime: TListChartSource[4]
+    Sorted = True
+    left = 272
+    top = 56
+  end
+  object datPerCall: TListChartSource[5]
+    Sorted = True
+    left = 312
+    top = 56
+  end
+  object ImageList1: TImageList[6]
+    left = 192
+    top = 120
+  end
+  object ChartToolset1: TChartToolset[7]
+    left = 232
+    top = 120
+    object ChartToolset1DataPointHintTool1: TDataPointHintTool
+    end
+  end
+end
