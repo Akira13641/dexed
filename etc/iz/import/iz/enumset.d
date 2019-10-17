@@ -688,16 +688,21 @@ public:
      * rhs = either an E member or a set (or its container) with the same type,
      * in the last case, calling opIn_r is equivalent to test for greater or equal.
      */
-    bool opIn_r(T)(T rhs) const nothrow
+    bool opBinaryRight(string op, T)(T rhs) const nothrow
     {
-        static if (is(T == E))
-            return isIncluded(rhs);
-        else static if (is(T == EnumSetType))
-            return (_container & rhs._container) >= rhs._container;
-        else static if (is(T == SetType))
-            return (_container & rhs) >= rhs;
+        static if (op == "in")
+        {
+            static if (is(T == E))
+                return isIncluded(rhs);
+            else static if (is(T == EnumSetType))
+                return (_container & rhs._container) >= rhs._container;
+            else static if (is(T == SetType))
+                return (_container & rhs) >= rhs;
+            else
+                static assert(0, "opBinaryRight('in', T)(T rhs) not implemented when rhs is " ~ T.stringof);
+        }
         else
-            static assert(0, "opIn_r not implemented when rhs is " ~ T.stringof);
+            return false;
     }
 // -----------------------------------------------------------------------------
 // set operations -------------------------------------------------------------+
