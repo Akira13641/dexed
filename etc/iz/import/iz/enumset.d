@@ -702,7 +702,7 @@ public:
                 static assert(0, "opBinaryRight('in', T)(T rhs) not implemented when rhs is " ~ T.stringof);
         }
         else
-            return false;
+            static assert(0, "Operator "~op~" not implemented");
     }
 // -----------------------------------------------------------------------------
 // set operations -------------------------------------------------------------+
