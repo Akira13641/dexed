@@ -1,7 +1,5 @@
 Dexed, the _D Extended EDitor_, is an IDE for the [D programming language](https://dlang.org), its compilers, tools and libraries.
 
-[![](https://basile-z.github.io/dexed/img/coedit_kde4_thumb.png)](https://basile-z.github.io/dexed/img/coedit_kde4.png)
-
 ## Overview
 
 - available for _Linux_ or _Windows_.
@@ -20,7 +18,7 @@ Dexed, the _D Extended EDitor_, is an IDE for the [D programming language](https
 - static library manager that supports auto-registration from local DUB projects, from online DUB packages or from dexed custom project format.
 - todo list based on the _todo comments_ located in a project or in the current source.
 - user-defined tools powered by a string interpolation system.
-- integrated file browser, dfmt interface, search & replace, [discover more in the manual](https://basile-z.github.io/dexed/).
+- integrated file browser, dfmt interface, search & replace, etc.
 
 ## Project information
 
