@@ -22,5 +22,4 @@ Dexed, the _D Extended EDitor_, is an IDE for the [D programming language](https
 
 ## Project information
 
-- :bookmark: latest release: version 3.7.4, Tue 22 Jan 2019.
 - :scroll: licensed under the terms of the Boost software license.
