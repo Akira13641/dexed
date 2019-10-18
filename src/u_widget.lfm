@@ -9,6 +9,7 @@ object DexedWidget: TDexedWidget
   ClientWidth = 332
   ShowHint = True
   ShowInTaskBar = stNever
+  LCLVersion = '2.1.0.0'
   object Back: TPanel
     Left = 0
     Height = 121

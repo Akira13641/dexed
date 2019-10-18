@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, u_common, u_writableComponent, LazFileUtils,
-  ghashmap, ghashset,
+  Generics.Defaults, Generics.Collections,
   u_dcd, u_projutils, u_interfaces, u_dlang, u_dastworx,
   u_compilers;
 
@@ -197,7 +197,7 @@ end;
 
 function TLibraryItem.getModule(const value: string): TModuleInfo;
 begin
-  if not fModulesByName.GetValue(value, result) then
+  if not fModulesByName.TryGetValue(value, result) then
     result := nil;
 end;
 
@@ -208,7 +208,7 @@ end;
 
 function TLibraryItem.hasModule(const value: string): boolean;
 begin
-  exit(fModulesByName.contains(value));
+  exit(fModulesByName.ContainsKey(value));
 end;
 
 procedure TLibraryItem.setLibProject(const value: string);
@@ -271,7 +271,7 @@ begin
           lne := lne[2..lne.length-1];
           mdi := addModuleInfo;
           mdi.name:= lne;
-          fModulesByName.insert(lne, mdi);
+          fModulesByName.Add(lne, mdi);
         end else
         begin
           if not lne.isEmpty and mdi.isNotNil then
@@ -306,7 +306,7 @@ begin
           lne := lne[2..lne.length-1];
           mdi := addModuleInfo;
           mdi.name:= lne;
-          fModulesByName.insert(lne, mdi);
+          fModulesByName.Add(lne, mdi);
         end else
         begin
           if not lne.isEmpty and mdi.isNotNil then
@@ -365,7 +365,7 @@ begin
   fItemsByAlias.Free;
   fItemsByAlias := TItemsByAlias.create;
   for i:= 0 to fCollection.Count-1 do
-    fItemsByAlias.insert(libraryByIndex[i].libAlias, libraryByIndex[i]);
+    fItemsByAlias.Add(libraryByIndex[i].libAlias, libraryByIndex[i]);
 end;
 
 procedure TLibraryManager.setCollection(value: TCollection);
@@ -389,7 +389,7 @@ begin
     exit;
   lib := TLibraryItem(data);
   case operation of
-    ooDeleteItem: if fItemsByAlias.contains(lib.libAlias) then
+    ooDeleteItem: if fItemsByAlias.ContainsKey(lib.libAlias) then
     begin
       for i:= 0 to lib.dependencies.Count-1 do
       begin
@@ -412,14 +412,14 @@ begin
         end;
       end;
       DCDWrapper.remImportFolder(lib.libSourcePath);
-      fItemsByAlias.delete(lib.libAlias);
+      fItemsByAlias.Remove(lib.libAlias);
     end;
   end;
 end;
 
 procedure TLibraryManager.updateAfterAddition(lib: TLibraryItem);
 begin
-  fItemsByAlias.insert(lib.libAlias, lib);
+  fItemsByAlias.Add(lib.libAlias, lib);
   updateCrossDependencies;
 end;
 
@@ -430,7 +430,7 @@ end;
 
 function TLibraryManager.getLibraryByAlias(const value: string): TLibraryItem;
 begin
-  if not fItemsByAlias.GetValue(value, result) then
+  if not fItemsByAlias.TryGetValue(value, result) then
     result := nil;
 end;
 
@@ -610,13 +610,13 @@ begin
       begin
         if sel.contains(itm) then
           continue;
-        sel.insert(itm);
+        sel.Add(itm);
         // get libraries for import I dependencies
         for j:= itm.dependencies.Count-1 downto 0 do
         begin
           dep := libraryByAlias[itm.dependencies[j]];
           if dep.isNotNil then
-            sel.insert(dep)
+            sel.Add(dep)
           else
             //auto update: item removed, detect on usage that it has disapeared
             itm.dependencies.Delete(j);
@@ -624,11 +624,11 @@ begin
       end;
     end;
     // add the library files and the import paths for the selection
-    if not sel.IsEmpty then with sel.Iterator do
+    if not (sel.Count = 0) then with sel.GetEnumerator do
     begin
       while true do
       begin
-        itm := Data;
+        itm := GetCurrent;
         if itm.isNil then
           break;
         if itm.hasValidLibFile then
@@ -642,7 +642,7 @@ begin
             paths.Add('-I' + itm.libSourcePath);
           end;
         end;
-        if not next then
+        if not MoveNext then
           break;
       end;
       free;

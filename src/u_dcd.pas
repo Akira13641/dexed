@@ -412,7 +412,7 @@ begin
   if not fAvailable or not fServerListening or fImportCache.contains(folder) then
     exit;
 
-  fImportCache.insert(folder);
+  fImportCache.Add(folder);
   fClient.Parameters.Clear;
   tryAddTcpParams;
   fClient.Parameters.Add('-I' + folder);
@@ -435,7 +435,7 @@ begin
   begin
     if fImportCache.contains(i) then
       continue;
-    fImportCache.insert(i);
+    fImportCache.Add(i);
     fClient.Parameters.Add('-I' + i);
     dec(c);
   end;
@@ -453,7 +453,7 @@ begin
   if not fAvailable or not fServerListening or not fImportCache.contains(folder) then
     exit;
 
-  fImportCache.delete(folder);
+  fImportCache.Remove(folder);
   fClient.Parameters.Clear;
   tryAddTcpParams;
   fClient.Parameters.Add('-R' + folder);
@@ -478,7 +478,7 @@ begin
   begin
     if not fImportCache.contains(i) then
       continue;
-    fImportCache.delete(i);
+    fImportCache.Remove(i);
     fClient.Parameters.Add('-R' + i);
     dec(c);
   end;

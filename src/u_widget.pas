@@ -5,7 +5,7 @@ unit u_widget;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, ExtCtrls, ActnList, Menus,
+  Classes, SysUtils, FileUtil, Generics.Collections, Forms, Controls, ExtCtrls, ActnList, Menus,
   AnchorDocking, u_interfaces, u_dsgncontrols, u_common;
 
 type
@@ -114,25 +114,9 @@ type
   (**
    * TDexedWidget list.
    *)
-  TWidgetList = class(TFPList)
-  private
-    function getWidget(index: integer): TDexedWidget;
-  public
-    procedure addWidget(value: PTDexedWidget);
-    property widget[index: integer]: TDexedWidget read getWidget;
-  end;
+  TWidgetList = specialize TList<TDexedWidget>;
 
-  TWidgetEnumerator = class
-    fList: TWidgetList;
-    fIndex: Integer;
-    function getCurrent: TDexedWidget;
-    Function moveNext: boolean;
-    property current: TDexedWidget read getCurrent;
-  end;
-
-  operator enumerator(aWidgetList: TWidgetList): TWidgetEnumerator;
-
-  function CompareWidgCaption(Item1, Item2: Pointer): Integer;
+  function CompareWidgCaption(constref Item1, Item2: TDexedWidget): Integer;
 
 implementation
 {$R *.lfm}
@@ -367,39 +351,9 @@ end;
 {$ENDREGION}
 
 {$REGION TWidgetList----------------------------------------------------------}
-function CompareWidgCaption(Item1, Item2: Pointer): Integer;
-type
-  PWidg = ^TDexedWidget;
+function CompareWidgCaption(constref Item1, Item2: TDexedWidget): Integer;
 begin
-  result := AnsiCompareStr(PWidg(Item1)^.Caption, PWidg(Item2)^.Caption);
-end;
-
-function TWidgetList.getWidget(index: integer): TDexedWidget;
-begin
-  result := PTDexedWidget(Items[index])^;
-end;
-
-procedure TWidgetList.addWidget(value: PTDexedWidget);
-begin
-  add(Pointer(value));
-end;
-
-function TWidgetEnumerator.getCurrent:TDexedWidget;
-begin
-  result := fList.widget[fIndex];
-end;
-
-function TWidgetEnumerator.moveNext: boolean;
-begin
-  Inc(fIndex);
-  result := fIndex < fList.Count;
-end;
-
-operator enumerator(aWidgetList: TWidgetList): TWidgetEnumerator;
-begin
-  result := TWidgetEnumerator.Create;
-  result.fList := aWidgetList;
-  result.fIndex := -1;
+  result := AnsiCompareStr(Item1.Caption, Item2.Caption);
 end;
 {$ENDREGION}
 

@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectOptions>
-    <Version Value="11"/>
+    <Version Value="12"/>
     <PathDelim Value="\"/>
     <General>
+      <Flags>
+        <CompatibilityMode Value="True"/>
+      </Flags>
       <SessionStorage Value="InProjectDir"/>
-      <MainUnit Value="0"/>
       <Title Value="dexed"/>
       <ResourceType Value="res"/>
       <UseXPManifest Value="True"/>
@@ -864,6 +866,8 @@
     <Linking>
       <Debugging>
         <GenerateDebugInfo Value="False"/>
+        <UseLineInfoUnit Value="False"/>
+        <StripSymbols Value="True"/>
       </Debugging>
       <LinkSmart Value="True"/>
       <Options>
@@ -879,8 +883,7 @@
       <CompilerMessages>
         <IgnoredMessages idx5024="True"/>
       </CompilerMessages>
-      <CustomOptions Value="-dRELEASE
--dGTK_REMOVE_CLIPBOARD_NULL"/>
+      <CustomOptions Value="-dRELEASE -dGTK_REMOVE_CLIPBOARD_NULL -Ci- -Cr- -g-"/>
     </Other>
   </CompilerOptions>
   <Debugging>

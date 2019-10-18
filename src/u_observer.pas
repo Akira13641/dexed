@@ -204,13 +204,13 @@ procedure TEntitiesConnector.addSingleService(provider: TObject);
 begin
   if not (provider is ISingleService) then
     exit;
-  fServices.insert((provider as ISingleService).singleServiceName, provider);
+  fServices.add((provider as ISingleService).singleServiceName, provider);
 end;
 
 function TEntitiesConnector.getSingleService(const serviceName: string): TObject;
 begin
   Result := nil;
-  if not fServices.GetValue(serviceName, result) then
+  if not fServices.TryGetValue(serviceName, result) then
     result := nil;
 end;
 {$ENDREGION}

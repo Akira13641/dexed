@@ -6,8 +6,9 @@
     <CompilerOptions>
       <Version Value="11"/>
       <SearchPaths>
-        <OtherUnitFiles Value="../src"/>
-        <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
+        <IncludeFiles Value="../src"/>
+        <OtherUnitFiles Value="../src/designtime"/>
+        <UnitOutputDirectory Value="lib/design/$(TargetCPU)-$(TargetOS)"/>
       </SearchPaths>
       <CodeGeneration>
         <Optimizations>
@@ -22,7 +23,7 @@
     </CompilerOptions>
     <Files Count="1">
       <Item1>
-        <Filename Value="../src/u_dsgncontrols.pas"/>
+        <Filename Value="../src/designtime/u_dsgncontrols.pas"/>
         <HasRegisterProc Value="True"/>
         <UnitName Value="u_dsgncontrols"/>
       </Item1>

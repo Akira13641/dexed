@@ -5,7 +5,7 @@ unit u_main;
 interface
 
 uses
-  Classes, SysUtils, LazFileUtils, SynEditKeyCmds, SynHighlighterLFM, Forms,
+  Classes, SysUtils, LazFileUtils, Generics.Defaults, SynEditKeyCmds, SynHighlighterLFM, Forms,
   StdCtrls, AnchorDocking, AnchorDockStorage, AnchorDockOptionsDlg, Controls,
   Graphics, strutils, Dialogs, Menus, ActnList, ExtCtrls, process,
   {$IFDEF WINDOWS}Windows, {$ENDIF} XMLPropStorage, SynExportHTML, fphttpclient,
@@ -948,8 +948,8 @@ begin
     DcdWrapper.port:=fDcdPort;
     for i := 0 to MainForm.fWidgList.Count-1 do
     begin
-      MainForm.fWidgList.widget[i].toolbarFlat:=fFlatLook;
-      MainForm.fWidgList.widget[i].toolbar.Scaling:= fToolBarScaling;
+      MainForm.fWidgList[i].toolbarFlat:=fFlatLook;
+      MainForm.fWidgList[i].toolbar.Scaling:= fToolBarScaling;
     end;
   end
   else if target = fBackup then
@@ -1572,29 +1572,29 @@ begin
 
   getMessageDisplay(fMsgs);
 
-  fWidgList.addWidget(@fMesgWidg);
-  fWidgList.addWidget(@fEditWidg);
-  fWidgList.addWidget(@fProjWidg);
-  fWidgList.addWidget(@fPrjCfWidg);
-  fWidgList.addWidget(@fFindWidg);
-  fWidgList.addWidget(@fExplWidg);
-  fWidgList.addWidget(@fLibMWidg);
-  fWidgList.addWidget(@fTlsEdWidg);
-  fWidgList.addWidget(@fPrInpWidg);
-  fWidgList.addWidget(@fTodolWidg);
-  fWidgList.addWidget(@fOptEdWidg);
-  fWidgList.addWidget(@fSymlWidg);
-  fWidgList.addWidget(@fInfoWidg);
-  fWidgList.addWidget(@fDubProjWidg);
-  fWidgList.addWidget(@fDfmtWidg);
-  fWidgList.addWidget(@fPrjGrpWidg);
-  fWidgList.addWidget(@fProfWidg);
+  fWidgList.Add(fMesgWidg);
+  fWidgList.Add(fEditWidg);
+  fWidgList.Add(fProjWidg);
+  fWidgList.Add(fPrjCfWidg);
+  fWidgList.Add(fFindWidg);
+  fWidgList.Add(fExplWidg);
+  fWidgList.Add(fLibMWidg);
+  fWidgList.Add(fTlsEdWidg);
+  fWidgList.Add(fPrInpWidg);
+  fWidgList.Add(fTodolWidg);
+  fWidgList.Add(fOptEdWidg);
+  fWidgList.Add(fSymlWidg);
+  fWidgList.Add(fInfoWidg);
+  fWidgList.Add(fDubProjWidg);
+  fWidgList.Add(fDfmtWidg);
+  fWidgList.Add(fPrjGrpWidg);
+  fWidgList.Add(fProfWidg);
   {$IFDEF UNIX}
-  fWidgList.addWidget(@fTermWWidg);
-  fWidgList.addWidget(@fGdbWidg);
+  fWidgList.Add(fTermWWidg);
+  fWidgList.Add(fGdbWidg);
   {$ENDIF}
 
-  fWidgList.sort(@CompareWidgCaption);
+  fWidgList.sort(specialize TComparer<TDexedWidget>.Construct(@CompareWidgCaption));
 
   case GetIconScaledSize of
     iss16: idx := fImages.AddResourceName(HINSTANCE, 'APPLICATION');
@@ -1651,7 +1651,7 @@ begin
     exit;
   for i := 0 to fWidgList.Count-1 do
   begin
-    widg := fWidgList.widget[i];
+    widg := fWidgList[i];
     if not widg.isDockable then
       continue;
     for anchl in [low(anchl) .. high(anchl)] do
@@ -1679,17 +1679,16 @@ var
   w: TDexedWidget;
   s: TAnchorDockSplitter;
 begin
-
   if not reset then
   begin
-    DockMaster.MakeDockSite(Self, [akBottom], admrpChild);
+    DockMaster.MakeDockSite(Self, [akLeft, akRight, akBottom], admrpChild, True);
     DockMaster.OnShowOptions := @ShowAnchorDockOptions;
-    DockMaster.HeaderStyle := adhsPoints;
+    DockMaster.HeaderStyle := 'Points';
     DockMaster.HideHeaderCaptionFloatingControl := true;
     // makes widget dockable
     for i := 0 to fWidgList.Count-1 do
     begin
-      w := fWidgList.widget[i];
+      w := fWidgList[i];
       if not w.isDockable then
         continue;
       DockMaster.MakeDockable(w, true);
@@ -1709,7 +1708,7 @@ begin
     begin
       for i := 0 to fWidgList.Count-1 do
       begin
-        w := fWidgList.widget[i];
+        w := fWidgList[i];
         if not w.isDockable then
           continue;
         if not w.Visible then
@@ -1767,7 +1766,7 @@ begin
     // close remaining and header to top
     for i := 0 to fWidgList.Count-1 do
     begin
-      w := fWidgList.widget[i];
+      w := fWidgList[i];
       if not w.isDockable then
         continue;
       DockMaster.GetAnchorSite(w).Header.HeaderPosition := adlhpTop;
@@ -1856,11 +1855,11 @@ begin
   // does not save minimized/undocked windows to prevent bugs
   for i:= 0 to fWidgList.Count-1 do
   begin
-    if not fWidgList.widget[i].isDockable then continue;
-    if DockMaster.GetAnchorSite(fWidgList.widget[i]).WindowState = wsMinimized then
-      DockMaster.GetAnchorSite(fWidgList.widget[i]).Close
-    else if not DockMaster.GetAnchorSite(fWidgList.widget[i]).HasParent then
-      DockMaster.GetAnchorSite(fWidgList.widget[i]).Close;
+    if not fWidgList[i].isDockable then continue;
+    if DockMaster.GetAnchorSite(fWidgList[i]).WindowState = wsMinimized then
+      DockMaster.GetAnchorSite(fWidgList[i]).Close
+    else if not DockMaster.GetAnchorSite(fWidgList[i]).HasParent then
+      DockMaster.GetAnchorSite(fWidgList[i]).Close;
   end;
 
   forceDirectory(getDocPath);
@@ -3615,11 +3614,11 @@ begin
   DockMaster.RestoreLayouts.Clear;
   for i:= 0 to fWidgList.Count-1 do
   begin
-    if not fWidgList.widget[i].isDockable then continue;
-    if DockMaster.GetAnchorSite(fWidgList.widget[i]).WindowState = wsMinimized then
-      DockMaster.GetAnchorSite(fWidgList.widget[i]).Close
-    else if not DockMaster.GetAnchorSite(fWidgList.widget[i]).HasParent then
-      DockMaster.GetAnchorSite(fWidgList.widget[i]).Close;
+    if not fWidgList[i].isDockable then continue;
+    if DockMaster.GetAnchorSite(fWidgList[i]).WindowState = wsMinimized then
+      DockMaster.GetAnchorSite(fWidgList[i]).Close
+    else if not DockMaster.GetAnchorSite(fWidgList[i]).HasParent then
+      DockMaster.GetAnchorSite(fWidgList[i]).Close;
   end;
   //
   forceDirectory(fname.extractFilePath);

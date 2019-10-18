@@ -15,7 +15,7 @@ uses
   {$IFNDEF CEBUILD}
   forms, ComCtrls,
   {$ENDIF}
-  LazFileUtils, FileUtil, process, asyncprocess, ghashmap, ghashset, LCLIntf, strutils,
+  LazFileUtils, FileUtil, process, asyncprocess, Generics.Defaults, Generics.Collections, LCLIntf, strutils,
   fpjson, graphics;
 
 const
@@ -38,24 +38,14 @@ type
     numT: integer;
   end;
 
-  // function used as string hasher in fcl-stl
-  TStringHash = class
-    class function hash(const key: string; maxBucketsPow2: longword): longword;
-  end;
-
   // HashMap for TValue by string
-  generic TStringHashMap<TValue> = class(specialize THashmap<string, TValue, TStringHash>);
-
-  // function used as object ptr hasher in fcl-stl
-  TObjectHash = class
-    class function hash(key: TObject; maxBucketsPow2: longword): longword;
-  end;
+  generic TStringHashMap<TValue> = class(specialize TDictionary<String, TValue>);
 
   // HashSet for any object
-  generic TObjectHashSet<TValue: TObject> = class(specialize THashSet<TValue, TObjectHash>);
+  generic TObjectHashSet<TValue: TObject> = class(specialize THashSet<TValue>);
 
   // Used instead of TStringList when the usage would mostly be ".IndexOf"
-  TStringHashSet = class(specialize THashSet<string, TStringHash>);
+  TStringHashSet = class(specialize THashSet<String>);
 
   // aliased to get a custom prop inspector
   TPathname = type string;
@@ -64,44 +54,44 @@ type
 
   // sugar for classes
   TObjectHelper = class helper for TObject
-    function isNil: boolean;
-    function isNotNil: boolean;
+    function isNil: boolean; inline;
+    function isNotNil: boolean; inline;
   end;
 
   // sugar for pointers
   TPointerHelper = type helper for Pointer
-    function isNil: boolean;
-    function isNotNil: boolean;
+    function isNil: boolean; inline;
+    function isNotNil: boolean; inline;
   end;
 
   // sugar for strings
   TDexedStringHelper = type helper(TStringHelper) for string
-    function isEmpty: boolean;
-    function isNotEmpty: boolean;
-    function isBlank: boolean;
-    function extractFileName: string;
-    function extractFileExt: string;
-    function extractFilePath: string;
-    function extractFileDir: string;
-    function stripFileExt: string;
-    function fileExists: boolean;
-    function dirExists: boolean;
-    function upperCase: string;
-    function length: integer;
-    function toIntNoExcept(default: integer = -1): integer;
-    function toInt: integer;
-    function normalizePath: string;
+    function isEmpty: boolean; inline;
+    function isNotEmpty: boolean; inline;
+    function isBlank: boolean; inline;
+    function extractFileName: string; inline;
+    function extractFileExt: string; inline;
+    function extractFilePath: string; inline;
+    function extractFileDir: string; inline;
+    function stripFileExt: string; inline;
+    function fileExists: boolean; inline;
+    function dirExists: boolean; inline;
+    function upperCase: string; inline;
+    function length: integer; inline;
+    function toIntNoExcept(default: integer = -1): integer; inline;
+    function toInt: integer; inline;
+    function normalizePath: string; inline;
   end;
 
   TStringsHelper = class helper for TStrings
     // Same as text but without the additional line terminator.
-    function strictText: string;
+    function strictText: string; inline;
   end;
 
   TJSONObjectHelper = class helper for TJSONObject
     function findObject(const key: TJSONStringType; out value: TJSONObject): boolean;
     function findArray(const key: TJSONStringType; out value: TJSONArray): boolean;
-    function findAny(const key: TJSONStringType; out value: TJSONData): boolean;
+    function findAny(const key: TJSONStringType; out value: TJSONData): boolean; inline;
   end;
 
   TListItemsHelper = class helper for TListItems
@@ -347,43 +337,6 @@ begin
     result := TIconScaledSize.iss24;
   if h >= 32 then
     result := TIconScaledSize.iss32;
-end;
-
-class function TStringHash.hash(const key: string; maxBucketsPow2: longword): longword;
-var
-  i: integer;
-begin
-  {$PUSH}{$R-} {$Q-}
-  result := 2166136261;
-  for i:= 1 to key.length do
-  begin
-    result := result xor Byte(key[i]);
-    result *= 16777619;
-  end;
-  result := result and (maxBucketsPow2-1);
-  {$POP}
-end;
-
-class function TObjectHash.hash(key: TObject; maxBucketsPow2: longword): longword;
-var
-  ptr: PByte;
-  i: integer;
-begin
-  {$PUSH}{$R-} {$Q-}
-  ptr := PByte(key);
-  result := 2166136261;
-  {$IFDEF CPU32}
-  for i:= 0 to 3 do
-  {$ELSE}
-  for i:= 0 to 7 do
-  {$ENDIF}
-  begin
-    result := result xor ptr^;
-    result *= 16777619;
-    ptr += 1;
-  end;
-  result := result and (maxBucketsPow2-1);
-  {$POP}
 end;
 
 procedure TPersistentShortcut.assign(value: TPersistent);
