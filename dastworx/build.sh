@@ -32,7 +32,7 @@ echo building using $DC...
 
 #build
 $DC ${dast[@]} ${dparse[@]} ${iz[@]} ${mir-core[@]} ${stdxalloc[@]} \
--O -release -inline -boundscheck=off $MFLAGS \
+-O -release -inline -boundscheck=off -d $MFLAGS \
 -Isrc -I../etc/iz/import -I../etc/libdparse/src -I../etc/mir-core/source -I../etc/stdx-allocator/source \
 -of../bin/dastworx
 
