@@ -5,7 +5,7 @@ unit u_dlang;
 interface
 
 uses
-  Classes, SysUtils, u_dlangutils, u_dlangmaps;
+  Classes, SysUtils, Generics.Collections, u_dlangutils, u_dlangmaps;
 
 
 type
@@ -14,7 +14,7 @@ type
    * Represents the pointer in a source file.
    * Automatically updates the line and the column.
    *)
-  TReaderHead = object
+  TReaderHead = record
   private
     fLineIndex: Integer;
     fColumnIndex: Integer;
@@ -24,14 +24,14 @@ type
     fBegColumnIndex: Integer;
     fBegLineIndex: Integer;
     fBegOffset: Integer;
-    function getColAndLine: TPoint;
+    function getColAndLine: TPoint; inline;
   public
     constructor Create(const text: PChar; const colAndLine: TPoint);
     procedure setReader(const text: PChar; const colAndLine: TPoint);
     //
     function Next: PChar;
     function previous: PChar;
-    procedure saveBeginning;
+    procedure saveBeginning; inline;
     //
     property AbsoluteIndex: Integer read fAbsoluteIndex;
     property LineIndex: Integer read fLineIndex;
@@ -82,22 +82,10 @@ type
   (**
    * List of lexer tokens.
    *)
-  TLexTokenList = class(TFPList)
-  private
-    function getToken(index: integer): PLexToken;
+  TLexTokenList = class(specialize TList<PLexToken>)
   public
     procedure Clear;
-    procedure addToken(value: PLexToken);
     procedure saveToFile(const fname: string);
-    property token[index: integer]: PLexToken read getToken; default;
-  end;
-
-  TLexTokenEnumerator = class
-    fList: TLexTokenList;
-    fIndex: Integer;
-    function GetCurrent: PLexToken;
-    function MoveNext: Boolean;
-    property Current: PLexToken read GetCurrent;
   end;
 
   (**
@@ -113,25 +101,10 @@ type
   (**
    * Error list.
    *)
-  TLexErrorList = class(TFPList)
-  private
-    function getError(index: integer): TLexError;
+  TLexErrorList = class(specialize TList<PLexError>)
   public
     procedure Clear;
-    procedure addError(value: PLexError);
-    property error[index: integer]: TLexError read getError;
   end;
-
-  TLexErrorEnumerator = class
-    fList: TLexErrorList;
-    fIndex: Integer;
-    function GetCurrent: TLexError;
-    function MoveNext: Boolean;
-    property Current: TLexError read GetCurrent;
-  end;
-
-operator enumerator(list: TLexTokenList): TLexTokenEnumerator;
-operator enumerator(list: TLexErrorList): TLexErrorEnumerator;
 
 (**
  * Lexes text and fills list with the TLexToken found.
@@ -151,30 +124,30 @@ procedure getImports(list: TLexTokenList; imports: TStrings);
 (**
  * Compares two TPoints.
  *)
-operator = (lhs: TPoint; rhs: TPoint): boolean;
-operator > (lhs: TPoint; rhs: TPoint): boolean;
-operator < (lhs: TPoint; rhs: TPoint): boolean;
-operator <= (lhs: TPoint; rhs: TPoint): boolean;
+operator = (const lhs, rhs: TPoint): boolean; inline;
+operator > (const lhs, rhs: TPoint): boolean; inline;
+operator < (const lhs, rhs: TPoint): boolean; inline;
+operator <= (const lhs, rhs: TPoint): boolean; inline;
 
 implementation
 
 {$REGION TReaderHead -----------------------------------------------------------}
-operator = (lhs: TPoint; rhs: TPoint): boolean;
+operator = (const lhs, rhs: TPoint): boolean;
 begin
   exit((lhs.y = rhs.y) and (lhs.x = rhs.x));
 end;
 
-operator > (lhs: TPoint; rhs: TPoint): boolean;
+operator > (const lhs, rhs: TPoint): boolean;
 begin
   exit((lhs.y > rhs.y) or ((lhs.y = rhs.y) and (lhs.x > rhs.x)));
 end;
 
-operator < (lhs: TPoint; rhs: TPoint): boolean;
+operator < (const lhs, rhs: TPoint): boolean;
 begin
   exit(rhs > lhs);
 end;
 
-operator <= (lhs: TPoint; rhs: TPoint): boolean;
+operator <= (const lhs, rhs: TPoint): boolean;
 begin
   exit((lhs = rhs) or (lhs < rhs));
 end;
@@ -239,23 +212,13 @@ end;
 {$ENDREGION}
 
 {$REGION Lexing ----------------------------------------------------------------}
-function TLexTokenList.getToken(index: integer): PLexToken;
-begin
-  Result := PLexToken(Items[index]);
-end;
 
 procedure TLexTokenList.Clear;
+var I: PtrInt;
 begin
-  while Count > 0 do
-  begin
-    Dispose(PLexToken(Items[Count - 1]));
-    Delete(Count - 1);
-  end;
-end;
-
-procedure TLexTokenList.addToken(value: PLexToken);
-begin
-  add(Pointer(value));
+  for I := Count - 1 downto 0 do
+    Dispose(Items[I]);
+  inherited Clear;
 end;
 
 procedure TLexTokenList.saveToFile(const fname: string);
@@ -267,7 +230,7 @@ begin
   try
     for i:= 0 to self.count-1 do
     begin
-      tok := getToken(i);
+      tok := GetItem(i);
       add(format('line %.5d - col %.3d (%.8d): (%s): %s',
         [tok^.position.Y, tok^.position.X, tok^.offset,
           LexTokenKindString[tok^.kind], tok^.Data]));
@@ -277,25 +240,6 @@ begin
     free;
   end;
 end;
-
-function TLexTokenEnumerator.GetCurrent: PLexToken;
-begin
-  exit(fList.token[fIndex]);
-end;
-
-function TLexTokenEnumerator.MoveNext: Boolean;
-begin
-  Inc(fIndex);
-  exit(fIndex < fList.Count);
-end;
-
-operator enumerator(list: TLexTokenList): TLexTokenEnumerator;
-begin
-  Result := TLexTokenEnumerator.Create;
-  Result.fList := list;
-  Result.fIndex := -1;
-end;
-
 
 procedure lex(const text: string; list: TLexTokenList; clbck: TLexFoundEvent = nil; Options: TLexOptions = []);
 var
@@ -322,14 +266,14 @@ var
     list.Add(ptk);
   end;
 
-  function isOutOfBound: boolean;
+  function isOutOfBound: boolean; inline;
   begin
     result := reader.AbsoluteIndex >= length(text);
     if result and (identifier <> '') then
       addToken(ltkIllegal);
   end;
 
-  function callBackDoStop: boolean;
+  function callBackDoStop: boolean; inline;
   begin
     Result := False;
     if clbck <> nil then
@@ -995,41 +939,13 @@ end;
 {$ENDREGION}
 
 {$REGION Utils}
-function TLexErrorList.getError(index: integer): TLexError;
-begin
-  Result := PLexError(Items[index])^;
-end;
 
 procedure TLexErrorList.Clear;
+var I: PtrInt;
 begin
-  while Count > 0 do
-  begin
-    Dispose(PLexError(Items[Count - 1]));
-    Delete(Count - 1);
-  end;
-end;
-
-procedure TLexErrorList.addError(value: PLexError);
-begin
-  add(Pointer(value));
-end;
-
-function TLexErrorEnumerator.GetCurrent: TLexError;
-begin
-  exit(fList.error[fIndex]);
-end;
-
-function TLexErrorEnumerator.MoveNext: Boolean;
-begin
-  Inc(fIndex);
-  exit(fIndex < fList.Count);
-end;
-
-operator enumerator(list: TLexErrorList): TLexErrorEnumerator;
-begin
-  Result := TLexErrorEnumerator.Create;
-  Result.fList := list;
-  Result.fIndex := -1;
+  for I := Count - 1 downto 0 do
+    Dispose(Items[I]);
+  inherited Clear;
 end;
 
 function getModuleName(list: TLexTokenList): string;

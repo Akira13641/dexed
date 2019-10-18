@@ -3,6 +3,7 @@ program dexed;
 {$mode objfpc}{$H+}
 
 uses
+  CMem,
   {$IFDEF UNIX}{$IFDEF UseCThreads}
   cthreads,
   {$ENDIF}{$ENDIF}
