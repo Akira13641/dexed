@@ -10,7 +10,7 @@ Dexed, the _D Extended EDitor_, is an IDE for the [D programming language](https
 - Dynamic [D-Scanner](https://github.com/dlang-community/D-Scanner) linting with results displayed in the editor gutter.
 - single click to compile and to _unittest_ a module and optionally display tests coverage.
 - advanced editor with D2 syntax highlighter, folds, regions, identifier markup, macros, sync-edit, etc.
-- additonal highlithers for C and C++ sources, based on the D color scheme, for other files a generic bicolor highlighter is used.
+- additional highlighters for C and C++ sources, based on the D color scheme, for other files a generic bicolor highlighter is used.
 - edition helpers: comment blocks, local identifier renaming, brace auto-closing, ddoc templates, etc.
 - Debugging with a GDB gui. (**linux only**)
 - Integrated terminal emulator. (**linux** + **GTK2 widget set** only)
@@ -22,5 +22,4 @@ Dexed, the _D Extended EDitor_, is an IDE for the [D programming language](https
 
 ## Project information
 
-- :bookmark: latest release: version 3.7.4, Tue 22 Jan 2019.
 - :scroll: licensed under the terms of the Boost software license.
