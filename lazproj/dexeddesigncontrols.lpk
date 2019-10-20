@@ -11,14 +11,22 @@
         <UnitOutputDirectory Value="lib/design/$(TargetCPU)-$(TargetOS)"/>
       </SearchPaths>
       <CodeGeneration>
+        <SmartLinkUnit Value="True"/>
         <Optimizations>
-          <OptimizationLevel Value="2"/>
+          <OptimizationLevel Value="3"/>
         </Optimizations>
       </CodeGeneration>
+      <Linking>
+        <Debugging>
+          <GenerateDebugInfo Value="False"/>
+          <UseLineInfoUnit Value="False"/>
+        </Debugging>
+      </Linking>
       <Other>
         <Verbosity>
           <ShowWarn Value="False"/>
         </Verbosity>
+        <CustomOptions Value="-Ci- -Cr- -g-"/>
       </Other>
     </CompilerOptions>
     <Files Count="1">

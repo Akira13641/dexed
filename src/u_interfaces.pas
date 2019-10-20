@@ -451,42 +451,42 @@ type
   (**
    * TMultiDocSubject primitives.
    *)
-  procedure subjDocNew(aSubject: TMultiDocSubject; document: TDexedMemo);      {$IFDEF RELEASE}inline;{$ENDIF}
-  procedure subjDocClosing(aSubject: TMultiDocSubject; document: TDexedMemo);  {$IFDEF RELEASE}inline;{$ENDIF}
-  procedure subjDocFocused(aSubject: TMultiDocSubject; document: TDexedMemo);  {$IFDEF RELEASE}inline;{$ENDIF}
-  procedure subjDocChanged(aSubject: TMultiDocSubject; document: TDexedMemo);  {$IFDEF RELEASE}inline;{$ENDIF}
+  procedure subjDocNew(aSubject: TMultiDocSubject; document: TDexedMemo);      {$IFNDEF DEBUG}inline;{$ENDIF}
+  procedure subjDocClosing(aSubject: TMultiDocSubject; document: TDexedMemo);  {$IFNDEF DEBUG}inline;{$ENDIF}
+  procedure subjDocFocused(aSubject: TMultiDocSubject; document: TDexedMemo);  {$IFNDEF DEBUG}inline;{$ENDIF}
+  procedure subjDocChanged(aSubject: TMultiDocSubject; document: TDexedMemo);  {$IFNDEF DEBUG}inline;{$ENDIF}
 
   (**
    * TProjectSubject primitives.
    *)
-  procedure subjProjNew(aSubject: TProjectSubject; project: ICommonProject);     {$IFDEF RELEASE}inline;{$ENDIF}
-  procedure subjProjClosing(aSubject: TProjectSubject; project: ICommonProject); {$IFDEF RELEASE}inline;{$ENDIF}
-  procedure subjProjFocused(aSubject: TProjectSubject; project: ICommonProject); {$IFDEF RELEASE}inline;{$ENDIF}
-  procedure subjProjChanged(aSubject: TProjectSubject; project: ICommonProject); {$IFDEF RELEASE}inline;{$ENDIF}
-  procedure subjProjCompiling(aSubject: TProjectSubject; project: ICommonProject);{$IFDEF RELEASE}inline;{$ENDIF}
-  procedure subjProjCompiled(aSubject: TProjectSubject; project: ICommonProject; success: boolean);{$IFDEF RELEASE}inline;{$ENDIF}
+  procedure subjProjNew(aSubject: TProjectSubject; project: ICommonProject);     {$IFNDEF DEBUG}inline;{$ENDIF}
+  procedure subjProjClosing(aSubject: TProjectSubject; project: ICommonProject); {$IFNDEF DEBUG}inline;{$ENDIF}
+  procedure subjProjFocused(aSubject: TProjectSubject; project: ICommonProject); {$IFNDEF DEBUG}inline;{$ENDIF}
+  procedure subjProjChanged(aSubject: TProjectSubject; project: ICommonProject); {$IFNDEF DEBUG}inline;{$ENDIF}
+  procedure subjProjCompiling(aSubject: TProjectSubject; project: ICommonProject);{$IFNDEF DEBUG}inline;{$ENDIF}
+  procedure subjProjCompiled(aSubject: TProjectSubject; project: ICommonProject; success: boolean);{$IFNDEF DEBUG}inline;{$ENDIF}
 
   (**
    * TMiniExplorerSubject primitives.
    *)
-  procedure subjMnexDirectoryChanged(aSubject: TMiniExplorerSubject; const directory: string); {$IFDEF RELEASE}inline;{$ENDIF}
+  procedure subjMnexDirectoryChanged(aSubject: TMiniExplorerSubject; const directory: string); {$IFNDEF DEBUG}inline;{$ENDIF}
 
 
 {
   Service getters:
 }
-  function getMessageDisplay(var obj: IMessagesDisplay): IMessagesDisplay; inline;
-  function getMessageDisplay: IMessagesDisplay; inline;
-  function getprocInputHandler: IProcInputHandler; inline;
-  function getMultiDocHandler: IMultiDocHandler; inline;
-  function getSymStringExpander: ISymStringExpander; inline;
-  function getProjectGroup: IProjectGroup; inline;
-  function getExplorer: IExplorer; inline;
-  function getOptionsEditor: IOptionsEditor; inline;
-  function getCompilerSelector: ICompilerSelector; inline;
-  function getMainMenu: IMainMenu; inline;
-  function getCodeFormatting: ICodeFormatting; inline;
-  function getLifeTimeManager: ILifetimeManager; inline;
+  function getMessageDisplay(var obj: IMessagesDisplay): IMessagesDisplay; {$IFNDEF DEBUG}inline;{$ENDIF}
+  function getMessageDisplay: IMessagesDisplay; {$IFNDEF DEBUG}inline;{$ENDIF}
+  function getprocInputHandler: IProcInputHandler; {$IFNDEF DEBUG}inline;{$ENDIF}
+  function getMultiDocHandler: IMultiDocHandler; {$IFNDEF DEBUG}inline;{$ENDIF}
+  function getSymStringExpander: ISymStringExpander; {$IFNDEF DEBUG}inline;{$ENDIF}
+  function getProjectGroup: IProjectGroup; {$IFNDEF DEBUG}inline;{$ENDIF}
+  function getExplorer: IExplorer; {$IFNDEF DEBUG}inline;{$ENDIF}
+  function getOptionsEditor: IOptionsEditor; {$IFNDEF DEBUG}inline;{$ENDIF}
+  function getCompilerSelector: ICompilerSelector; {$IFNDEF DEBUG}inline;{$ENDIF}
+  function getMainMenu: IMainMenu; {$IFNDEF DEBUG}inline;{$ENDIF}
+  function getCodeFormatting: ICodeFormatting; {$IFNDEF DEBUG}inline;{$ENDIF}
+  function getLifeTimeManager: ILifetimeManager; {$IFNDEF DEBUG}inline;{$ENDIF}
 
 implementation
 
@@ -651,12 +651,12 @@ begin
   exit(EntitiesConnector.getSingleService('IMainMenu') as IMainMenu);
 end;
 
-function getCodeFormatting: ICodeFormatting; inline;
+function getCodeFormatting: ICodeFormatting; {$IFNDEF DEBUG}inline;{$ENDIF}
 begin
   exit(EntitiesConnector.getSingleService('ICodeFormatting') as ICodeFormatting);
 end;
 
-function getLifeTimeManager: ILifetimeManager; inline;
+function getLifeTimeManager: ILifetimeManager; {$IFNDEF DEBUG}inline;{$ENDIF}
 begin
   exit(EntitiesConnector.getSingleService('ILifetimeManager') as ILifetimeManager);
 end;

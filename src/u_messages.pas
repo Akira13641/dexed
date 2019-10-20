@@ -7,13 +7,13 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, ComCtrls,
   EditBtn, lcltype, u_widget, ActnList, Menus, clipbrd, AnchorDocking, math,
-  TreeFilterEdit, Buttons, GraphType, fgl, strutils, LazFileUtils,
+  TreeFilterEdit, Buttons, GraphType, LGHelpers, LGHashMap, strutils, LazFileUtils,
   u_ddemangle, u_writableComponent, u_common, u_synmemo, u_interfaces,
   u_observer, u_sharedres, u_stringrange, u_dsgncontrols;
 
 type
 
-  TEditorMessagePos = class(specialize TFPGMap<string,integer>);
+  TEditorMessagePos = class(specialize TGHashMapLP<string,integer>);
 
   (**
    * the struct linked to a log message. allow to be filtered.
@@ -847,10 +847,8 @@ begin
 
   if fOptions.fAutoSelect and (fCtxt = amcEdit) then
   begin
-    i := fEditorMessagePos.IndexOf(fDoc.fileName);
-    if i <> -1 then
+    if fEditorMessagePos.TryGetValue(fDoc.fileName, i) then
     begin
-      i := fEditorMessagePos.Data[i];
       if (i <> -1) and (i < list.Items.Count) then
       begin
         list.Selected := list.Items[i];

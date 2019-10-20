@@ -70,7 +70,7 @@ type
     // passes compilation message as "to be guessed"
     procedure compProcOutput(proc: TObject);
     procedure compProcTerminated(proc: TObject);
-    function getObjectsDirectory: string; inline;
+    function getObjectsDirectory: string; {$IFNDEF DEBUG}inline;{$ENDIF}
     procedure getUpToDateObjects(str: TStrings);
   protected
     procedure beforeLoad; override;
@@ -1013,7 +1013,7 @@ begin
   result := true;
 end;
 
-function TNativeProject.getObjectsDirectory: string; inline;
+function TNativeProject.getObjectsDirectory: string; {$IFNDEF DEBUG}inline;{$ENDIF}
 var
   cfg: TCompilerConfiguration;
 begin

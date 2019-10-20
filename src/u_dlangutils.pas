@@ -123,7 +123,7 @@ begin
   end;
 end;
 
-function isOperator3(const s: string): boolean; {$IFNDEF DEBUG} inline; {$ENDIF}
+function isOperator3(const s: string): boolean; {$IFNDEF DEBUG}inline;{$ENDIF}
 begin
   result := false;
   case s[1] of
@@ -137,7 +137,7 @@ begin
   end;
 end;
 
-function isOperator4(const s: string): boolean; {$IFNDEF DEBUG} inline; {$ENDIF}
+function isOperator4(const s: string): boolean; {$IFNDEF DEBUG}inline;{$ENDIF}
 begin
   result := (s = '>>>=') or (s = '!<>=');
 end;

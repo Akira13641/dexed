@@ -10,3 +10,12 @@
 [submodule "etc/mir-core"]
 	path = etc/mir-core
 	url = https://github.com/libmir/mir-core.git
+[submodule "etc/JsonTools"]
+	path = etc/JsonTools
+	url = https://github.com/sysrpl/JsonTools.git
+[submodule "etc/PasMP"]
+	path = etc/PasMP
+	url = https://github.com/BeRo1985/pasmp.git
+[submodule "etc/LGenerics"]
+	path = etc/LGenerics
+	url = https://github.com/avk959/LGenerics.git

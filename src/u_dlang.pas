@@ -5,7 +5,7 @@ unit u_dlang;
 interface
 
 uses
-  Classes, SysUtils, Generics.Collections, u_dlangutils, u_dlangmaps;
+  Classes, SysUtils, LGHelpers, LGVector, u_dlangutils, u_dlangmaps;
 
 
 type
@@ -24,14 +24,14 @@ type
     fBegColumnIndex: Integer;
     fBegLineIndex: Integer;
     fBegOffset: Integer;
-    function getColAndLine: TPoint; inline;
+    function getColAndLine: TPoint; {$IFNDEF DEBUG}inline;{$ENDIF}
   public
     constructor Create(const text: PChar; const colAndLine: TPoint);
     procedure setReader(const text: PChar; const colAndLine: TPoint);
     //
     function Next: PChar;
     function previous: PChar;
-    procedure saveBeginning; inline;
+    procedure saveBeginning; {$IFNDEF DEBUG}inline;{$ENDIF}
     //
     property AbsoluteIndex: Integer read fAbsoluteIndex;
     property LineIndex: Integer read fLineIndex;
@@ -82,7 +82,7 @@ type
   (**
    * List of lexer tokens.
    *)
-  TLexTokenList = class(specialize TList<PLexToken>)
+  TLexTokenList = class(specialize TGVector<PLexToken>)
   public
     procedure Clear;
     procedure saveToFile(const fname: string);
@@ -101,7 +101,7 @@ type
   (**
    * Error list.
    *)
-  TLexErrorList = class(specialize TList<PLexError>)
+  TLexErrorList = class(specialize TGVector<PLexError>)
   public
     procedure Clear;
   end;
@@ -124,10 +124,10 @@ procedure getImports(list: TLexTokenList; imports: TStrings);
 (**
  * Compares two TPoints.
  *)
-operator = (const lhs, rhs: TPoint): boolean; inline;
-operator > (const lhs, rhs: TPoint): boolean; inline;
-operator < (const lhs, rhs: TPoint): boolean; inline;
-operator <= (const lhs, rhs: TPoint): boolean; inline;
+operator = (const lhs, rhs: TPoint): boolean; {$IFNDEF DEBUG}inline;{$ENDIF}
+operator > (const lhs, rhs: TPoint): boolean; {$IFNDEF DEBUG}inline;{$ENDIF}
+operator < (const lhs, rhs: TPoint): boolean; {$IFNDEF DEBUG}inline;{$ENDIF}
+operator <= (const lhs, rhs: TPoint): boolean; {$IFNDEF DEBUG}inline;{$ENDIF}
 
 implementation
 
@@ -266,14 +266,14 @@ var
     list.Add(ptk);
   end;
 
-  function isOutOfBound: boolean; inline;
+  function isOutOfBound: boolean; {$IFNDEF DEBUG}inline;{$ENDIF}
   begin
     result := reader.AbsoluteIndex >= length(text);
     if result and (identifier <> '') then
       addToken(ltkIllegal);
   end;
 
-  function callBackDoStop: boolean; inline;
+  function callBackDoStop: boolean; {$IFNDEF DEBUG}inline;{$ENDIF}
   begin
     Result := False;
     if clbck <> nil then

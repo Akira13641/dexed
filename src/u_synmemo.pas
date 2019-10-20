@@ -12,7 +12,7 @@ uses
   md5, Spin, LCLIntf, LazFileUtils, LMessages, SynHighlighterCpp, math,
   //SynEditMarkupFoldColoring,
   Clipbrd, fpjson, jsonparser, LazUTF8, LazUTF8Classes, Buttons, StdCtrls,
-  u_common, u_writableComponent, u_d2syn, u_txtsyn, u_dialogs, u_dastworx,
+  LGHelpers, LGVector, u_common,  u_writableComponent, u_d2syn, u_txtsyn, u_dialogs, u_dastworx,
   u_sharedres, u_dlang, u_stringrange, u_dbgitf, u_observer, u_diff,
   u_processes;
 
@@ -114,7 +114,7 @@ type
   private
     fPos: Integer;
     fMax: Integer;
-    fList: TFPList;
+    fList: specialize TGLiteVector<PtrInt>;
     fMemo: TCustomSynEdit;
   public
     constructor create(memo: TCustomSynEdit);
@@ -132,16 +132,16 @@ type
 
   TDscannerResults = class
   private
-    fList: TFPList;
-    function getItem(index: integer): PDscannerResult;
-    function getCount: integer;
+    fList: specialize TGLiteVector<PDscannerResult>;
+    function getItem(const Index: PtrInt): PDscannerResult; {$IFNDEF DEBUG}inline;{$ENDIF}
+    function getCount: PtrInt; {$IFNDEF DEBUG}inline;{$ENDIF}
   public
     constructor create;
     destructor destroy; override;
     procedure clear;
     procedure push(const warning: string; line, column: integer);
-    property count: integer read getCount;
-    property item[index: integer]: PDscannerResult read getItem; default;
+    property count: PtrInt read getCount;
+    property Item[const Index: PtrInt]: PDscannerResult read getItem; default;
   end;
 
   TSortDialog = class;
@@ -853,7 +853,6 @@ end;
 {$REGION TSynMemoPositions ---------------------------------------------------}
 constructor TSynMemoPositions.create(memo: TCustomSynEdit);
 begin
-  fList := TFPList.Create;
   fMax  := 40;
   fMemo := memo;
   fPos  := -1;
@@ -861,8 +860,7 @@ end;
 
 destructor TSynMemoPositions.destroy;
 begin
-  fList.Free;
-  inherited;
+  inherited Destroy;
 end;
 
 procedure TSynMemoPositions.back;
@@ -870,7 +868,7 @@ begin
   Inc(fPos);
   {$HINTS OFF}
   if fPos < fList.Count then
-    fMemo.CaretY := NativeInt(fList.Items[fPos])
+    fMemo.CaretY := fList[fPos]
   {$HINTS ON}
   else Dec(fPos);
 end;
@@ -880,7 +878,7 @@ begin
   Dec(fPos);
   {$HINTS OFF}
   if fPos > -1 then
-    fMemo.CaretY := NativeInt(fList.Items[fPos])
+    fMemo.CaretY := fList[fPos]
   {$HINTS ON}
   else Inc(fPos);
 end;
@@ -896,13 +894,13 @@ begin
   {$HINTS OFF}{$WARNINGS OFF}
   if fList.Count > 0 then
   begin
-    delta := fMemo.CaretY - NativeInt(fList.Items[fPos]);
+    delta := fMemo.CaretY - fList[fPos];
     if (delta > -thresh) and (delta < thresh) then exit;
   end;
-  fList.Insert(0, Pointer(NativeInt(fMemo.CaretY)));
+  fList.Insert(0, fMemo.CaretY);
   {$POP}
   while fList.Count > fMax do
-    fList.Delete(fList.Count-1);
+    fList.DeleteItem(fList.Count-1);
 end;
 {$ENDREGION --------------------------------------------------------------------}
 
@@ -2910,22 +2908,21 @@ end;
 {$REGION Dscanner --------------------------------------------------------------}
 constructor TDscannerResults.create;
 begin
-  fList := TFPList.Create;
+  inherited Create;
 end;
 
 destructor TDscannerResults.destroy;
 begin
   clear;
-  fList.Free;
-  inherited;
+  inherited Destroy;
 end;
 
 procedure TDscannerResults.clear;
 var
-  i: integer;
+  I: PtrInt;
 begin
-  for i:= 0 to fList.Count-1 do
-    dispose(PDscannerResult(fList[i]));
+  for I := FList.Count - 1 downto 0 do
+    Dispose(fList[i]);
   fList.Clear;
 end;
 
@@ -2940,14 +2937,14 @@ begin
   fList.Add(r);
 end;
 
-function TDscannerResults.getCount: integer;
+function TDscannerResults.getCount: PtrInt;
 begin
-  result := fList.Count;
+  Result := fList.Count;
 end;
 
-function TDscannerResults.getItem(index: integer): PDscannerResult;
+function TDscannerResults.getItem(const Index: PtrInt): PDscannerResult;
 begin
-  result := PDscannerResult(fList[index]);
+  Result := fList[Index];
 end;
 
 procedure TDexedMemo.setDscannerOptions(dsEnabled: boolean; dsDelay: integer);

@@ -18,10 +18,10 @@ type
     fScaledSeparator: boolean;
     fPng: TPortableNetworkGraphic;
     fDPng: TPortableNetworkGraphic;
-    function  findResourceWithSize(value: integer): boolean;
+    function  findResourceWithSize(value: integer): boolean; {$IFNDEF DEBUG}inline;{$ENDIF}
     procedure setResourceName(const value: string);
-    procedure setScaledSeparator(value: boolean);
-    procedure setToolBar(value: TToolbar);
+    procedure setScaledSeparator(value: boolean); {$IFNDEF DEBUG}inline;{$ENDIF}
+    procedure setToolBar(value: TToolbar); {$IFNDEF DEBUG}inline;{$ENDIF}
   protected
     procedure reloadPng;
     procedure Paint; override;
@@ -45,11 +45,11 @@ type
     fDesignMenu: TPopupMenu;
     fToolBarScaling: TToolBarScaling;
     procedure dsgnAdd(style: TToolButtonStyle);
-    procedure dsgnAddButton(sender: TObject);
-    procedure dsgnAddDivider(sender: TObject);
-    procedure dsgnAddSeparator(sender: TObject);
-    procedure dsgnAddDropdown(sender: TObject);
-    procedure dsgnAddCheckbutton(sender: TObject);
+    procedure dsgnAddButton(sender: TObject); {$IFNDEF DEBUG}inline;{$ENDIF}
+    procedure dsgnAddDivider(sender: TObject); {$IFNDEF DEBUG}inline;{$ENDIF}
+    procedure dsgnAddSeparator(sender: TObject); {$IFNDEF DEBUG}inline;{$ENDIF}
+    procedure dsgnAddDropdown(sender: TObject); {$IFNDEF DEBUG}inline;{$ENDIF}
+    procedure dsgnAddCheckbutton(sender: TObject); {$IFNDEF DEBUG}inline;{$ENDIF}
     procedure setScaling(value: TToolBarScaling);
     procedure Loaded; override;
   public

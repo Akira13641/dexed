@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, fpjson, jsonparser, jsonscanner, process, strutils,
-  LazFileUtils, RegExpr, fgl,
+  LazFileUtils, RegExpr, LGHelpers, LGVector,
   u_common, u_interfaces, u_observer, u_dialogs, u_processes,
   u_writableComponent, u_compilers, u_semver, u_stringrange;
 
@@ -22,7 +22,7 @@ type
 
   PDubLocalPackage = ^TDubLocalPackage;
 
-  TSemVerList = specialize TFPGList<PSemVer>;
+  TSemVerList = specialize TGVector<PSemVer>;
 
   TDubLocalPackage = class
   strict private
@@ -38,16 +38,15 @@ type
     property name: string read fName write fName;
   end;
 
-  TDubLocalPackages = class
+  TDubLocalPackages = record
   strict private
     class var fLocalPackages: array of TDubLocalPackage;
     class var fDoneFirstUpdate: boolean;
   public
-    class procedure deinit;
-    class procedure update;
-    class function find(const name: string; out package: PDubLocalPackage): boolean; overload;
-    class function find(const name, op: string; constref opVer: TSemVer;
-      out package: PDubLocalPackage): PSemver; overload;
+    class procedure deinit; static;
+    class procedure update; static;
+    class function find(const name: string; out package: PDubLocalPackage): boolean; static; overload;
+    class function find(const name, op: string; constref opVer: TSemVer; out package: PDubLocalPackage): PSemver; static; overload;
   end;
 
   (**
@@ -298,19 +297,18 @@ begin
 end;
 
 destructor TDubLocalPackage.destroy;
-var
-  i: integer;
+var I: PtrInt;
 begin
-  for i := 0 to fVersions.Count-1 do
-    dispose(fVersions.Items[i]);
+  for I := fVersions.Count - 1 downto 0 do
+    Dispose(fVersions[I]);
   fVersions.Free;
-  inherited;
+  inherited Destroy;
 end;
 
 procedure TDubLocalPackage.addVersion(const value: string);
 var
   v: PSemVer;
-  i: integer;
+  I: PtrInt;
 begin
   v := new(PSemVer);
   if value = 'vmaster' then
@@ -341,37 +339,36 @@ end;
 
 function TDubLocalPackage.highestInInterval(constref lo, hi: TSemVer): PSemVer;
 var
-  i: integer;
+  I: PtrInt;
 begin
-  result := nil;
-  for i := 0 to fVersions.Count-1 do
+  Result := nil;
+  for I := 0 to fVersions.Count - 1 do
   begin
-    if fVersions[i]^ < lo then
-      continue;
-    if fVersions[i]^ < hi then
-      result := fVersions[i];
-    if (fVersions[i]^ > hi) then
-      break;
+    if fVersions[I]^ < Lo then
+      Continue;
+    if fVersions[I]^ < Hi then
+      Result := fVersions[i];
+    if (fVersions[I]^ > Hi) then
+      Break;
   end;
 end;
 
-function TDubLocalPackage.findVersion(constref value: TSemVer): PSemVer;
+function TDubLocalPackage.findVersion(constref Value: TSemVer): PSemVer;
 var
-  i: integer;
+  I: PtrInt;
 begin
-  result := nil;
-  for i:= 0 to fVersions.Count-1 do
-    if fVersions.Items[i]^ = value then
-      exit(fVersions.Items[i]);
+  Result := nil;
+  for I := fVersions.Count - 1 downto 0 do
+    if fVersions[I]^ = Value then
+      Exit(fVersions[I]);
 end;
 
-class procedure TDubLocalPackages.deinit;
+class procedure TDubLocalPackages.DeInit;
 var
-  i: integer;
+  I: PtrInt;
 begin
-  for i:= 0 to high(fLocalPackages) do
-    fLocalPackages[i].Free;
-  inherited;
+  for I := High(fLocalPackages) downto 0 do
+    fLocalPackages[I].Free;
 end;
 
 class procedure TDubLocalPackages.update;
@@ -744,7 +741,8 @@ end;
 
 procedure TDubProject.loadFromFile(const fname: string);
 var
-  loader: TMemoryStream;
+  List: TStringList;
+  Stream: TStringStream;
   parser : TJSONParser;
   ext: string;
   bom: dword = 0;
@@ -758,42 +756,17 @@ begin
   fIsSdl := false;
   if ext = '.JSON' then
   begin
-    loader := TMemoryStream.Create;
+    List := TStringList.Create;
+    List.LoadFromFile(fFileName, TEncoding.UTF8);
+    Stream := TStringStream.Create(List.Text, TEncoding.UTF8, False);
+    List.Free;
+    Stream.Position := 0;
     try
-      loader.LoadFromFile(fFilename);
-      // skip BOMs, they crash the parser
-      loader.Read(bom, 4);
-      if (bom and $BFBBEF) = $BFBBEF then
-      begin
-        loader.Position:= 3;
-        fSaveAsUtf8 := true;
-      end
-      else if (bom = $FFFE0000) or (bom = $FEFF) then
-      begin
-        // UCS-4 LE/BE not handled by DUB
-        loader.clear;
-        loader.WriteByte(byte('{'));
-        loader.WriteByte(byte('}'));
-        loader.Position:= 0;
-        fFilename := '';
-      end
-      else if ((bom and $FEFF) = $FEFF) or ((bom and $FFFE) = $FFFE) then
-      begin
-        // UCS-2 LE/BE not handled by DUB
-        loader.clear;
-        loader.WriteByte(byte('{'));
-        loader.WriteByte(byte('}'));
-        loader.Position:= 0;
-        fFilename := '';
-      end
-      else
-        loader.Position:= 0;
-      //
       FreeAndNil(fJSON);
-      parser := TJSONParser.Create(loader, [joIgnoreTrailingComma, joUTF8]);
+      parser := TJSONParser.Create(Stream, [joUTF8, joIgnoreTrailingComma]);
       try
         try
-          fJSON := parser.Parse as TJSONObject;
+          fJSON := TJSONObject(parser.Parse);
         except
           if assigned(fJSON) then
             FreeAndNil(fJSON);
@@ -803,7 +776,7 @@ begin
         parser.Free;
       end;
     finally
-      loader.Free;
+      Stream.Free;
     end;
   end
   else if ext = '.SDL' then
@@ -830,7 +803,7 @@ begin
 
   subjProjChanged(fProjectSubject, self);
   fModified := false;
-end;
+end;                
 
 procedure TDubProject.saveToFile(const fname: string);
 var
@@ -977,7 +950,9 @@ begin
 
   t := n[1..p-1];
   c := n[p + 3 .. n.length];
-  f := fBasePath + DirectorySeparator + '.dub' + DirectorySeparator + '.editor_meta_data.ini';
+  if not DirectoryExists(fBasePath + '.dub') then
+    CreateDir(fBasePath + '.dub');
+  f := fBasePath + '.dub' + DirectorySeparator + '.editor_meta_data.ini';
   with TStringList.Create do
   try
     values['last_dexed_buildType'] := t;

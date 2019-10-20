@@ -5,7 +5,7 @@ unit u_widget;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Generics.Collections, Forms, Controls, ExtCtrls, ActnList, Menus,
+  Classes, SysUtils, FileUtil, LGHelpers, LGVector, Forms, Controls, ExtCtrls, ActnList, Menus,
   AnchorDocking, u_interfaces, u_dsgncontrols, u_common;
 
 type
@@ -114,9 +114,9 @@ type
   (**
    * TDexedWidget list.
    *)
-  TWidgetList = specialize TList<TDexedWidget>;
+  TWidgetList = specialize TGVector<TDexedWidget>;
 
-  function CompareWidgCaption(constref Item1, Item2: TDexedWidget): Integer;
+  function CompareWidgCaption(constref Item1, Item2: TDexedWidget): SizeInt;
 
 implementation
 {$R *.lfm}
@@ -351,7 +351,7 @@ end;
 {$ENDREGION}
 
 {$REGION TWidgetList----------------------------------------------------------}
-function CompareWidgCaption(constref Item1, Item2: TDexedWidget): Integer;
+function CompareWidgCaption(constref Item1, Item2: TDexedWidget): SizeInt;
 begin
   result := AnsiCompareStr(Item1.Caption, Item2.Caption);
 end;

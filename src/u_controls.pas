@@ -5,7 +5,7 @@ unit u_controls;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, ComCtrls, ExtCtrls, buttons, Graphics,
+  Classes, SysUtils, LGHelpers, LGVector, Forms, Controls, ComCtrls, ExtCtrls, buttons, Graphics,
   Menus, Clipbrd;
 
 type
@@ -56,8 +56,8 @@ type
     fAddBtn: TSpeedButton;
     fSplitBtn: TSpeedButton;
     fContent: TPanel;
-    fPages: TFPList;
-    fPagesHistory: TFPList;
+    fPages: specialize TGVector<TDexedPage>;
+    fPagesHistory: specialize TGVector<PtrInt>;
     fPageIndex: integer;
     fSplittedPageIndex: integer;
     fButtons: TPageControlButtons;
@@ -75,7 +75,7 @@ type
     procedure btnMoveRightClick(sender: TObject);
     procedure btnAddClick(sender: TObject);
     procedure btnSplitClick(sender: TObject);
-    procedure btnClickEvent(button: TPageControlButton); inline;
+    procedure btnClickEvent(button: TPageControlButton); {$IFNDEF DEBUG}inline;{$ENDIF}
 
     procedure tabsChanging(sender: TObject; var AllowChange: Boolean);
     procedure tabsChanged(sender: TObject);
@@ -83,11 +83,11 @@ type
     procedure showPage(index: integer);
     procedure setPageIndex(index: integer);
     procedure setButtons(value: TPageControlButtons);
-    procedure setCurrentPage(value: TDexedPage);
-    function getCurrentPage: TDexedPage;
-    function getPageCount: integer;
-    function getPage(index: integer): TDexedPage;
-    function getSplitPage: TDexedPage;
+    procedure setCurrentPage(value: TDexedPage); {$IFNDEF DEBUG}inline;{$ENDIF}
+    function getCurrentPage: TDexedPage; {$IFNDEF DEBUG}inline;{$ENDIF}
+    function getPageCount: integer; {$IFNDEF DEBUG}inline;{$ENDIF}
+    function getPage(index: integer): TDexedPage; {$IFNDEF DEBUG}inline;{$ENDIF}
+    function getSplitPage: TDexedPage; {$IFNDEF DEBUG}inline;{$ENDIF}
 
     procedure changedNotify;
     procedure updateButtonsState;
@@ -265,8 +265,8 @@ begin
   fSplitter.Align := alLeft;
   fSplitter.Width := 6;
 
-  fPages := TFPList.Create;
-  fPagesHistory := TFPList.Create;
+  fPages := specialize TGVector<TDexedPage>.Create;
+  fPagesHistory := specialize TGVector<PtrInt>.Create;
   fPageIndex := -1;
 
   setPagesOptions(defPagesOpt);
@@ -357,7 +357,7 @@ begin
   if (index < 0) or (index > fPages.Count-1) then
     exit;
 
-  pge := TDexedPage(fPages[index]);
+  pge := fPages[index];
   pge.Visible:=false;
 end;
 
@@ -369,7 +369,7 @@ begin
   if (index < 0) or (index > fPages.Count-1) then
     exit;
 
-  pge := TDexedPage(fPages[index]);
+  pge := fPages[index];
   if (fSplittedPageIndex = -1) or (index = fSplittedPageIndex) then
     pge.Align:=alClient;
   pge.Visible:=true;
@@ -429,7 +429,7 @@ begin
 
   if poPageHistory in fOptions then
     {$PUSH}{$HINTS OFF}{$WARNINGS OFF}
-    fPagesHistory.Insert(0, Pointer(PtrUint(fPageIndex)));
+    fPagesHistory.Insert(0, fPageIndex);
     {$POP}
 
   pge := TDexedPage.Create(self);
@@ -453,7 +453,7 @@ begin
   else if index < fSplittedPageIndex then
     fSplittedPageIndex -= 1;
 
-  TDexedPage(fPages[index]).Free;
+  fPages[index].Free;
   if fPageIndex >= fPages.Count then
     fPageIndex -= 1;
 
@@ -463,7 +463,7 @@ begin
   if (poPageHistory in fOptions) and (fPagesHistory.Count > 0) then
   begin
     {$PUSH}{$HINTS OFF}{$WARNINGS OFF}
-    fPageIndex := Integer(fPagesHistory[0]);
+    fPageIndex := fPagesHistory[0];
     fPagesHistory.Delete(0);
     {$POP}
   end;
@@ -476,8 +476,10 @@ begin
 end;
 
 function TDexedPageControl.getPageIndex(page: TDexedPage): integer;
+type
+  HelperT = specialize TGVectorHelper<TDexedPage>;
 begin
-  exit(fPages.IndexOf(page));
+  exit(HelperT.BinarySearch(HelperT.TVector(fPages), Page));
 end;
 
 function TDexedPageControl.getCurrentPage: TDexedPage;
@@ -485,7 +487,7 @@ begin
   if (fPageIndex < 0) or (fPageIndex > fPages.Count-1) then
     exit(nil)
   else
-    exit(TDexedPage(fPages[fPageIndex]));
+    exit(fPages[fPageIndex]);
 end;
 
 procedure TDexedPageControl.setCurrentPage(value: TDexedPage);
@@ -500,7 +502,7 @@ end;
 
 function TDexedPageControl.getPage(index: integer): TDexedPage;
 begin
-  exit(TDexedPage(fPages[index]));
+  exit(fPages[index]);
 end;
 
 function TDexedPageControl.getSplitPage: TDexedPage;
@@ -512,22 +514,23 @@ begin
 end;
 
 procedure TDexedPageControl.movePageRight;
+type
+  HelpUtil = specialize TGVectorHelpUtil<TDexedPage>;
 var
   i: integer;
 begin
   if fPageIndex = fPages.Count-1 then
     exit;
-
-  fPages.Exchange(fPageIndex, fPageIndex + 1);
+  HelpUtil.SwapItems(HelpUtil.TVector(fPages), fPageIndex, fPageIndex + 1);
   fTabs.Tabs.Exchange(fPageIndex, fPageIndex + 1);
 
   {$PUSH}{$HINTS OFF}{$WARNINGS OFF}
   for i := 0 to fPagesHistory.Count-1 do
   begin
-    if PtrInt(fPagesHistory[i]) = fPageIndex then
-      fPagesHistory[i] := Pointer(PtrInt(fPageIndex+1))
-    else if PtrInt(fPagesHistory[i]) = fPageIndex+1 then
-      fPagesHistory[i] := Pointer(PtrInt(fPageIndex))
+    if fPagesHistory[i] = fPageIndex then
+      fPagesHistory[i] := fPageIndex+1
+    else if fPagesHistory[i] = fPageIndex+1 then
+      fPagesHistory[i] := fPageIndex
   end;
   {$POP}
 
@@ -539,20 +542,22 @@ end;
 procedure TDexedPageControl.movePageLeft;
 var
   i: integer;
+type
+  HelpUtil = specialize TGVectorHelpUtil<TDexedPage>;
 begin
   if fPageIndex <= 0 then
     exit;
 
-  fPages.Exchange(fPageIndex, fPageIndex - 1);
+  HelpUtil.SwapItems(HelpUtil.TVector(fPages), fPageIndex, fPageIndex - 1);
   fTabs.Tabs.Exchange(fPageIndex, fPageIndex - 1);
 
   {$PUSH}{$HINTS OFF}{$WARNINGS OFF}
   for i := 0 to fPagesHistory.Count-1 do
   begin
-    if PtrInt(fPagesHistory[i]) = fPageIndex then
-      fPagesHistory[i] := Pointer(PtrInt(fPageIndex-1))
-    else if PtrInt(fPagesHistory[i]) = fPageIndex-1 then
-      fPagesHistory[i] := Pointer(PtrInt(fPageIndex))
+    if fPagesHistory[i] = fPageIndex then
+      fPagesHistory[i] := fPageIndex-1
+    else if fPagesHistory[i] = fPageIndex-1 then
+      fPagesHistory[i] := fPageIndex
   end;
   {$POP}
 

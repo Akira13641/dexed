@@ -32,7 +32,6 @@ inherited MessagesWidget: TMessagesWidget
         ParentShowHint = False
         ReadOnly = True
         ShowHint = True
-        ShowLines = False
         ShowRoot = False
         TabOrder = 0
         ToolTips = False
@@ -168,7 +167,7 @@ inherited MessagesWidget: TMessagesWidget
     end
   end
   inherited contextMenu: TPopupMenu
-    left = 32
-    top = 40
+    Left = 32
+    Top = 40
   end
 end

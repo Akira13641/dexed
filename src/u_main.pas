@@ -5,7 +5,7 @@ unit u_main;
 interface
 
 uses
-  Classes, SysUtils, LazFileUtils, Generics.Defaults, SynEditKeyCmds, SynHighlighterLFM, Forms,
+  Classes, SysUtils, LazFileUtils, LGHelpers, LGVector, SynEditKeyCmds, SynHighlighterLFM, Forms,
   StdCtrls, AnchorDocking, AnchorDockStorage, AnchorDockOptionsDlg, Controls,
   Graphics, strutils, Dialogs, Menus, ActnList, ExtCtrls, process,
   {$IFDEF WINDOWS}Windows, {$ENDIF} XMLPropStorage, SynExportHTML, fphttpclient,
@@ -1594,7 +1594,7 @@ begin
   fWidgList.Add(fGdbWidg);
   {$ENDIF}
 
-  fWidgList.sort(specialize TComparer<TDexedWidget>.Construct(@CompareWidgCaption));
+  specialize TGRegularVectorHelper<TDexedWidget>.Sort(fWidgList, @CompareWidgCaption);
 
   case GetIconScaledSize of
     iss16: idx := fImages.AddResourceName(HINSTANCE, 'APPLICATION');

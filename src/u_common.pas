@@ -15,7 +15,7 @@ uses
   {$IFNDEF CEBUILD}
   forms, ComCtrls,
   {$ENDIF}
-  LazFileUtils, FileUtil, process, asyncprocess, Generics.Defaults, Generics.Collections, LCLIntf, strutils,
+  LazFileUtils, FileUtil, process, asyncprocess, LGHelpers, LGHashMap, LGHashSet, LCLIntf, strutils,
   fpjson, graphics;
 
 const
@@ -39,13 +39,13 @@ type
   end;
 
   // HashMap for TValue by string
-  generic TStringHashMap<TValue> = class(specialize TDictionary<String, TValue>);
+  generic TStringHashMap<TValue> = class(specialize TGHashMapLP<String, TValue>);
 
   // HashSet for any object
-  generic TObjectHashSet<TValue: TObject> = class(specialize THashSet<TValue>);
+  generic TObjectHashSet<TValue: TObject> = class(specialize TGHashSetLP<TValue>);
 
   // Used instead of TStringList when the usage would mostly be ".IndexOf"
-  TStringHashSet = class(specialize THashSet<String>);
+  TStringHashSet = class(specialize TGHashSetLP<String>);
 
   // aliased to get a custom prop inspector
   TPathname = type string;
@@ -54,44 +54,44 @@ type
 
   // sugar for classes
   TObjectHelper = class helper for TObject
-    function isNil: boolean; inline;
-    function isNotNil: boolean; inline;
+    function isNil: boolean; {$IFNDEF DEBUG}inline;{$ENDIF}
+    function isNotNil: boolean; {$IFNDEF DEBUG}inline;{$ENDIF}
   end;
 
   // sugar for pointers
   TPointerHelper = type helper for Pointer
-    function isNil: boolean; inline;
-    function isNotNil: boolean; inline;
+    function isNil: boolean; {$IFNDEF DEBUG}inline;{$ENDIF}
+    function isNotNil: boolean; {$IFNDEF DEBUG}inline;{$ENDIF}
   end;
 
   // sugar for strings
   TDexedStringHelper = type helper(TStringHelper) for string
-    function isEmpty: boolean; inline;
-    function isNotEmpty: boolean; inline;
-    function isBlank: boolean; inline;
-    function extractFileName: string; inline;
-    function extractFileExt: string; inline;
-    function extractFilePath: string; inline;
-    function extractFileDir: string; inline;
-    function stripFileExt: string; inline;
-    function fileExists: boolean; inline;
-    function dirExists: boolean; inline;
-    function upperCase: string; inline;
-    function length: integer; inline;
-    function toIntNoExcept(default: integer = -1): integer; inline;
-    function toInt: integer; inline;
-    function normalizePath: string; inline;
+    function isEmpty: boolean; {$IFNDEF DEBUG}inline;{$ENDIF}
+    function isNotEmpty: boolean; {$IFNDEF DEBUG}inline;{$ENDIF}
+    function isBlank: boolean; {$IFNDEF DEBUG}inline;{$ENDIF}
+    function extractFileName: string; {$IFNDEF DEBUG}inline;{$ENDIF}
+    function extractFileExt: string; {$IFNDEF DEBUG}inline;{$ENDIF}
+    function extractFilePath: string; {$IFNDEF DEBUG}inline;{$ENDIF}
+    function extractFileDir: string; {$IFNDEF DEBUG}inline;{$ENDIF}
+    function stripFileExt: string; {$IFNDEF DEBUG}inline;{$ENDIF}
+    function fileExists: boolean; {$IFNDEF DEBUG}inline;{$ENDIF}
+    function dirExists: boolean; {$IFNDEF DEBUG}inline;{$ENDIF}
+    function upperCase: string; {$IFNDEF DEBUG}inline;{$ENDIF}
+    function length: integer; {$IFNDEF DEBUG}inline;{$ENDIF}
+    function toIntNoExcept(default: integer = -1): integer; {$IFNDEF DEBUG}inline;{$ENDIF}
+    function toInt: integer; {$IFNDEF DEBUG}inline;{$ENDIF}
+    function normalizePath: string; {$IFNDEF DEBUG}inline;{$ENDIF}
   end;
 
   TStringsHelper = class helper for TStrings
     // Same as text but without the additional line terminator.
-    function strictText: string; inline;
+    function strictText: string; {$IFNDEF DEBUG}inline;{$ENDIF}
   end;
 
   TJSONObjectHelper = class helper for TJSONObject
     function findObject(const key: TJSONStringType; out value: TJSONObject): boolean;
     function findArray(const key: TJSONStringType; out value: TJSONArray): boolean;
-    function findAny(const key: TJSONStringType; out value: TJSONData): boolean; inline;
+    function findAny(const key: TJSONStringType; out value: TJSONData): boolean; {$IFNDEF DEBUG}inline;{$ENDIF}
   end;
 
   TListItemsHelper = class helper for TListItems

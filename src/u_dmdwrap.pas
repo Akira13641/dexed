@@ -720,17 +720,17 @@ begin
     src := TOutputOpts(source);
     //
     fVerIds.Assign(src.fVerIds);
-    fBinKind    := src.fBinKind;
-    fTrgKind    := src.fTrgKind;
-    fUnittest   := src.fUnittest;
-    fInline     := src.fInline;
-    fBoundsCheck:= src.fBoundsCheck;
-    fOptimz     := src.fOptimz;
-    fGenStack   := src.fGenStack;
-    fAddMain    := src.fAddMain;
-    fRelease    := src.fRelease;
-    fAllinst    := src.fAllInst;
-    fStackStomp := src.fStackStomp;
+    fBinKind     := src.fBinKind;
+    fTrgKind     := src.fTrgKind;
+    fUnittest    := src.fUnittest;
+    fInline      := src.fInline;
+    fBoundsCheck := src.fBoundsCheck;
+    fOptimz      := src.fOptimz;
+    fGenStack    := src.fGenStack;
+    fAddMain     := src.fAddMain;
+    fRelease     := src.fRelease;
+    fAllinst     := src.fAllInst;
+    fStackStomp  := src.fStackStomp;
     fAlwayLinkLibs := src.fAlwayLinkLibs;
   end
   else inherited;

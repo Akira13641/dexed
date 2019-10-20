@@ -5,8 +5,8 @@ unit u_libman;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, u_common, u_writableComponent, LazFileUtils,
-  Generics.Defaults, Generics.Collections,
+  Classes, SysUtils, FileUtil, u_writableComponent, LazFileUtils,
+  LGHelpers, LGVector, u_common,
   u_dcd, u_projutils, u_interfaces, u_dlang, u_dastworx,
   u_compilers;
 
@@ -208,7 +208,7 @@ end;
 
 function TLibraryItem.hasModule(const value: string): boolean;
 begin
-  exit(fModulesByName.ContainsKey(value));
+  exit(fModulesByName.Contains(value));
 end;
 
 procedure TLibraryItem.setLibProject(const value: string);
@@ -389,7 +389,7 @@ begin
     exit;
   lib := TLibraryItem(data);
   case operation of
-    ooDeleteItem: if fItemsByAlias.ContainsKey(lib.libAlias) then
+    ooDeleteItem: if fItemsByAlias.Contains(lib.libAlias) then
     begin
       for i:= 0 to lib.dependencies.Count-1 do
       begin
