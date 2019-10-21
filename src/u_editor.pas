@@ -272,6 +272,7 @@ begin
   case event of
     oeeAccept: assignTo(fEditorWidget);
     oeeCancel: assign(fEditorWidget);
+    else ;
   end;
 end;
 

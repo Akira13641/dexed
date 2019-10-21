@@ -161,6 +161,7 @@ begin
         'ldc2' : cmp := DCompiler.ldc;
         'gdc'  : cmp := DCompiler.gdc;
         'dmd'  : cmp := DCompiler.dmd;
+        else cmp := DCompiler.dmd;
       end;
       if getCompilerSelector.isCompilerValid(cmp) then
       begin

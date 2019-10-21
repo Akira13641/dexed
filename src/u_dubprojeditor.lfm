@@ -27,6 +27,7 @@ inherited DubProjectEditorWidget: TDubProjectEditorWidget
         HideSelection = False
         ReadOnly = True
         ScrollBars = ssAutoBoth
+        ShowLines = True
         TabOrder = 0
         ToolTips = False
         OnSelectionChanged = propTreeSelectionChanged
@@ -138,8 +139,8 @@ inherited DubProjectEditorWidget: TDubProjectEditorWidget
     end
   end
   inherited contextMenu: TPopupMenu
-    left = 248
-    top = 8
+    Left = 248
+    Top = 8
     object MenuItem1: TMenuItem[0]
       Caption = 'Refresh'
       OnClick = MenuItem1Click

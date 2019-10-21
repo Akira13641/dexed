@@ -582,10 +582,12 @@ begin
   case linkMode of
     dlmAllAtOnce: options.Add('--build-mode=allAtOnce');
     dlmSingleFile: options.Add('--build-mode=singleFile');
+    else ;
   end;
   case dependenciesCheck of
     dcNo: options.Add('--skip-registry=all');
     dcOffline: options.Add('--skip-registry=standard');
+    else ;
   end;
   if fVerbosity <> TDubVerbosity.default then
     options.Add(vb[fVerbosity]);
@@ -638,6 +640,7 @@ begin
     oeeAccept: fBackup.assign(self);
     oeeCancel: self.assign(fBackup);
     oeeSelectCat:fBackup.assign(self);
+    else ;
   end;
 end;
 
@@ -745,7 +748,6 @@ var
   Stream: TStringStream;
   parser : TJSONParser;
   ext: string;
-  bom: dword = 0;
 begin
   fFilename := fname;
   if not FilenameIsAbsolute(fFilename) then

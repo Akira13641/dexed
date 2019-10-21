@@ -414,6 +414,7 @@ begin
       DCDWrapper.remImportFolder(lib.libSourcePath);
       fItemsByAlias.Remove(lib.libAlias);
     end;
+    else ;
   end;
 end;
 

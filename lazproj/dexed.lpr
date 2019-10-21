@@ -3,7 +3,7 @@ program dexed;
 {$mode objfpc}{$H+}
 
 uses
-  CMem,
+  {$IFNDEF DEBUG}CMem,{$ENDIF}
   {$IFDEF UNIX}{$IFDEF UseCThreads}
   cthreads,
   {$ENDIF}{$ENDIF}
@@ -19,6 +19,9 @@ uses
 {$R *.res}
 
 begin
+  {$IFDEF DEBUG}
+  SetHeaptraceOutput('heaptrc.txt');
+  {$ENDIF}
   Application.Initialize;
   Application.CreateForm(TMainForm, MainForm);
   Application.Run;

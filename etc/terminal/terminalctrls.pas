@@ -19,8 +19,8 @@ type
 
   TTerminal = class(TCustomControl)
   private
-    FInfo: Pointer;
     {$ifdef hasgtk2term}
+    FInfo: Pointer;
     fTerminalHanlde: PVteTerminal;
     {$endif}
     {$ifdef windows}

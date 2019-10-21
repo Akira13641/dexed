@@ -437,6 +437,7 @@ begin
       pikEditor:    txt := fDoc.Text;
       pikLine:      txt := fDoc.LineText;
       pikSelection: txt := fDoc.SelText;
+      else ;
     end;
     if txt.isNotEmpty then
       tool.fProcess.Input.Write(txt[1], txt.length);

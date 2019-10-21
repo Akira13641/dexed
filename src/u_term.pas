@@ -235,6 +235,7 @@ begin
     begin
       applyChanges;
     end;
+    else ;
   end;
 end;
 

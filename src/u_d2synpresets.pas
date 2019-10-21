@@ -706,6 +706,7 @@ begin
     end;
     oeeCancel: fBackup.assignToOptions;
     oeeSelectCat: fBackup.assignFromOptions;
+    else ;
   end;
 end;
 

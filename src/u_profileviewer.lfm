@@ -109,13 +109,13 @@ inherited ProfileViewerWidget: TProfileViewerWidget
           BorderSpacing.Around = 2
           object pieSeries: TPieSeries
             Legend.Visible = False
+            Exploded = True
+            MarkPositions = pmpLeftRight
             Marks.Clipped = False
             Marks.Distance = 10
             Marks.Shape = clsRoundRect
             Marks.Format = '%2:s %1:.2f%%'
             Marks.Style = smsLabelPercent
-            Exploded = True
-            MarkPositions = pmpLeftRight
           end
         end
       end
@@ -205,36 +205,36 @@ inherited ProfileViewerWidget: TProfileViewerWidget
     end
   end
   inherited contextMenu: TPopupMenu
-    left = 8
-    top = 48
+    Left = 8
+    Top = 48
   end
   object datNumCalls: TListChartSource[2]
     Sorted = True
-    left = 192
-    top = 56
+    Left = 192
+    Top = 56
   end
   object datTreeTime: TListChartSource[3]
     Sorted = True
-    left = 232
-    top = 56
+    Left = 232
+    Top = 56
   end
   object datFuncTime: TListChartSource[4]
     Sorted = True
-    left = 272
-    top = 56
+    Left = 272
+    Top = 56
   end
   object datPerCall: TListChartSource[5]
     Sorted = True
-    left = 312
-    top = 56
+    Left = 312
+    Top = 56
   end
   object ImageList1: TImageList[6]
-    left = 192
-    top = 120
+    Left = 192
+    Top = 120
   end
   object ChartToolset1: TChartToolset[7]
-    left = 232
-    top = 120
+    Left = 232
+    Top = 120
     object ChartToolset1DataPointHintTool1: TDataPointHintTool
     end
   end

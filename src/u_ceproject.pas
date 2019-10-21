@@ -593,7 +593,7 @@ var
       'Do you wish to select the new root folder ?') <> mrYes then exit;
     // TODO-cimprovement: use commonFolder() when it'll be compat. with the rel. paths.
     // hint for the common dir
-    dirHint := fSrcs[i];
+    dirHint := fSrcs[1];
     while (dirHint[1] = '.') or (dirHint[1] = DirectorySeparator) do
         dirHint := dirHint[2..dirHint.length];
     ini := fFilename.extractFilePath;

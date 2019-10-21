@@ -54,19 +54,19 @@ inherited EditorWidget: TEditorWidget
     end
   end
   inherited contextMenu: TPopupMenu
-    left = 24
-    top = 16
+    Left = 24
+    Top = 16
   end
   object macRecorder: TSynMacroRecorder[2]
     RecordShortCut = 0
     PlaybackShortCut = 0
-    left = 80
-    top = 16
+    Left = 80
+    Top = 16
   end
   object mnuEditor: TPopupMenu[3]
     OnPopup = mnuEditorPopup
-    left = 152
-    top = 16
+    Left = 152
+    Top = 16
     object mnuedCopy: TMenuItem
       Caption = 'Copy'
       OnClick = mnuedCopyClick

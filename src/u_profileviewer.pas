@@ -369,7 +369,6 @@ procedure TProfileViewerWidget.updateFromFile(const fname: string);
 var
   log: string;
   rng: TStringRange = (ptr:nil; pos:0; len: 0);
-  tps: qword;
   idt: string;
   fnc: qword;
   fft: qword;
@@ -460,7 +459,6 @@ begin
   if rng.empty then
     exit;
   idt := rng.nextWord;
-  tps := StrToQWordDef(idt, 0);
 
   // columns headers
   if rng.popLine^.empty then

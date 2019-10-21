@@ -353,7 +353,7 @@ end;
 {$REGION TWidgetList----------------------------------------------------------}
 function CompareWidgCaption(constref Item1, Item2: TDexedWidget): SizeInt;
 begin
-  result := AnsiCompareStr(Item1.Caption, Item2.Caption);
+  result := CompareStr(Item1.Caption, Item2.Caption);
 end;
 {$ENDREGION}
 

@@ -1,5 +1,5 @@
 unit u_halstead;
-
+{$WARN 6018 off : Unreachable code}
 {$I u_defines.inc}
 
 interface
@@ -151,6 +151,7 @@ begin
   case event of
     oeeAccept: fBackup.assign(self);
     oeeCancel: assign(fBackup);
+    else ;
   end;
 end;
 

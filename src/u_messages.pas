@@ -651,6 +651,7 @@ begin
       fOptionsBackup.assign(fOptions);
     oeeCancel:
       fOptions.assign(fOptionsBackup);
+    else ;
   end;
   fOptions.AssignTo(self);
   List.Invalidate;
@@ -715,6 +716,7 @@ begin
       clearbyData(fDoc);
     amcProj: if fProj <> nil then
       clearbyData(fProj);
+    else ;
   end;
 end;
 
@@ -1055,6 +1057,7 @@ begin
     amcProj: result := (fProj = ICommonProject(msgDt^.data)) and (aCtxt = amcProj);
     amcApp:  result := aCtxt = amcApp;
     amcMisc: result := aCtxt = amcMisc;
+    else ;
   end;
 end;
 

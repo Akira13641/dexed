@@ -275,6 +275,7 @@ begin
       sendShortcuts;
       fHasChanged := false;
     end;
+    else ;
   end;
 end;
 

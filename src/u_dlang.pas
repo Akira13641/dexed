@@ -157,6 +157,11 @@ begin
   setReader(text, colAndLine);
 end;
 
+function TReaderHead.getColAndLine: TPoint;
+begin
+  exit(Point(fColumnIndex, fLineIndex));
+end;
+
 procedure TReaderHead.setReader(const text: PChar; const colAndLine: TPoint);
 begin
   fLineIndex := colAndLine.y;
@@ -168,11 +173,6 @@ begin
   // editor not 0 based ln index
   if fLineIndex = 0 then
     fLineIndex := 1;
-end;
-
-function TReaderHead.getColAndLine: TPoint;
-begin
-  exit(Point(fColumnIndex, fLineIndex));
 end;
 
 function TReaderHead.Next: PChar;
@@ -241,6 +241,9 @@ begin
   end;
 end;
 
+{$PUSH}
+{$WARN 5089 OFF}
+
 procedure lex(const text: string; list: TLexTokenList; clbck: TLexFoundEvent = nil; Options: TLexOptions = []);
 var
   reader: TReaderHead;
@@ -265,6 +268,7 @@ var
     ptk^.Data := identifier;
     list.Add(ptk);
   end;
+
 
   function isOutOfBound: boolean; {$IFNDEF DEBUG}inline;{$ENDIF}
   begin
@@ -936,6 +940,9 @@ begin
 
   end;
 end;
+
+{$POP}
+
 {$ENDREGION}
 
 {$REGION Utils}
@@ -966,6 +973,7 @@ begin
             '.': Result += ltk^.Data;
             ';': exit;
           end;
+        else ;
       end;
     end
     else

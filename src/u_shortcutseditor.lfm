@@ -46,6 +46,7 @@ object ShortcutEditor: TShortcutEditor
       HideSelection = False
       ReadOnly = True
       ScrollBars = ssAutoBoth
+      ShowLines = True
       SortType = stText
       TabOrder = 1
       OnSelectionChanged = treeSelectionChanged

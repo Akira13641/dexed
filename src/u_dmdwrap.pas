@@ -1265,6 +1265,7 @@ begin
       dmd: lst := fDmdOthers;
       ldc, ldmd: lst := fLdcOthers;
       gdc, gdmd: lst := fGdcOthers;
+      else ;
     end;
     if lst.isNotNil then for i := 0 to lst.Count-1 do
     begin
@@ -1294,6 +1295,7 @@ begin
           lst := baseopt.fGdcOthers
         else
           lst := fGdcOthers;
+      else ;
     end;
     if lst.isNotNil then for i := 0 to lst.Count-1 do
     begin

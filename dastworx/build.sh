@@ -18,11 +18,6 @@ cd ../etc/stdx-allocator/source/
 stdxalloc=$(find `pwd` -type f -name \*.d)
 cd ../../../dastworx
 
-#mir-core sources
-cd ../etc/mir-core/source/
-mir-core=$(find `pwd` -type f -name \*.d)
-cd ../../../dastworx
-
 #dast sources
 cd src/
 dast=$(find `pwd` -type f -name \*.d)
@@ -31,9 +26,9 @@ cd ../
 echo building using $DC...
 
 #build
-$DC ${dast[@]} ${dparse[@]} ${iz[@]} ${mir-core[@]} ${stdxalloc[@]} \
+$DC ${dast[@]} ${dparse[@]} ${iz[@]} ${stdxalloc[@]} \
 -O -release -inline -boundscheck=off -d $MFLAGS \
--Isrc -I../etc/iz/import -I../etc/libdparse/src -I../etc/mir-core/source -I../etc/stdx-allocator/source \
+-Isrc -I../etc/iz/import -I../etc/libdparse/src -I../etc/stdx-allocator/source \
 -of../bin/dastworx
 
 #cleanup

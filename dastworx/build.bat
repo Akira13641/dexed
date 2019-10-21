@@ -14,10 +14,6 @@ for /r "../etc/libdparse/src/" %%F in (*.d) do call set dparse=%%dparse%% "%%F"
 set stdxalloc=
 for /r "../etc/stdx-allocator/source/" %%F in (*.d) do call set stdxalloc=%%stdxalloc%% "%%F"
 
-::mir-core sources
-set mir-core=
-for /r "../etc/mir-core/source/" %%F in (*.d) do call set mir-core=%%mir-core%% "%%F"
-
 ::dast sources
 set dast=
 for /r "src/" %%F in (*.d) do call set dast=%%dast%% "%%F"
@@ -25,9 +21,9 @@ for /r "src/" %%F in (*.d) do call set dast=%%dast%% "%%F"
 echo building...
 
 ::build
-%dc% %dast% %dparse% %iz% %stdxalloc% %mir-core% ^
+%dc% %dast% %dparse% %iz% %stdxalloc% ^
 -O -release -inline -boundscheck=off -d %mflags% ^
--Isrc -I"..\etc\iz\import" -I"..\etc\libdparse\src" ^ -I"..\etc\mir-core\source" ^ -I"..\etc\stdx-allocator\source" ^
+-Isrc -I"..\etc\iz\import" -I"..\etc\libdparse\src" ^ -I"..\etc\stdx-allocator\source" ^
 -of"..\bin\dastworx.exe"
 
 ::cleanup

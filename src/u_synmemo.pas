@@ -1654,6 +1654,7 @@ begin
       lines[i] := leadingTabsToSpaces(lines[i], TabWidth);
       fModified:=true;
     end;
+    else ;
   end;
   lines.EndUpdate;
 end;
@@ -2258,6 +2259,16 @@ begin
   end;
   if assigned(tk) then
     ExecuteCommand(ecGotoXY, #0, @tk^.position);
+end;
+
+function TDscannerResults.getCount: PtrInt;
+begin
+  Result := fList.Count;
+end;
+
+function TDscannerResults.getItem(const Index: PtrInt): PDscannerResult;
+begin
+  Result := fList[Index];
 end;
 
 procedure TDexedMemo.goToWarning(next: boolean);
@@ -2937,16 +2948,6 @@ begin
   fList.Add(r);
 end;
 
-function TDscannerResults.getCount: PtrInt;
-begin
-  Result := fList.Count;
-end;
-
-function TDscannerResults.getItem(const Index: PtrInt): PDscannerResult;
-begin
-  Result := fList[Index];
-end;
-
 procedure TDexedMemo.setDscannerOptions(dsEnabled: boolean; dsDelay: integer);
 begin
   fDscannerTimer.Interval:=dsDelay;
@@ -3505,6 +3506,7 @@ begin
             Key := 0;
             curlyBraceCloseAndIndent;
           end;
+          else ;
         end;
         if (fAutoCloseCurlyBrace = autoCloseOnNewLineLexically) or
           fSmartDdocNewline then
@@ -3643,6 +3645,7 @@ begin
             if lexCanCloseBrace then
               curlyBraceCloseAndIndent;
           end;
+          else ;
         end;
     end;
   end;
@@ -3730,6 +3733,7 @@ begin
     mbExtra1: fPositions.back;
     mbExtra2: fPositions.next;
     mbLeft:   fPositions.store;
+    else ;
   end;
   if fOverrideColMode and not SelAvail then
   begin
@@ -3794,6 +3798,7 @@ begin
         finally
           free;
         end;
+      else ;
     end;
     if not (eoTabsToSpaces in Options) then
     begin
@@ -3986,6 +3991,7 @@ begin
     dbBreakPoint: addGutterIcon(line, giBreakReached);
     dbStep, dbSignal: addGutterIcon(line, giStep);
     dbWatch: addGutterIcon(line, giWatch);
+    else ;
   end;
 end;
 {$ENDREGION --------------------------------------------------------------------}

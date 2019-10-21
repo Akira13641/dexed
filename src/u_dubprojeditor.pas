@@ -427,6 +427,7 @@ begin
       jtArray: arr.Add(TJSONArray.Create());
       jtObject: arr.Add(TJSONObject.Create());
       jtString:arr.Add('<value>');
+      else ;
     end;
   end
   else if TJSONData(fSelectedNode.Data).JSONType = jtObject then
@@ -436,6 +437,7 @@ begin
       jtArray: obj.Add(propName, TJSONArray.Create());
       jtObject: obj.Add(propName, TJSONObject.Create());
       jtString: obj.Add(propName, '<value>');
+      else ;
     end;
   end;
   fProj.endModification;
@@ -573,12 +575,14 @@ begin
         ntInteger:
           if TryStrToInt(edProp.Text, vInt) then
             dat.AsInteger := vInt;
+        else ;
       end;
      jtBoolean:
       if TryStrToBool(edProp.Text, vBool) then
         dat.AsBoolean := vBool;
       jtString:
         dat.AsString := edProp.Text;
+      else ;
   end;
   fProj.endModification;
 end;
@@ -601,11 +605,13 @@ begin
           edProp.Text := IntToStr(dat.AsInt64);
         ntInteger:
           edProp.Text := IntToStr(dat.AsInteger);
+        else ;
       end;
     jtBoolean:
       edProp.Text := BoolToStr(dat.AsBoolean);
     jtString:
       edProp.Text := dat.AsString;
+    else ;
   end;
 end;
 

@@ -495,6 +495,7 @@ begin
       fPaths.modified:=false;
       fPaths.wouldNeedRestart:=false;
     end;
+    else ;
   end;
 end;
 

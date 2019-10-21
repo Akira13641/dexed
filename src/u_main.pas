@@ -816,6 +816,7 @@ begin
       end;
     oeeCancel: assign(fBackup);
     oeeSelectCat: fBackup.assign(self);
+    else ;
   end;
 end;
 
@@ -1571,27 +1572,29 @@ begin
   {$ENDIF}
 
   getMessageDisplay(fMsgs);
-
-  fWidgList.Add(fMesgWidg);
-  fWidgList.Add(fEditWidg);
-  fWidgList.Add(fProjWidg);
-  fWidgList.Add(fPrjCfWidg);
-  fWidgList.Add(fFindWidg);
-  fWidgList.Add(fExplWidg);
-  fWidgList.Add(fLibMWidg);
-  fWidgList.Add(fTlsEdWidg);
-  fWidgList.Add(fPrInpWidg);
-  fWidgList.Add(fTodolWidg);
-  fWidgList.Add(fOptEdWidg);
-  fWidgList.Add(fSymlWidg);
-  fWidgList.Add(fInfoWidg);
-  fWidgList.Add(fDubProjWidg);
-  fWidgList.Add(fDfmtWidg);
-  fWidgList.Add(fPrjGrpWidg);
-  fWidgList.Add(fProfWidg);
+  fWidgList.AddAll([
+    fMesgWidg,
+    fEditWidg,
+    fProjWidg,
+    fPrjCfWidg,
+    fFindWidg,
+    fExplWidg,
+    fLibMWidg,
+    fTlsEdWidg,
+    fPrInpWidg,
+    fTodolWidg,
+    fOptEdWidg,
+    fSymlWidg,
+    fInfoWidg,
+    fDubProjWidg,
+    fDfmtWidg,
+    fPrjGrpWidg,
+    fProfWidg
   {$IFDEF UNIX}
-  fWidgList.Add(fTermWWidg);
-  fWidgList.Add(fGdbWidg);
+    ,fTermWWidg,
+    fGdbWidg]);
+  {$ELSE}
+  ]);
   {$ENDIF}
 
   specialize TGRegularVectorHelper<TDexedWidget>.Sort(fWidgList, @CompareWidgCaption);
@@ -3110,6 +3113,7 @@ begin
         mainDefaultBehavior:
           if unittest then
             dmdproc.Parameters.Add('-main');
+        else ;
       end;
     end;
     dmdproc.Parameters.Add('-version=single_module');

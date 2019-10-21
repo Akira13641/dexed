@@ -153,6 +153,16 @@ type
 
 implementation
 
+function TDexedPageControl.getPageCount: integer;
+begin
+  exit(fPages.Count);
+end;
+
+function TDexedPageControl.getPage(index: integer): TDexedPage;
+begin
+  exit(fPages[index]);
+end;
+
 function TDexedPage.getIndex: integer;
 var
   ctrl: TDexedPageControl;
@@ -493,16 +503,6 @@ end;
 procedure TDexedPageControl.setCurrentPage(value: TDexedPage);
 begin
   setPageIndex(getPageIndex(value));
-end;
-
-function TDexedPageControl.getPageCount: integer;
-begin
-  exit(fPages.Count);
-end;
-
-function TDexedPageControl.getPage(index: integer): TDexedPage;
-begin
-  exit(fPages[index]);
 end;
 
 function TDexedPageControl.getSplitPage: TDexedPage;

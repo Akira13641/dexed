@@ -394,7 +394,7 @@ end;
 
 function TDexedStringHelper.extractFileExt: string;
 begin
-  exit(sysutils.extractFileExt(self));
+  Result := sysutils.extractFileExt(self);
 end;
 
 function TDexedStringHelper.extractFilePath: string;
