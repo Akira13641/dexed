@@ -1572,32 +1572,36 @@ begin
   {$ENDIF}
 
   getMessageDisplay(fMsgs);
-  fWidgList.AddAll([
-    fMesgWidg,
-    fEditWidg,
-    fProjWidg,
-    fPrjCfWidg,
-    fFindWidg,
-    fExplWidg,
-    fLibMWidg,
-    fTlsEdWidg,
-    fPrInpWidg,
-    fTodolWidg,
-    fOptEdWidg,
-    fSymlWidg,
-    fInfoWidg,
-    fDubProjWidg,
-    fDfmtWidg,
-    fPrjGrpWidg,
-    fProfWidg
   {$IFDEF UNIX}
-    ,fTermWWidg,
-    fGdbWidg]);
+  fWidgList.EnsureCapacity(19);
   {$ELSE}
-  ]);
+  fWidgList.EnsureCapacity(17);
   {$ENDIF}
-
-  specialize TGRegularVectorHelper<TDexedWidget>.Sort(fWidgList, @CompareWidgCaption);
+  fWidgList.AddAll([
+    fInfoWidg,
+    fPrjCfWidg,
+    fDfmtWidg,
+    fDubProjWidg,
+    {$IFDEF UNIX}
+    fGdbWidg,
+    {$ENDIF}
+    fLibMWidg,
+    fMesgWidg,
+    fExplWidg,
+    fOptEdWidg,
+    fPrInpWidg,
+    fProfWidg,
+    fPrjGrpWidg,
+    fProjWidg,
+    fFindWidg,
+    fEditWidg,
+    fSymlWidg,
+    {$IFDEF UNIX}
+    fTermWWidg,
+    {$ENDIF}
+    fTodolWidg,
+    fTlsEdWidg
+  ]);
 
   case GetIconScaledSize of
     iss16: idx := fImages.AddResourceName(HINSTANCE, 'APPLICATION');

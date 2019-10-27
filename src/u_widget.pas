@@ -116,8 +116,6 @@ type
    *)
   TWidgetList = specialize TGVector<TDexedWidget>;
 
-  function CompareWidgCaption(constref Item1, Item2: TDexedWidget): SizeInt;
-
 implementation
 {$R *.lfm}
 
@@ -347,13 +345,6 @@ end;
 
 procedure TDexedWidget.updateDelayed;
 begin
-end;
-{$ENDREGION}
-
-{$REGION TWidgetList----------------------------------------------------------}
-function CompareWidgCaption(constref Item1, Item2: TDexedWidget): SizeInt;
-begin
-  result := CompareStr(Item1.Caption, Item2.Caption);
 end;
 {$ENDREGION}
 

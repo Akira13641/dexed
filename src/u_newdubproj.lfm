@@ -7,10 +7,9 @@ object CeNewDubProject: TCeNewDubProject
   ClientHeight = 419
   ClientWidth = 439
   Position = poMainFormCenter
-  Visible = False
   object GroupBox1: TGroupBox
     Left = 4
-    Height = 50
+    Height = 52
     Top = 4
     Width = 431
     Align = alTop
@@ -18,14 +17,14 @@ object CeNewDubProject: TCeNewDubProject
     BorderSpacing.Around = 4
     Caption = 'Project directory'
     ClientHeight = 32
-    ClientWidth = 429
+    ClientWidth = 427
     TabOrder = 0
     object edDir: TDirectoryEdit
       Left = 4
       Height = 23
       Hint = 'select project directory, mandatory'
       Top = 4
-      Width = 421
+      Width = 419
       ShowHidden = False
       ButtonWidth = 23
       NumGlyphs = 1
@@ -40,29 +39,29 @@ object CeNewDubProject: TCeNewDubProject
       Left = 0
       Height = 1
       Top = 31
-      Width = 429
+      Width = 427
       Align = alBottom
       ParentColor = False
     end
   end
   object GroupBox2: TGroupBox
     Left = 4
-    Height = 49
-    Top = 58
+    Height = 51
+    Top = 60
     Width = 431
     Align = alTop
     AutoSize = True
     BorderSpacing.Around = 4
     Caption = 'Project name'
     ClientHeight = 31
-    ClientWidth = 429
+    ClientWidth = 427
     TabOrder = 1
     object edName: TEdit
       Left = 4
       Height = 23
       Hint = 'enter project name, optional, no spaces allowed'
       Top = 4
-      Width = 421
+      Width = 419
       Align = alTop
       BorderSpacing.Around = 4
       OnChange = edNameChange
@@ -73,29 +72,29 @@ object CeNewDubProject: TCeNewDubProject
       Left = 0
       Height = 1
       Top = 30
-      Width = 429
+      Width = 427
       Align = alBottom
       ParentColor = False
     end
   end
   object GroupBox3: TGroupBox
     Left = 4
-    Height = 49
-    Top = 217
+    Height = 51
+    Top = 225
     Width = 431
     Align = alTop
     AutoSize = True
     BorderSpacing.Around = 4
     Caption = 'Project license'
     ClientHeight = 31
-    ClientWidth = 429
+    ClientWidth = 427
     TabOrder = 2
     object edLic: TEdit
       Left = 4
       Height = 23
       Hint = 'license, left empty for proprietary'
       Top = 4
-      Width = 421
+      Width = 419
       Align = alClient
       BorderSpacing.Around = 4
       OnChange = edNameChange
@@ -105,23 +104,23 @@ object CeNewDubProject: TCeNewDubProject
   end
   object GroupBox4: TGroupBox
     Left = 4
-    Height = 49
+    Height = 51
     Hint = 'enter copyright string, optional'
-    Top = 270
+    Top = 280
     Width = 431
     Align = alTop
     AutoSize = True
     BorderSpacing.Around = 4
     Caption = 'Project copyright string'
     ClientHeight = 31
-    ClientWidth = 429
+    ClientWidth = 427
     TabOrder = 3
     object edCopyR: TEdit
       Left = 4
       Height = 23
       Hint = 'copyright string, optional'
       Top = 4
-      Width = 421
+      Width = 419
       Align = alClient
       BorderSpacing.Around = 4
       OnChange = edNameChange
@@ -131,22 +130,22 @@ object CeNewDubProject: TCeNewDubProject
   end
   object GroupBox5: TGroupBox
     Left = 4
-    Height = 50
-    Top = 323
+    Height = 52
+    Top = 335
     Width = 431
     Align = alTop
     AutoSize = True
     BorderSpacing.Around = 4
     Caption = 'Project dependencies'
     ClientHeight = 32
-    ClientWidth = 429
+    ClientWidth = 427
     TabOrder = 4
     object edDeps: TEdit
       Left = 4
       Height = 23
       Hint = 'enter dependencies, space separated'
       Top = 4
-      Width = 421
+      Width = 419
       Align = alClient
       BorderSpacing.Around = 4
       OnChange = edNameChange
@@ -157,7 +156,7 @@ object CeNewDubProject: TCeNewDubProject
       Left = 0
       Height = 1
       Top = 31
-      Width = 429
+      Width = 427
       Align = alBottom
       ParentColor = False
     end
@@ -204,22 +203,22 @@ object CeNewDubProject: TCeNewDubProject
   end
   object GroupBox6: TGroupBox
     Left = 4
-    Height = 49
-    Top = 111
+    Height = 51
+    Top = 115
     Width = 431
     Align = alTop
     AutoSize = True
     BorderSpacing.Around = 4
     Caption = 'Project description'
     ClientHeight = 31
-    ClientWidth = 429
+    ClientWidth = 427
     TabOrder = 6
     object edDescr: TEdit
       Left = 4
       Height = 23
       Hint = 'enter project description, optional'
       Top = 4
-      Width = 421
+      Width = 419
       Align = alTop
       BorderSpacing.Around = 4
       OnChange = edNameChange
@@ -229,22 +228,22 @@ object CeNewDubProject: TCeNewDubProject
   end
   object GroupBox7: TGroupBox
     Left = 4
-    Height = 49
-    Top = 164
+    Height = 51
+    Top = 170
     Width = 431
     Align = alTop
     AutoSize = True
     BorderSpacing.Around = 4
     Caption = 'Project author'
     ClientHeight = 31
-    ClientWidth = 429
+    ClientWidth = 427
     TabOrder = 7
     object edAuthor: TEdit
       Left = 4
       Height = 23
       Hint = 'enter project author, optional, current user name will be used'
       Top = 4
-      Width = 421
+      Width = 419
       Align = alTop
       BorderSpacing.Around = 4
       OnChange = edNameChange
