@@ -63,22 +63,22 @@ type
     fFoldKinds: TFoldKinds;
     fAttribLut: array[TTokenKind] of TSynHighlighterAttributes;
     fPhobosStyleType: boolean;
-    procedure setFoldKinds(value: TFoldKinds);
-    procedure setWhiteAttrib(value: TSynHighlighterAttributes);
-    procedure setNumbrAttrib(value: TSynHighlighterAttributes);
-    procedure setSymblAttrib(value: TSynHighlighterAttributes);
-    procedure setIdentAttrib(value: TSynHighlighterAttributes);
-    procedure setCommtAttrib(value: TSynHighlighterAttributes);
-    procedure setStrngAttrib(value: TSynHighlighterAttributes);
-    procedure setKeywdAttrib(value: TSynHighlighterAttributes);
-    procedure setDDocsAttrib(value: TSynHighlighterAttributes);
-    procedure setAsblrAttrib(value: TSynHighlighterAttributes);
-    procedure setSpeckAttrib(value: TSynHighlighterAttributes);
-    procedure setErrorAttrib(value: TSynHighlighterAttributes);
-    procedure setAttriAttrib(value: TSynHighlighterAttributes);
-    procedure setTypesAttrib(value: TSynHighlighterAttributes);
-    procedure doAttribChange(sender: TObject);
-    procedure doChanged;
+    procedure doAttribChange(sender: TObject); {$IFNDEF DEBUG}inline;{$ENDIF}
+    procedure doChanged; {$IFNDEF DEBUG}inline;{$ENDIF}
+    procedure setFoldKinds(value: TFoldKinds); {$IFNDEF DEBUG}inline;{$ENDIF}
+    procedure setWhiteAttrib(value: TSynHighlighterAttributes); {$IFNDEF DEBUG}inline;{$ENDIF}
+    procedure setNumbrAttrib(value: TSynHighlighterAttributes); {$IFNDEF DEBUG}inline;{$ENDIF}
+    procedure setSymblAttrib(value: TSynHighlighterAttributes); {$IFNDEF DEBUG}inline;{$ENDIF}
+    procedure setIdentAttrib(value: TSynHighlighterAttributes); {$IFNDEF DEBUG}inline;{$ENDIF}
+    procedure setCommtAttrib(value: TSynHighlighterAttributes); {$IFNDEF DEBUG}inline;{$ENDIF}
+    procedure setStrngAttrib(value: TSynHighlighterAttributes); {$IFNDEF DEBUG}inline;{$ENDIF}
+    procedure setKeywdAttrib(value: TSynHighlighterAttributes); {$IFNDEF DEBUG}inline;{$ENDIF}
+    procedure setDDocsAttrib(value: TSynHighlighterAttributes); {$IFNDEF DEBUG}inline;{$ENDIF}
+    procedure setAsblrAttrib(value: TSynHighlighterAttributes); {$IFNDEF DEBUG}inline;{$ENDIF}
+    procedure setSpeckAttrib(value: TSynHighlighterAttributes); {$IFNDEF DEBUG}inline;{$ENDIF}
+    procedure setErrorAttrib(value: TSynHighlighterAttributes); {$IFNDEF DEBUG}inline;{$ENDIF}
+    procedure setAttriAttrib(value: TSynHighlighterAttributes); {$IFNDEF DEBUG}inline;{$ENDIF}
+    procedure setTypesAttrib(value: TSynHighlighterAttributes); {$IFNDEF DEBUG}inline;{$ENDIF}
   protected
     function GetRangeClass: TSynCustomHighlighterRangeClass; override;
     function GetIdentChars: TSynIdentChars; override;
@@ -270,6 +270,20 @@ begin
   inherited;
 end;
 
+procedure TSynD2Syn.doChanged;
+begin
+  BeginUpdate;
+    fUpdateChange := true;
+  EndUpdate;
+end;
+
+procedure TSynD2Syn.setFoldKinds(value: TFoldKinds);
+begin
+  fFoldKinds := value;
+  DoFoldConfigChanged(Self);
+  doChanged;
+end;
+
 procedure TSynD2Syn.Assign(Source: TPersistent);
 var
   srcsyn: TSynD2Syn;
@@ -293,22 +307,8 @@ begin
   result := ['_', 'A'..'Z', 'a'..'z', '0'..'9'];
 end;
 
-procedure TSynD2Syn.doChanged;
-begin
-  BeginUpdate;
-    fUpdateChange := true;
-  EndUpdate;
-end;
-
 procedure TSynD2Syn.doAttribChange(sender: TObject);
 begin
-  doChanged;
-end;
-
-procedure TSynD2Syn.setFoldKinds(value: TFoldKinds);
-begin
-  fFoldKinds := value;
-  DoFoldConfigChanged(Self);
   doChanged;
 end;
 
@@ -395,20 +395,20 @@ var
 label
   _notRawStrng, _notDotFloat;
 
-procedure readerReset;
+procedure readerReset; {$IFNDEF DEBUG}inline;{$ENDIF}
 begin
   fTokStop := fTokStart;
   reader := @fLineBuf[fTokStop];
 end;
 
-function readerNext: PChar;
+function readerNext: PChar; {$IFNDEF DEBUG}inline;{$ENDIF}
 begin
   Inc(reader);
   Inc(fTokStop);
   exit(reader);
 end;
 
-function readerPrev: PChar;
+function readerPrev: PChar; {$IFNDEF DEBUG}inline;{$ENDIF}
 begin
   Dec(reader);
   Dec(fTokStop);
