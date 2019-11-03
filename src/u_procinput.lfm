@@ -18,7 +18,7 @@ inherited ProcInputWidget: TProcInputWidget
       ClientWidth = 558
       object txtExeName: TStaticText[0]
         Left = 4
-        Height = 21
+        Height = 18
         Top = 4
         Width = 550
         Align = alTop
@@ -31,20 +31,20 @@ inherited ProcInputWidget: TProcInputWidget
       end
       object Panel1: TPanel[1]
         Left = 4
-        Height = 33
-        Top = 29
+        Height = 29
+        Top = 26
         Width = 550
         Align = alTop
         AutoSize = True
         BorderSpacing.Around = 4
         BevelOuter = bvNone
-        ClientHeight = 33
+        ClientHeight = 29
         ClientWidth = 550
         Enabled = False
         TabOrder = 1
         object txtInp: TEdit
           Left = 0
-          Height = 27
+          Height = 23
           Top = 3
           Width = 530
           Align = alClient
@@ -55,7 +55,7 @@ inherited ProcInputWidget: TProcInputWidget
         end
         object btnClose: TSpeedButton
           Left = 538
-          Height = 29
+          Height = 25
           Hint = 'close standard input'
           Top = 2
           Width = 4
@@ -66,7 +66,7 @@ inherited ProcInputWidget: TProcInputWidget
         end
         object btnKill: TSpeedButton
           Left = 544
-          Height = 29
+          Height = 25
           Hint = 'kill process'
           Top = 2
           Width = 4
@@ -77,7 +77,7 @@ inherited ProcInputWidget: TProcInputWidget
         end
         object btnSend: TSpeedButton
           Left = 532
-          Height = 29
+          Height = 25
           Hint = 'write content to standard input'
           Top = 2
           Width = 4
@@ -93,7 +93,6 @@ inherited ProcInputWidget: TProcInputWidget
     end
   end
   inherited contextMenu: TPopupMenu
-    left = 16
-    top = 8
+    Left = 56
   end
 end

@@ -80,6 +80,7 @@ inherited MiniExplorerWidget: TMiniExplorerWidget
           FileSortType = fstAlphabet
           ReadOnly = True
           ScrollBars = ssAutoBoth
+          ShowLines = True
           TabOrder = 1
           OnChange = treeFoldersChange
           OnDblClick = treeFoldersDblClick
@@ -194,11 +195,11 @@ inherited MiniExplorerWidget: TMiniExplorerWidget
     end
   end
   inherited contextMenu: TPopupMenu
-    left = 40
-    top = 48
+    Left = 120
+    Top = 56
   end
   object mnuDrives: TPopupMenu[2]
-    left = 8
-    top = 48
+    Left = 32
+    Top = 56
   end
 end

@@ -20,4 +20,8 @@ inherited TermWidget: TTermWidget
       Width = 666
     end
   end
+  inherited contextMenu: TPopupMenu
+    Left = 32
+    Top = 64
+  end
 end

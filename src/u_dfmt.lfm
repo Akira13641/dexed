@@ -79,4 +79,8 @@ inherited DfmtWidget: TDfmtWidget
       Width = 442
     end
   end
+  inherited contextMenu: TPopupMenu
+    Left = 168
+    Top = 104
+  end
 end

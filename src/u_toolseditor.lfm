@@ -40,7 +40,6 @@ inherited ToolsEditorWidget: TToolsEditorWidget
           OnSelectionChange = lstToolsSelectionChange
           ScrollWidth = 158
           TabOrder = 0
-          TopIndex = -1
         end
         object Splitter1: TSplitter
           Left = 160
@@ -81,7 +80,7 @@ inherited ToolsEditorWidget: TToolsEditorWidget
       end
       object button1: TDexedToolButton[1]
         Left = 169
-        Height = 5
+        Height = 28
         Top = 0
         AutoSize = True
         Caption = 'button1'
@@ -151,7 +150,7 @@ inherited ToolsEditorWidget: TToolsEditorWidget
     end
   end
   inherited contextMenu: TPopupMenu
-    left = 16
-    top = 40
+    Left = 56
+    Top = 72
   end
 end

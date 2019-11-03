@@ -1,41 +1,41 @@
 inherited InfoWidget: TInfoWidget
   Left = 713
-  Height = 303
+  Height = 301
   Top = 245
-  Width = 287
+  Width = 235
   AutoSize = True
   BorderIcons = [biSystemMenu, biMinimize, biMaximize]
   Caption = 'About'
-  ClientHeight = 303
-  ClientWidth = 287
+  ClientHeight = 301
+  ClientWidth = 235
   inherited Back: TPanel
-    Height = 303
-    Width = 287
+    Height = 301
+    Width = 235
     AutoSize = True
-    ClientHeight = 303
-    ClientWidth = 287
+    ClientHeight = 301
+    ClientWidth = 235
     inherited Content: TPanel
-      Height = 267
-      Width = 287
-      ClientHeight = 267
-      ClientWidth = 287
+      Height = 265
+      Width = 235
+      ClientHeight = 265
+      ClientWidth = 235
       object GroupBox1: TGroupBox[0]
         Left = 4
-        Height = 78
+        Height = 75
         Top = 4
-        Width = 279
+        Width = 227
         Align = alTop
         AutoSize = True
         BorderSpacing.Around = 4
         Caption = 'about'
-        ClientHeight = 59
-        ClientWidth = 275
+        ClientHeight = 55
+        ClientWidth = 223
         TabOrder = 0
         object Label1: TLabel
           Left = 8
           Height = 1
           Top = 8
-          Width = 259
+          Width = 207
           Align = alTop
           Alignment = taCenter
           BorderSpacing.Around = 8
@@ -46,9 +46,9 @@ inherited InfoWidget: TInfoWidget
         end
         object Label2: TLabel
           Left = 8
-          Height = 34
+          Height = 30
           Top = 17
-          Width = 259
+          Width = 207
           Align = alClient
           Alignment = taCenter
           BorderSpacing.Around = 8
@@ -61,21 +61,21 @@ inherited InfoWidget: TInfoWidget
       end
       object GroupBox2: TGroupBox[1]
         Left = 4
-        Height = 177
-        Top = 86
-        Width = 279
+        Height = 178
+        Top = 83
+        Width = 227
         Align = alClient
         AutoSize = True
         BorderSpacing.Around = 4
         Caption = 'tools status'
         ClientHeight = 158
-        ClientWidth = 275
+        ClientWidth = 223
         TabOrder = 1
         object boxTools: TScrollBox
           Left = 4
           Height = 150
           Top = 4
-          Width = 267
+          Width = 215
           HorzScrollBar.Page = 1
           VertScrollBar.Page = 1
           Align = alClient
@@ -87,7 +87,11 @@ inherited InfoWidget: TInfoWidget
       end
     end
     inherited toolbar: TDexedToolBar
-      Width = 279
+      Width = 227
     end
+  end
+  inherited contextMenu: TPopupMenu
+    Left = 88
+    Top = 184
   end
 end

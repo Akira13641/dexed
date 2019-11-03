@@ -34,6 +34,7 @@ inherited ProjectInspectWidget: TProjectInspectWidget
         ReadOnly = True
         RightClickSelect = True
         ScrollBars = ssAutoBoth
+        ShowLines = True
         ShowRoot = False
         TabOrder = 0
         ToolTips = False
@@ -131,7 +132,7 @@ inherited ProjectInspectWidget: TProjectInspectWidget
     end
   end
   inherited contextMenu: TPopupMenu
-    left = 128
-    top = 48
+    Left = 176
+    Top = 104
   end
 end

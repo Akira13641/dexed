@@ -50,5 +50,7 @@ object DexedWidget: TDexedWidget
     end
   end
   object contextMenu: TPopupMenu
+    Left = 128
+    Top = 40
   end
 end

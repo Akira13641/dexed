@@ -40,6 +40,7 @@ inherited ProjectConfigurationWidget: TProjectConfigurationWidget
           HideSelection = False
           ReadOnly = True
           ScrollBars = ssAutoBoth
+          ShowLines = True
           ShowRoot = False
           TabOrder = 0
           OnChange = TreeChange
@@ -132,14 +133,14 @@ inherited ProjectConfigurationWidget: TProjectConfigurationWidget
       end
       object selConf: TComboBox[4]
         Left = 116
-        Height = 26
+        Height = 23
         Hint = 'select a configuration'
-        Top = 1
+        Top = 4
         Width = 320
         Align = alClient
         BorderSpacing.Left = 114
         BorderSpacing.Around = 1
-        ItemHeight = 0
+        ItemHeight = 15
         OnChange = selConfChange
         Style = csDropDownList
         TabOrder = 0
@@ -147,12 +148,12 @@ inherited ProjectConfigurationWidget: TProjectConfigurationWidget
     end
   end
   inherited contextMenu: TPopupMenu
-    left = 8
-    top = 8
+    Left = 240
+    Top = 96
   end
   object imgList: TImageList[2]
-    left = 40
-    top = 8
+    Left = 344
+    Top = 96
     Bitmap = {
       4C690200000010000000100000008D8B89008D8B89008F8D8B008F8D8B008C8A
       880092908E00908E8CFF8F8D8BFF908E8CFF92908E008F8D8B008F8D8B008F8D

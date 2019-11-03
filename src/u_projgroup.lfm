@@ -19,7 +19,7 @@ inherited ProjectGroupWidget: TProjectGroupWidget
       ClientWidth = 328
       object lstProj: TListView[0]
         Left = 4
-        Height = 122
+        Height = 140
         Top = 4
         Width = 320
         Align = alClient
@@ -29,7 +29,7 @@ inherited ProjectGroupWidget: TProjectGroupWidget
           item
             AutoSize = True
             Caption = 'Name'
-            Width = 49
+            Width = 47
           end        
           item
             AutoSize = True
@@ -39,12 +39,12 @@ inherited ProjectGroupWidget: TProjectGroupWidget
           item
             AutoSize = True
             Caption = 'Async'
-            Width = 49
+            Width = 47
           end        
           item
             AutoSize = True
             Caption = 'Configuration'
-            Width = 180
+            Width = 89
           end>
         GridLines = True
         HideSelection = False
@@ -58,19 +58,19 @@ inherited ProjectGroupWidget: TProjectGroupWidget
       end
       object Panel2: TPanel[1]
         Left = 4
-        Height = 25
-        Top = 130
+        Height = 7
+        Top = 148
         Width = 320
         Align = alBottom
         AutoSize = True
         BorderSpacing.Around = 4
         BevelOuter = bvNone
-        ClientHeight = 25
+        ClientHeight = 7
         ClientWidth = 320
         TabOrder = 1
         object btnFreeFocus: TSpeedButton
           Left = 312
-          Height = 25
+          Height = 7
           Hint = 'Put the focus on the ungrouped project'
           Top = 0
           Width = 4
@@ -82,7 +82,7 @@ inherited ProjectGroupWidget: TProjectGroupWidget
         end
         object StaticText1: TStaticText
           Left = 2
-          Height = 21
+          Height = 3
           Top = 2
           Width = 308
           Align = alClient
@@ -93,7 +93,7 @@ inherited ProjectGroupWidget: TProjectGroupWidget
         end
         object btnAddUnfocused: TSpeedButton
           Left = 316
-          Height = 25
+          Height = 7
           Hint = 'Put the ungrouped project in the group'
           Top = 0
           Width = 4
@@ -169,7 +169,7 @@ inherited ProjectGroupWidget: TProjectGroupWidget
     end
   end
   inherited contextMenu: TPopupMenu
-    left = 272
-    top = 56
+    Left = 136
+    Top = 80
   end
 end

@@ -30,6 +30,7 @@ inherited SymbolListWidget: TSymbolListWidget
         RightClickSelect = True
         ScrollBars = ssAutoBoth
         SelectionColor = clActiveBorder
+        ShowLines = True
         TabOrder = 0
         OnCompare = TreeCompare
         OnKeyPress = TreeKeyPress
@@ -89,7 +90,7 @@ inherited SymbolListWidget: TSymbolListWidget
     end
   end
   inherited contextMenu: TPopupMenu
-    left = 112
-    top = 48
+    Left = 152
+    Top = 88
   end
 end

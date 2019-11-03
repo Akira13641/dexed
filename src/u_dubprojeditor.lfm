@@ -19,7 +19,7 @@ inherited DubProjectEditorWidget: TDubProjectEditorWidget
       ClientWidth = 407
       object propTree: TTreeView[0]
         Left = 4
-        Height = 347
+        Height = 351
         Top = 4
         Width = 399
         Align = alClient
@@ -36,19 +36,19 @@ inherited DubProjectEditorWidget: TDubProjectEditorWidget
       end
       object Panel1: TPanel[1]
         Left = 2
-        Height = 31
-        Top = 355
+        Height = 27
+        Top = 359
         Width = 403
         Align = alBottom
         AutoSize = True
         BorderSpacing.Around = 2
         BevelOuter = bvNone
-        ClientHeight = 31
+        ClientHeight = 27
         ClientWidth = 403
         TabOrder = 1
         object edProp: TEdit
           Left = 2
-          Height = 27
+          Height = 23
           Top = 2
           Width = 395
           Align = alClient
@@ -57,7 +57,7 @@ inherited DubProjectEditorWidget: TDubProjectEditorWidget
         end
         object btnAcceptProp: TSpeedButton
           Left = 399
-          Height = 31
+          Height = 27
           Hint = 'accept property value'
           Top = 0
           Width = 4
@@ -129,7 +129,7 @@ inherited DubProjectEditorWidget: TDubProjectEditorWidget
       end
       object button1: TDexedToolButton[5]
         Left = 113
-        Height = 5
+        Height = 28
         Top = 0
         AutoSize = True
         Caption = 'button1'
@@ -139,8 +139,8 @@ inherited DubProjectEditorWidget: TDubProjectEditorWidget
     end
   end
   inherited contextMenu: TPopupMenu
-    Left = 248
-    Top = 8
+    Left = 208
+    Top = 120
     object MenuItem1: TMenuItem[0]
       Caption = 'Refresh'
       OnClick = MenuItem1Click

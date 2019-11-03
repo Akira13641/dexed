@@ -20,8 +20,8 @@ inherited EditorWidget: TEditorWidget
       ClientWidth = 465
       object editorStatus: TStatusBar[0]
         Left = 0
-        Height = 21
-        Top = 375
+        Height = 23
+        Top = 373
         Width = 465
         BorderSpacing.Bottom = 2
         Panels = <        
@@ -54,19 +54,19 @@ inherited EditorWidget: TEditorWidget
     end
   end
   inherited contextMenu: TPopupMenu
-    Left = 24
-    Top = 16
+    Left = 88
+    Top = 176
   end
   object macRecorder: TSynMacroRecorder[2]
     RecordShortCut = 0
     PlaybackShortCut = 0
-    Left = 80
-    Top = 16
+    Left = 88
+    Top = 88
   end
   object mnuEditor: TPopupMenu[3]
     OnPopup = mnuEditorPopup
-    Left = 152
-    Top = 16
+    Left = 200
+    Top = 88
     object mnuedCopy: TMenuItem
       Caption = 'Copy'
       OnClick = mnuedCopyClick

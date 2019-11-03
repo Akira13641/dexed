@@ -22,7 +22,7 @@ object CeNewDubProject: TCeNewDubProject
     object edDir: TDirectoryEdit
       Left = 4
       Height = 23
-      Hint = 'select project directory, mandatory'
+      Hint = 'Select project directory (mandatory)'
       Top = 4
       Width = 419
       ShowHidden = False

@@ -110,7 +110,7 @@ inherited LibManEditorWidget: TLibManEditorWidget
       end
       object button5: TDexedToolButton[5]
         Left = 225
-        Height = 5
+        Height = 28
         Top = 0
         AutoSize = True
         Caption = 'button8'
@@ -200,6 +200,7 @@ inherited LibManEditorWidget: TLibManEditorWidget
     end
   end
   inherited contextMenu: TPopupMenu
-    left = 400
+    Left = 328
+    Top = 96
   end
 end

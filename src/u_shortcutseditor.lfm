@@ -22,7 +22,7 @@ object ShortcutEditor: TShortcutEditor
     TabOrder = 0
     object fltItems: TTreeFilterEdit
       Left = 2
-      Height = 27
+      Height = 23
       Top = 2
       Width = 420
       OnFilterItem = fltItemsFilterItem
@@ -36,8 +36,8 @@ object ShortcutEditor: TShortcutEditor
     end
     object tree: TTreeView
       Left = 2
-      Height = 373
-      Top = 33
+      Height = 377
+      Top = 29
       Width = 420
       Align = alClient
       AutoExpand = True

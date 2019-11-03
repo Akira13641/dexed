@@ -28,31 +28,32 @@ inherited TodoListWidget: TTodoListWidget
           item
             AutoSize = True
             Caption = 'text'
-            Width = 36
+            Width = 35
           end        
           item
             AutoSize = True
             Caption = 'category'
-            Width = 67
+            Width = 61
           end        
           item
             AutoSize = True
             Caption = 'assignee'
-            Width = 68
+            Width = 60
           end        
           item
             AutoSize = True
             Caption = 'status'
+            Width = 46
           end        
           item
             AutoSize = True
             Caption = 'priority'
-            Width = 57
+            Width = 53
           end        
           item
             AutoSize = True
             Caption = 'file'
-            Width = 284
+            Width = 31
           end>
         ReadOnly = True
         SortType = stText
@@ -99,8 +100,8 @@ inherited TodoListWidget: TTodoListWidget
     end
   end
   inherited contextMenu: TPopupMenu
-    left = 40
-    top = 72
+    Left = 40
+    Top = 80
     object mnuAutoRefresh: TMenuItem[0]
       AutoCheck = True
       Caption = 'Auto resfresh'

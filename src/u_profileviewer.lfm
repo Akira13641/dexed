@@ -29,32 +29,32 @@ inherited ProfileViewerWidget: TProfileViewerWidget
             AutoSize = True
             MaxWidth = 18
             MinWidth = 18
-            Width = 18
+            Width = 0
           end        
           item
             AutoSize = True
             Caption = 'Num calls'
-            Width = 75
+            Width = 68
           end        
           item
             AutoSize = True
             Caption = 'Tree time'
-            Width = 71
+            Width = 64
           end        
           item
             AutoSize = True
             Caption = 'Func time'
-            Width = 73
+            Width = 68
           end        
           item
             AutoSize = True
             Caption = 'Per call'
-            Width = 58
+            Width = 53
           end        
           item
             AutoSize = True
             Caption = 'function'
-            Width = 246
+            Width = 60
           end>
         HideSelection = False
         ReadOnly = True
@@ -155,7 +155,7 @@ inherited ProfileViewerWidget: TProfileViewerWidget
       end
       object button0: TDexedToolButton[2]
         Left = 113
-        Height = 5
+        Height = 28
         Top = 0
         AutoSize = True
         Caption = 'button0'
@@ -164,12 +164,12 @@ inherited ProfileViewerWidget: TProfileViewerWidget
       end
       object selPieSource: TComboBox[3]
         Left = 118
-        Height = 31
+        Height = 23
         Hint = 'select the pie representation'
         Top = 0
         Width = 282
         BorderSpacing.InnerBorder = 3
-        ItemHeight = 0
+        ItemHeight = 15
         ItemIndex = 0
         Items.Strings = (
           'Number of calls'
@@ -205,8 +205,8 @@ inherited ProfileViewerWidget: TProfileViewerWidget
     end
   end
   inherited contextMenu: TPopupMenu
-    Left = 8
-    Top = 48
+    Left = 32
+    Top = 56
   end
   object datNumCalls: TListChartSource[2]
     Sorted = True

@@ -20,28 +20,28 @@ inherited GdbWidget: TGdbWidget
       ClientWidth = 517
       object Panel1: TPanel[0]
         Left = 0
-        Height = 386
+        Height = 390
         Top = 205
         Width = 517
         Align = alClient
         AutoSize = True
         BevelOuter = bvNone
-        ClientHeight = 386
+        ClientHeight = 390
         ClientWidth = 517
         TabOrder = 0
         object GroupBox3: TGroupBox
           Left = 0
-          Height = 180
+          Height = 184
           Top = 206
           Width = 517
           Align = alClient
           Caption = 'CPU'
-          ClientHeight = 161
+          ClientHeight = 164
           ClientWidth = 513
           TabOrder = 0
           object cpuViewer: TTIPropertyGrid
             Left = 0
-            Height = 161
+            Height = 164
             Hint = 'cpu registers'
             Top = 0
             Width = 513
@@ -77,13 +77,13 @@ inherited GdbWidget: TGdbWidget
           OnChange = PageControl2Change
           object TabSheet3: TTabSheet
             Caption = 'Variables'
-            ClientHeight = 169
-            ClientWidth = 513
+            ClientHeight = 172
+            ClientWidth = 509
             object lstVariables: TListView
               Left = 2
-              Height = 136
-              Top = 31
-              Width = 509
+              Height = 143
+              Top = 27
+              Width = 505
               Align = alClient
               AutoWidthLastColumn = True
               BorderSpacing.Around = 2
@@ -91,11 +91,11 @@ inherited GdbWidget: TGdbWidget
                 item
                   AutoSize = True
                   Caption = 'name'
-                  Width = 47
+                  Width = 45
                 end              
                 item
                   Caption = 'value'
-                  Width = 460
+                  Width = 456
                 end>
               GridLines = True
               HideSelection = False
@@ -108,10 +108,10 @@ inherited GdbWidget: TGdbWidget
             end
             object varListFlt: TListViewFilterEdit
               Left = 2
-              Height = 27
+              Height = 23
               Hint = 'locate variables'
               Top = 2
-              Width = 509
+              Width = 505
               ButtonWidth = 24
               Align = alTop
               BorderSpacing.Around = 2
@@ -138,7 +138,7 @@ inherited GdbWidget: TGdbWidget
                 item
                   AutoSize = True
                   Caption = 'address'
-                  Width = 61
+                  Width = 55
                 end              
                 item
                   Caption = 'instruction'
@@ -157,19 +157,19 @@ inherited GdbWidget: TGdbWidget
       end
       object Panel3: TPanel[1]
         Left = 4
-        Height = 27
-        Top = 595
+        Height = 23
+        Top = 599
         Width = 509
         Align = alBottom
         AutoSize = True
         BorderSpacing.Around = 4
         BevelOuter = bvNone
-        ClientHeight = 27
+        ClientHeight = 23
         ClientWidth = 509
         TabOrder = 1
         object btnSendCom: TSpeedButton
           Left = 504
-          Height = 25
+          Height = 21
           Top = 1
           Width = 4
           Align = alRight
@@ -179,14 +179,14 @@ inherited GdbWidget: TGdbWidget
         end
         object Edit1: TComboBox
           Left = 0
-          Height = 27
+          Height = 23
           Hint = 'enter a custom GDB command or the program input with ">"'
           Top = 0
           Width = 503
           Align = alClient
           AutoComplete = True
           AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
-          ItemHeight = 0
+          ItemHeight = 15
           MaxLength = 128
           OnKeyUp = Edit1KeyUp
           TabOrder = 0
@@ -213,14 +213,14 @@ inherited GdbWidget: TGdbWidget
         TabOrder = 3
         object TabSheet1: TTabSheet
           Caption = 'Call stack'
-          ClientHeight = 169
-          ClientWidth = 513
+          ClientHeight = 172
+          ClientWidth = 509
           object lstCallStack: TListView
             Left = 0
-            Height = 169
+            Height = 172
             Hint = 'call stack'
             Top = 0
-            Width = 513
+            Width = 509
             Align = alClient
             AutoSort = False
             Columns = <            
@@ -265,12 +265,12 @@ inherited GdbWidget: TGdbWidget
               item
                 AutoSize = True
                 Caption = 'id'
-                Width = 22
+                Width = 25
               end            
               item
                 AutoSize = True
                 Caption = 'state'
-                Width = 43
+                Width = 40
               end            
               item
                 AutoSize = True
@@ -280,17 +280,17 @@ inherited GdbWidget: TGdbWidget
               item
                 AutoSize = True
                 Caption = 'function'
-                Width = 63
+                Width = 60
               end            
               item
                 AutoSize = True
                 Caption = 'address'
-                Width = 61
+                Width = 55
               end            
               item
                 AutoSize = True
                 Caption = 'filename'
-                Width = 67
+                Width = 61
               end            
               item
                 Caption = 'line'
@@ -352,7 +352,7 @@ inherited GdbWidget: TGdbWidget
       end
       object button4: TDexedToolButton[2]
         Left = 205
-        Height = 5
+        Height = 28
         Top = 0
         AutoSize = True
         Caption = 'button4'
@@ -471,12 +471,12 @@ inherited GdbWidget: TGdbWidget
     ResizeAnchor = akTop
   end
   inherited contextMenu: TPopupMenu[2]
-    left = 56
-    top = 64
+    Left = 56
+    Top = 64
   end
   object mnuProjRunnable: TPopupMenu[3]
-    left = 56
-    top = 112
+    Left = 56
+    Top = 112
     object mnuSelProj: TMenuItem
       AutoCheck = True
       Caption = 'Debug project'
@@ -490,8 +490,8 @@ inherited GdbWidget: TGdbWidget
     end
   end
   object mnuWatch: TPopupMenu[4]
-    left = 56
-    top = 160
+    Left = 56
+    Top = 160
     object mnuReadW: TMenuItem
       AutoCheck = True
       Caption = 'On read'
@@ -510,24 +510,24 @@ inherited GdbWidget: TGdbWidget
     end
   end
   object mnuNext: TPopupMenu[5]
-    left = 152
-    top = 112
+    Left = 152
+    Top = 112
     object mnuNextMachine: TMenuItem
       AutoCheck = True
       Caption = 'machine instruction'
     end
   end
   object mnuStep: TPopupMenu[6]
-    left = 152
-    top = 160
+    Left = 152
+    Top = 160
     object mnuStepMachine: TMenuItem
       AutoCheck = True
       Caption = 'machine instruction'
     end
   end
   object mnuEval: TPopupMenu[7]
-    left = 216
-    top = 168
+    Left = 264
+    Top = 168
     object mnuEvalSelected: TMenuItem
       AutoCheck = True
       Caption = 'Evaluate selected variable'
