@@ -23,3 +23,7 @@ Dexed, the _D Extended EDitor_, is an IDE for the [D programming language](https
 ## Project information
 
 - :scroll: licensed under the terms of the Boost software license.
+
+## Notes on building
+
+This project is now specifically being developed used the trunk versions of both Free Pascal and Lazarus, and uses language features that will not compile using FPC 3.0.4. 
