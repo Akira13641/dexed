@@ -26,4 +26,4 @@ Dexed, the _D Extended EDitor_, is an IDE for the [D programming language](https
 
 ## Notes on building
 
-This project is now specifically being developed used the trunk versions of both Free Pascal and Lazarus, and uses language features that will not compile using FPC 3.0.4. 
+This project is now specifically being developed using the trunk versions of both Free Pascal and Lazarus, and uses language features that will not compile using FPC 3.0.4. 
