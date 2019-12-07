@@ -194,13 +194,13 @@ begin
   fPhobosDocRoot := 'https://dlang.org/phobos/';
   fFont := TFont.Create;
   {$IFDEF WINDOWS}
-  fFont.Name := 'Consolas';
+  fFont.Name := 'Courier New';
   {$ELSE}
   fFont.Name := 'DejaVu Sans Mono';
   {$ENDIF}
   fFont.Quality := fqProof;
-  fFont.Pitch := fpFixed;
-  fFont.Size := 10;
+  fFont.Pitch := fpDefault;
+  fFont.Size := 9;
   fResetFontSize:=true;
   //
   fD2Syn := TSynD2Syn.Create(self);

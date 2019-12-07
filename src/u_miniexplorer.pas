@@ -483,7 +483,7 @@ var
 begin
   if not Selected or Item.Data.isNil then
      exit;
-  d := PString(Item.Data)^;
+  d := AnsiString(Item.Data^);
   if d.dirExists then
     browse(d)
 end;
@@ -494,7 +494,7 @@ var
 begin
   if lstFav.Selected.isNil then
      exit;
-  i := fFavorites.IndexOf(PString(lstFav.Selected.Data)^);
+  i := fFavorites.IndexOf(AnsiString(lstFav.Selected.Data^));
   if i <> -1 then
      fFavorites.Delete(i);
   lstFiles.Clear;
@@ -506,7 +506,7 @@ var
 begin
   if lstFav.Selected.isNil or lstFav.Selected.Data.isNil then
      exit;
-  d := PString(lstFav.Selected.Data)^;
+  d := AnsiString(lstFav.Selected.Data^);
   if not d.dirExists and (dlgYesNo('The favorite folder `' + d +
     '` does not exist. ' + 'Remove from the list ?') = mrYes) then
   begin
@@ -518,7 +518,7 @@ end;
 procedure TMiniExplorerWidget.lstFavDeletion(Sender: TObject; Item: TListItem);
 begin
   if Item.isNotNil and item.Data.isNotNil then
-    dispose(PString(item.Data));
+    dispose(PAnsiString(item.Data));
 end;
 
 procedure TMiniExplorerWidget.lstFavEnter(Sender: TObject);
@@ -792,7 +792,7 @@ begin
   begin
     if lstFav.Selected.isNil or lstFav.Selected.Data.isNil then
        exit;
-    fname := PString(lstFav.Selected.Data)^;
+    fname := AnsiString(lstFav.Selected.Data^);
   end;
   if (fname.fileExists or fname.dirExists) and not shellOpen(fname) then
     getMessageDisplay.message((format('the shell failed to open "%s"',

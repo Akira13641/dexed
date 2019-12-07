@@ -377,7 +377,7 @@ procedure TProjectInspectWidget.TreeDeletion(Sender: TObject; Node: TTreeNode
   );
 begin
   if Node.isNotNil and Node.Data.isNotNil then
-    dispose(PString(Node.Data));
+    dispose(PAnsiString(Node.Data));
 end;
 
 procedure TProjectInspectWidget.TreeSelectionChanged(Sender: TObject);
@@ -403,7 +403,7 @@ begin
   begin
     if Tree.Selected.Data.isNotNil then
     begin
-      fname := PString(Tree.Selected.Data)^;
+      fname := AnsiString(Tree.Selected.Data^);
       if isEditable(fname.extractFileExt) and fname.fileExists then
         getMultiDocHandler.openDocument(fname);
     end;
