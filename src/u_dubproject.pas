@@ -334,7 +334,7 @@ end;
 
 function TDubLocalPackage.highest: PSemVer;
 begin
-  result := fVersions.Last;
+  result := fVersions.Last.Value;
 end;
 
 function TDubLocalPackage.highestInInterval(constref lo, hi: TSemVer): PSemVer;

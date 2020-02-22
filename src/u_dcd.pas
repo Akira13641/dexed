@@ -31,7 +31,6 @@ type
     fPortNum: Word;
     fCurrentSessionPortNum: Word;
     fServerWasRunning: boolean;
-    fClient, fServer: TProcess;
     fAvailable: boolean;
     fServerListening: boolean;
     fDoc: TDexedMemo;
@@ -42,10 +41,10 @@ type
     procedure killServer;
     procedure terminateClient; {$IFNDEF DEBUG}inline;{$ENDIF}
     procedure waitClient; {$IFNDEF DEBUG}inline;{$ENDIF}
-    procedure updateServerlistening;
+    procedure updateServerlistening; {$IFNDEF DEBUG}inline;{$ENDIF}
     procedure writeSourceToInput; {$IFNDEF DEBUG}inline;{$ENDIF}
     function checkDcdSocket: boolean;
-    function getIfLaunched: boolean;
+    function getIfLaunched: boolean; {$IFNDEF DEBUG}inline;{$ENDIF}
     procedure tryAddTcpParams; {$IFNDEF DEBUG}inline;{$ENDIF}
     procedure updateImportPathsFromProject;
     //
@@ -83,12 +82,14 @@ type
     property launchedByCe: boolean read getIfLaunched;
   end;
 
-    function DCDWrapper: TDcdWrapper;
+  function DCDWrapper: TDcdWrapper;
 
 implementation
 
 var
   fDcdWrapper: TDcdWrapper = nil;
+  fClient: TProcess = nil;
+  fServer: TProcess = nil;
 
 const
   clientName = 'dcd-client' + exeExt;
@@ -97,6 +98,12 @@ const
 
 
 {$REGION Standard Comp/Obj------------------------------------------------------}
+
+procedure TDcdWrapper.updateServerlistening;
+begin
+  fServerListening := AppIsRunning(serverName);
+end;
+
 constructor TDcdWrapper.create(aOwner: TComponent);
 var
   fname: string;
@@ -122,20 +129,18 @@ begin
   fClient.Options := [poUsePipes{$IFDEF WINDOWS}, poNewConsole{$ENDIF}];
   fClient.ShowWindow := swoHIDE;
 
-  fServerWasRunning := AppIsRunning((serverName));
+  fServerWasRunning := fServer.IsNotNil() and fServer.Running;
   if not fServerWasRunning then
   begin
-    fServer := TProcess.Create(self);
+    if fServer = nil then
+      fServer := TProcess.Create(self);
     fServer.Executable := exeFullName(serverName);
     fServer.Options := [{$IFDEF WINDOWS} poNewConsole{$ENDIF}];
     {$IFNDEF DEBUG}
     fServer.ShowWindow := swoHIDE;
     {$ENDIF}
     if fCurrentSessionPortNum <> 0 then
-    begin
-      fServer.Parameters.Add('--tcp');
-      fServer.Parameters.Add(fPortAsProcParam);
-    end;
+      fServer.Parameters.AddStrings(['--tcp', fPortAsProcParam]);
   end;
   fTempLines := TStringList.Create;
   fImportCache := TStringHashSet.Create;
@@ -187,11 +192,6 @@ end;
 function TDcdWrapper.getIfLaunched: boolean;
 begin
   result := fServer.isNotNil;
-end;
-
-procedure TDcdWrapper.updateServerlistening;
-begin
-  fServerListening := AppIsRunning((serverName));
 end;
 
 destructor TDcdWrapper.destroy;

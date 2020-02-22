@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
-  <Package Version="4">
+  <Package Version="5">
     <Name Value="DexedDesignControls"/>
     <Type Value="RunAndDesignTime"/>
     <CompilerOptions>
@@ -26,7 +26,7 @@
         <Verbosity>
           <ShowWarn Value="False"/>
         </Verbosity>
-        <CustomOptions Value="-Ci- -Cr- -g-"/>
+        <CustomOptions Value="$(IDEBuildOptions)"/>
       </Other>
     </CompilerOptions>
     <Files Count="1">
