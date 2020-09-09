@@ -1,5 +1,9 @@
 Dexed, the _D Extended EDitor_, is an IDE for the [D programming language](https://dlang.org), its compilers, tools and libraries.
 
+## Important note:
+
+Basile B. has now re-uploaded Dexed [on Gitlab](https://gitlab.com/basile.b/dexed) and appears to have resumed regular development on it. Thus, my repository here is no longer necessary.
+
 ## Overview
 
 - available for _Linux_ or _Windows_.
